@@ -1,5 +1,6 @@
 ComponentWorld = {}
 
+local Settings = Settings
 
 function ComponentWorld:init()
     self.camera = Game.camera
@@ -24,14 +25,17 @@ function ComponentWorld:update(dt)
         self.entity.rotation = self.startRotation + (x - self.startX) * -0.005
     end
 
-    if keyboard:isDown(82) then
+    if keyboard:isDown(81) then
         self.zoom = self.zoom + 1 * dt
         self.camera.camera.extent = self.cameraExtent * self.zoom
-    elseif keyboard:isDown(81) then
+    elseif keyboard:isDown(82) then
         self.zoom = self.zoom - 1 * dt
         self.camera.camera.extent = self.cameraExtent * self.zoom
     end
+
+    self.entity.position.y = - Settings.mapSize * 0.5 + self.zoom * Settings.cameraFactor
 end
 
 function ComponentWorld:remove()
 end
+

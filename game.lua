@@ -1,3 +1,4 @@
+require 'settings'
 require 'component_world'
 
 Game = Game or {}
@@ -18,7 +19,7 @@ function Game:init()
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get("planet"),
-            extent = vector2(1024, 1024)
+            extent = vector2(Settings.mapSize, Settings.mapSize)
         },
         "sprite"
         )
