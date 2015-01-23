@@ -1,15 +1,19 @@
 
+require 'game'
+
 function init()
     gengine.application.setName("global.game.jam.2015")
-    gengine.application.setExtent(640,480)
+    gengine.application.setExtent(1024,600)
 end
 
 local e, cameraEntity
 
 function start()
-    gengine.graphics.setClearColor(0.5, 0.5, 0.5, 1)
+    gengine.graphics.setClearColor(0.1, 0.1, 0.1, 1)
 
-    gengine.graphics.texture.createFromDirectory(".")
+    gengine.graphics.texture.createFromDirectory("data/")
+
+    Game:init()
 end
 
 function update(dt)
