@@ -5,60 +5,41 @@
 <title>CSS Newbie Example: Super Simple Horizontal Navigation Bar</title>
 <style>
 	body {
-		margin: auto auto;
-		width: 800px;
+		float: left; 
 	}
-	div.wrapper {
-		margin: 100px auto;
-	}
-
-	div.subWrapper {
-		margin-top: 10px;
+	div.ressourcesWrapper {
+		font-size: 30px;
+		font-family: arial;
+		width: 85px;
 	}
 
-	div#menuA {
-		background-color: red;
+	div#FoodCounter {
+		background-color: white;
 		display: inline-block;
-		width: 260px;
+		width: 85px;
 	}
 
-	div#menuB {
-		background-color: blue;
+	div#PopulationCounter {
+		background-color: white;
 		display: inline-block;
-		width: 260px;
-	}
-
-	div#menuC {
-		background-color: yellow;
-		display: inline-block;
-		width: 260px;
-	}
-
-	div#exit {
-		background-color: purple;
-		display: inline-block;
-		width: 100px;
+		width: 85px;
 	}
 </style>
+<script>
+   function updateFood(n)
+   {
+      document.getElementById("food_counter").innerHTML = n;
+   }
+</script>
 </head>
 <body>
-	<div class="wrapper">
-		<div id="menuA" onclick="gengine_execute('Hud:selectMenuA()');">
-			menu A
+	<div class="ressourcesWrapper">
+		<div id="FoodCounter" onclick="gengine_execute('Hud:selectMenuA()');">
+			 <img src="../data/food.png" style="width:32px;height:32px"><a id="food_counter">666</a>
 		</div>
 
-		<div id="menuB" onclick="gengine_execute('Hud:selectMenuB()');">
-			menu B
-		</div>
-
-		<div id="menuC" onclick="gengine_execute('Hud:selectMenuC()');">
-			menu C
-		</div>
-
-		<div class="subWrapper">
-			<div id="exit" onclick="gengine_execute('Hud:exitWDWDN()');">
-				Exit
-			</div>
+		<div id="PopulationCounter" onclick="gengine_execute('Hud:selectMenuB()');">
+			<img src="../data/house.png" style="width:32px;height:32px"><a>666</a>
 		</div>
 	</div>
 </body>

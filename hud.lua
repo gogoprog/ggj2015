@@ -3,6 +3,7 @@ Hud = {}
 gengine.stateMachine(Hud)
 
 function Hud:init()
+	gengine.gui.onPageLoaded = onPageLoaded
 end
 
 function Hud.onStateEnter:showWDWDNMenu()
@@ -32,4 +33,9 @@ end
 
 function Hud.exitWDWDN()
     print("exit WDWDN")
+end
+
+function onPageLoaded()
+	total = 3
+    gengine.gui.executeScript("updateFood('" .. total .. "');")
 end
