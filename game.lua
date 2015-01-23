@@ -5,6 +5,8 @@ require 'hud'
 
 Game = Game or {}
 
+gengine.stateMachine(Game)
+
 function Game:init()
     self.camera = gengine.entity.create()
     self.camera:addComponent(
@@ -59,6 +61,19 @@ function Game:start()
 end
 
 function Game:update(dt)
-    
+    if gengine.input.keyboard:isJustUp(4) then
+        Hud:changeState("show")
+    end
 end
 
+function Game.onStateEnter:showWDWDNMenu()
+
+end
+
+function Game.onStateUpdate:showWDWDNMenu()
+
+end
+
+function Game.onStateExit:showWDWDNMenu()
+
+end

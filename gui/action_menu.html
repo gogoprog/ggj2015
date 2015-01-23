@@ -4,9 +4,62 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>CSS Newbie Example: Super Simple Horizontal Navigation Bar</title>
 <style>
+	body {
+		margin: auto auto;
+		width: 800px;
+	}
+	div.wrapper {
+		margin: 100px auto;
+	}
+
+	div.subWrapper {
+		margin-top: 10px;
+	}
+
+	div#menuA {
+		background-color: red;
+		display: inline-block;
+		width: 260px;
+	}
+
+	div#menuB {
+		background-color: blue;
+		display: inline-block;
+		width: 260px;
+	}
+
+	div#menuC {
+		background-color: yellow;
+		display: inline-block;
+		width: 260px;
+	}
+
+	div#exit {
+		background-color: purple;
+		display: inline-block;
+		width: 100px;
+	}
 </style>
 </head>
 <body>
-	<font style="color:#FFFFFF;">SLIP !</font>
+	<div class="wrapper">
+		<div id="menuA" onclick="gengine_execute('Hud:selectMenuA()');">
+			menu A
+		</div>
+
+		<div id="menuB" onclick="gengine_execute('Hud:selectMenuB()');">
+			menu B
+		</div>
+
+		<div id="menuC" onclick="gengine_execute('Hud:selectMenuB()');">
+			menu C
+		</div>
+
+		<div class="subWrapper">
+			<div id="exit" onclick="gengine_execute('Hud:exitWDWDN()');">
+				Exit
+			</div>
+		</div>
+	</div>
 </body>
 </html>
