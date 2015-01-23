@@ -1,5 +1,6 @@
 require 'settings'
 require 'component_world'
+require 'hud'
 
 Game = Game or {}
 
