@@ -54,6 +54,8 @@ function Game:init()
     self.cursor:insert()
 
     self.world:insert()
+
+    self.cursor.worldItem.position = 1.5
 end
 
 function Game:start()

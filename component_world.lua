@@ -16,17 +16,17 @@ function ComponentWorld:update(dt)
     local mouse = gengine.input.mouse
     local keyboard = gengine.input.keyboard
 
-    if mouse:isJustDown(1) then
+    if mouse:isJustDown(3) then
         local x,y = gengine.input.mouse:getPosition()
         self.startX = x
         self.startRotation = self.entity.rotation
-    elseif mouse:isDown(1) then
+    elseif mouse:isDown(3) then
         local x,y = gengine.input.mouse:getPosition()
         self.lastX = x
 
         self.entity.rotation = self.startRotation + (x - self.startX) * -0.005
 
-    elseif mouse:isJustUp(1) then
+    elseif mouse:isJustUp(3) then
         local x,y = gengine.input.mouse:getPosition()
 
         self.rotateSpeed = (x - self.lastX) * - 1.0 * Settings.cameraRotateFactor
