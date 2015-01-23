@@ -30,6 +30,14 @@
    {
       document.getElementById("food_counter").innerHTML = n;
    }
+   function updatePop(n)
+   {
+      document.getElementById("pop_counter").innerHTML = n;
+   }
+   function updateMaxPop(n)
+   {
+      document.getElementById("max_pop_counter").innerHTML = n;
+   }
 </script>
 </head>
 <body>
@@ -39,7 +47,7 @@
 		</div>
 
 		<div id="PopulationCounter" onclick="gengine_execute('Hud:selectMenuB()');">
-			<img src="../data/house.png" style="width:32px;height:32px"><a>666</a>
+			<img src="../data/house.png" style="width:32px;height:32px"><a id="pop_counter">666</a><a>/</a><a id="max_pop_counter">666</a>
 		</div>
 	</div>
 </body>

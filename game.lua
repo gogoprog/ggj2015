@@ -56,6 +56,8 @@ function Game:init()
     self.world:insert()
 
     self.cursor.worldItem.position = 1.5
+
+    Hud:init()
 end
 
 function Game:start()
