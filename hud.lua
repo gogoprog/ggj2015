@@ -3,24 +3,31 @@ Hud = {}
 gengine.stateMachine(Hud)
 
 function Hud:init()
-    self:changeState("show")
 end
 
-function Hud.onStateEnter:show()
+function Hud.onStateEnter:showWDWDNMenu()
     gengine.gui.loadFile("gui/blank_menu.html")
     gengine.gui.loadFile("gui/action_menu.html")
 end
 
-function Hud.onStateUpdate:show()
+function Hud.onStateUpdate:showWDWDNMenu()
     
 end
 
-function Hud.onStateExit:show()
+function Hud.onStateExit:showWDWDNMenu()
     gengine.gui.loadFile("gui/blank_menu.html")
 end
 
-function Hud.construct()
-    print("slip")
+function Hud.selectMenuA()
+    print("Menu A selected")
+end
+
+function Hud.selectMenuB()
+    print("Menu B selected")
+end
+
+function Hud.selectMenuC()
+    print("Menu C selected")
 end
 
 function Hud.exitWDWDN()

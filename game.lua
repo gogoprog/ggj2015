@@ -62,12 +62,13 @@ end
 
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
-        Hud:changeState("show")
+        self:changeState("showWDWDNMenu")
     end
 end
 
 function Game.onStateEnter:showWDWDNMenu()
-
+    Hud:changeState("showWDWDNMenu")
+    self:changeState("pending")
 end
 
 function Game.onStateUpdate:showWDWDNMenu()
@@ -75,5 +76,16 @@ function Game.onStateUpdate:showWDWDNMenu()
 end
 
 function Game.onStateExit:showWDWDNMenu()
+
+end
+
+function Game.onStateEnter:pending()
+end
+
+function Game.onStateUpdate:pending()
+
+end
+
+function Game.onStateExit:pending()
 
 end
