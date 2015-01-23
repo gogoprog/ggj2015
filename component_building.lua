@@ -1,10 +1,10 @@
 ComponentBuilding = {}
 
 function ComponentBuilding:init()
-	self.constructionRate = 1
-	self.maxWorkers = 10
-	self.currentWorkers = 0
-	self.baseProductionRate = 1.2
+    self.constructionRate = 1
+    self.maxWorkers = 10
+    self.currentWorkers = 0
+    self.baseProductionRate = 1.2
 end
 
 function ComponentBuilding:update(dt)
@@ -12,7 +12,7 @@ function ComponentBuilding:update(dt)
 end
 
 function ComponentBuilding:productionRate()
-	return baseProductionRate * currentWorkers
+    return baseProductionRate * currentWorkers
 end
 
 function ComponentBuilding:addWorker()
