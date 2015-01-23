@@ -1,0 +1,4 @@
+
+function Hud:init()
+
+end
