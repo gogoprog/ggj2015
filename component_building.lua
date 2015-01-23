@@ -15,6 +15,42 @@ function ComponentBuilding:productionRate()
     return sef.baseProductionRate * self.currentWorkers
 end
 
-function ComponentBuilding:addWorker()
+function ComponentBuilding:addWorkers(n)
+	n = n or 1
+end
+
+function ComponentBuilding.onStateEnter:inConstruction()
+
+end
+
+function ComponentBuilding.onStateUpdate:inConstruction()
+
+end
+
+function ComponentBuilding.onStateExit:inConstruction()
+
+end
+
+function ComponentBuilding.onStateEnter:idle()
+
+end
+
+function ComponentBuilding.onStateUpdate:idle()
+
+end
+
+function ComponentBuilding.onStateExit:idle()
+
+end
+
+function ComponentBuilding.onStateEnter:producing()
+
+end
+
+function ComponentBuilding.onStateUpdate:producing()
+
+end
+
+function ComponentBuilding.onStateExit:producing()
 
 end
