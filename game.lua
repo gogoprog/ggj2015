@@ -24,12 +24,14 @@ function Game:init()
         },
         "sprite"
         )
-   self.world:addComponent(
+    self.world:addComponent(
         ComponentWorld(),
         {
         },
         "world"
         )
+
+
 
     self.world:insert()
 end
