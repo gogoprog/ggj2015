@@ -3,5 +3,6 @@ Settings = Settings or {
     worldRadius = 700,
     cameraFactor = 300,
     cameraSlowDown = 10,
-    cameraRotateFactor = 0.5
+    cameraRotateFactor = 0.5,
+    clickableZone = 100
 }

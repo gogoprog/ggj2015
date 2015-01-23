@@ -1,6 +1,7 @@
 ComponentWorld = {}
 
 local Settings = Settings
+local matan2 = math.atan2
 
 function ComponentWorld:init()
     self.camera = Game.camera
@@ -15,16 +16,17 @@ end
 function ComponentWorld:update(dt)
     local mouse = gengine.input.mouse
     local keyboard = gengine.input.keyboard
+    local entity = self.entity
 
     if mouse:isJustDown(3) then
         local x,y = gengine.input.mouse:getPosition()
         self.startX = x
-        self.startRotation = self.entity.rotation
+        self.startRotation = entity.rotation
     elseif mouse:isDown(3) then
         local x,y = gengine.input.mouse:getPosition()
         self.lastX = x
 
-        self.entity.rotation = self.startRotation + (x - self.startX) * -0.005
+        entity.rotation = self.startRotation + (x - self.startX) * -0.005
 
     elseif mouse:isJustUp(3) then
         local x,y = gengine.input.mouse:getPosition()
@@ -32,19 +34,39 @@ function ComponentWorld:update(dt)
         self.rotateSpeed = (x - self.lastX) * - 1.0 * Settings.cameraRotateFactor
     end
 
+    if mouse:isJustDown(1) then
+        local x,y = gengine.input.mouse:getPosition()
+        local wx, wy = self.camera.camera:getWorldPosition(x,y)
+
+
+        local sqr_dist = gengine.math.getDistance(entity.position, vector2(wx, wy))
+
+        if math.abs(sqr_dist - Settings.worldRadius) < Settings.clickableZone then
+            local dx, dy
+
+            dy = wy - entity.position.y
+            dx = wx - entity.position.x
+            local r = matan2(dy, dx)
+
+            r = r - entity.rotation
+
+            Game.cursor.worldItem:setPosition(r)
+        end
+    end
+
     if self.rotateSpeed > 0 then
         self.rotateSpeed = self.rotateSpeed - dt * Settings.cameraSlowDown
         if self.rotateSpeed < 0 then
             self.rotateSpeed = 0
         end
-        self.entity.rotation = self.entity.rotation + self.rotateSpeed * dt
+        entity.rotation = entity.rotation + self.rotateSpeed * dt
     elseif self.rotateSpeed < 0 then
         self.rotateSpeed = self.rotateSpeed + dt * Settings.cameraSlowDown
         if self.rotateSpeed > 0 then
             self.rotateSpeed = 0
         end
 
-        self.entity.rotation = self.entity.rotation + self.rotateSpeed * dt
+        entity.rotation = entity.rotation + self.rotateSpeed * dt
     end
 
     if keyboard:isDown(81) then
@@ -55,7 +77,7 @@ function ComponentWorld:update(dt)
         self.camera.camera.extent = self.cameraExtent * self.zoom
     end
 
-    self.entity.position.y = - Settings.mapSize * 0.5 + self.zoom * Settings.cameraFactor
+    entity.position.y = - Settings.mapSize * 0.5 + self.zoom * Settings.cameraFactor
 end
 
 function ComponentWorld:remove()
