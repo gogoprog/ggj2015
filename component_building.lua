@@ -12,7 +12,7 @@ function ComponentBuilding:update(dt)
 end
 
 function ComponentBuilding:productionRate()
-    return baseProductionRate * currentWorkers
+    return sef.baseProductionRate * self.currentWorkers
 end
 
 function ComponentBuilding:addWorker()
