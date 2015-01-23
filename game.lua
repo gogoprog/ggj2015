@@ -1,5 +1,6 @@
 require 'settings'
 require 'component_world'
+require 'component_world_item'
 require 'hud'
 
 Game = Game or {}
@@ -31,7 +32,24 @@ function Game:init()
         "world"
         )
 
+    self.cursor = gengine.entity.create()
+    self.cursor:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("cursor_arrow"),
+            extent = vector2(64, 64),
+            layer = 2
+        },
+        "sprite"
+        )
+    self.cursor:addComponent(
+        ComponentWorldItem(),
+        {
+        },
+        "worldItem"
+        )
 
+    self.cursor:insert()
 
     self.world:insert()
 end
