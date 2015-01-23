@@ -37,11 +37,9 @@ function ComponentWorld:update(dt)
     if mouse:isJustDown(1) then
         local x,y = gengine.input.mouse:getPosition()
         local wx, wy = self.camera.camera:getWorldPosition(x,y)
+        local dist = gengine.math.getDistance(entity.position, vector2(wx, wy))
 
-
-        local sqr_dist = gengine.math.getDistance(entity.position, vector2(wx, wy))
-
-        if math.abs(sqr_dist - Settings.worldRadius) < Settings.clickableZone then
+        if math.abs(dist - Settings.worldRadius) < Settings.clickableZone then
             local dx, dy
 
             dy = wy - entity.position.y
@@ -77,7 +75,7 @@ function ComponentWorld:update(dt)
         self.camera.camera.extent = self.cameraExtent * self.zoom
     end
 
-    entity.position.y = - Settings.mapSize * 0.5 + self.zoom * Settings.cameraFactor
+    entity.position.y = - Settings.worldRadius + self.zoom * Settings.cameraFactor
 end
 
 function ComponentWorld:remove()
