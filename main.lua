@@ -1,4 +1,3 @@
-
 require 'game'
 
 function init()

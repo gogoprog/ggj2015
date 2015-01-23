@@ -68,6 +68,18 @@ function Game:update(dt)
     end
 end
 
+function Game.onStateEnter:gameplay()
+
+end
+
+function Game.onStateUpdate:gameplay()
+
+end
+
+function Game.onStateExit:gameplay()
+
+end
+
 function Game.onStateEnter:showWDWDNMenu()
     Hud:changeState("showWDWDNMenu")
     self:changeState("pending")
