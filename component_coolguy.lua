@@ -19,11 +19,13 @@ function ComponentCoolGuy:remove()
 end
 
 function ComponentCoolGuy:update(dt)
-    self.repletion = self.repletion - dt * Settings.hungryFactor
+    if self.repletion > 0 then
+        self.repletion = self.repletion - dt * Settings.hungryFactor
 
-    if self.repletion < 0 then
-        self.entity.worldItem:stop()
-        self.repletion = 0
+        if self.repletion < 0 then
+            self:changeState("seekingFood")
+            self.repletion = 0
+        end
     end
 
     self:updateState(dt)
@@ -39,4 +41,20 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
             entity.sprite.extent = vector2(64 * wi.direction, 64)
         end
     end
+end
+
+function ComponentCoolGuy.onStateEnter:seekingFood()
+    local farm = Village:getClosestFarm(self.entity.worldItem.position)
+
+    if farm then
+        self.entity.worldItem:moveTo(farm.worldItem.position)
+    end
+end
+
+function ComponentCoolGuy.onStateUpdate:seekingFood(dt)
+
+end
+
+function ComponentCoolGuy.onStateExit:seekingFood()
+
 end
