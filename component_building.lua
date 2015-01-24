@@ -54,6 +54,7 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     self.currentTime = self.currentTime + dt
 
     self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate)
+    self.entity.sprite.color = vector4(1, 1, 1, self.constructionProgression)
 
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.justBegun = false

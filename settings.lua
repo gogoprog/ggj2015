@@ -44,7 +44,7 @@ Settings = Settings or {
                 halfConstruction = "tower",
                 complete = "tower"
             },
-            constructionRate = 0.8,
+            constructionRate = 0.1,
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
