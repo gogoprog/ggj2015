@@ -26,6 +26,20 @@
        else
           e.style.display = 'none';
 	}
+	function showHelp() {
+    var e = document.getElementById("helpWindowContainer");
+       if(e.style.display == 'none')
+          e.style.display = 'block';
+       else
+          e.style.display = 'none';
+	}
+	function closeHelp() {
+    var e = document.getElementById("helpWindowContainer");
+       if(e.style.display == 'none')
+          e.style.display = 'block';
+       else
+          e.style.display = 'none';
+	}
 </script>
 
 </head>
@@ -52,18 +66,33 @@
 		<img class="bottomButton" src="icon_house.png" onclick="gengine_execute('Hud:buildHouse()');">
 		<img class="bottomButton" src="icon_tower.png" onclick="gengine_execute('Hud:buildTower()');">
 	
-	<div class="ressourcesWrapper">
-		<div id="FoodCounter" onclick="gengine_execute('Hud:selectMenuA()');">
-			 <img src="icon_food.png"><a id="food_counter">0</a>
+		<div class="ressourcesWrapper">
+			<div id="FoodCounter" onclick="gengine_execute('Hud:selectMenuA()');">
+				 <img src="icon_food.png"><a id="food_counter">0</a>
+			</div>
+
+			<div id="PopulationCounter" onclick="gengine_execute('Hud:selectMenuB()');">
+				<img src="icon_guy.png"><a id="pop_counter">0</a><a>/</a><a id="max_pop_counter">4</a>
+			</div>
 		</div>
+	</div>
 
 		<div id="PopulationCounter" onclick="gengine_execute('Hud:selectMenuB()');">
 			<img src="icon_guy.png"><a id="pop_counter">0</a><a>/</a><a id="max_pop_counter">5</a>
 		</div>
+	<div id="helpButton" onclick="showHelp()">
+		
 	</div>
 
+	<div id="helpWindowContainer" style="display:none;">
+		<div id="helpWindow">
+			<div id="helpWindowClose" onclick="closeHelp()">
+				<img src="close_window.png"/>
 
+			</div>
+		</div>
 	</div>
+
 </body>
 
 
