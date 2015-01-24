@@ -158,11 +158,11 @@ function Village:getGuysCount()
 end
 
 function Village:getClosestGuy(pos, no_order)
-    local best = 10, r
+    local best = 10
+    local r
     for k, v in ipairs(self.guys) do
         if not no_order or v.guy.state ~= "executing" then
             local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
-
 
             if delta < best then
                 best = delta
@@ -175,7 +175,8 @@ function Village:getClosestGuy(pos, no_order)
 end
 
 function Village:getClosestFarm(pos)
-    local best = 10, r
+    local best = 10
+    local r
     for k, v in ipairs(self.farms) do
         local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
@@ -189,7 +190,8 @@ function Village:getClosestFarm(pos)
 end
 
 function Village:getClosestHouse(pos)
-    local best = 10, r
+    local best = 10
+    local r
     for k, v in ipairs(self.houses) do
         local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
@@ -203,7 +205,8 @@ function Village:getClosestHouse(pos)
 end
 
 function Village:getClosestBuilding(pos, interactable)
-    local best = 10, r
+    local best = 10
+    local r
     for k, v in ipairs(self.buildings) do
         if not interactable or v.building:canInteract() then
             local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )

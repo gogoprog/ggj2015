@@ -57,7 +57,8 @@ end
 function Game:start()
     self.enemies = {}
     Village:reset()
-    local e = Factory:createEnemyFort()
+    local e
+    e = Factory:createEnemyFort()
     e.worldItem:setPosition(-math.pi * 0.5)
     e:insert()
 
@@ -84,7 +85,8 @@ function Game:start()
 end
 
 function Game:getClosestEnemy(pos)
-    local best = 10, r
+    local best = 10
+    local r
     for k, v in ipairs(self.enemies) do
         local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
