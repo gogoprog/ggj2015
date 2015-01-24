@@ -70,6 +70,10 @@ function Game:update(dt)
     end
 end
 
+function Game:onClick(r)
+    
+end 
+
 function Game.onStateEnter:gameplay()
 
 end

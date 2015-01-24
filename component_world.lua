@@ -56,6 +56,11 @@ function ComponentWorld:update(dt)
         r = r - entity.rotation
 
         Game.cursor.worldItem:setPosition(r)
+
+        if mouse:isJustDown(1) then
+            Game:onClick(r)
+        end
+
     end
 
     if self.rotateSpeed > 0 then
