@@ -77,7 +77,13 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
 end
 
 function ComponentCoolGuy:orderMoveTo(r)
-    print("MOVETO")
+    local entity = self.entity
+    local wi = entity.worldItem
+
+    wi:moveTo(r)
+    entity.sprite.extent = vector2(64 * wi.direction, 64)
+
+    self:changeState("executing")
 end
 
 function ComponentCoolGuy:checkForEnemies()
@@ -178,4 +184,19 @@ end
 
 function ComponentCoolGuy.onStateExit:interacting()
     self.targetSite.building:removeWorker(self.entity)
+end
+
+
+function ComponentCoolGuy.onStateEnter:executing()
+
+end
+
+function ComponentCoolGuy.onStateUpdate:executing(dt)
+    if self.entity.worldItem.state == "idle" then
+        self:changeState("random")
+    end
+end
+
+function ComponentCoolGuy.onStateExit:executing()
+
 end
