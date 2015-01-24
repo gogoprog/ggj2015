@@ -7,8 +7,16 @@ function Hud:init()
 	gengine.gui.onPageLoaded = onPageLoaded
 end
 
-function Hud.selectMenuA()
-    print("Menu A selected")
+function Hud.buildFood()
+    print("food")
+end
+
+function Hud.buildHouse()
+    print("house")
+end
+
+function Hud.buildTower()
+    print("tower")
 end
 
 function onPageLoaded()

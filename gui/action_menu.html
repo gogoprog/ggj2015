@@ -5,9 +5,10 @@
 <title>CSS Newbie Example: Super Simple Horizontal Navigation Bar</title>
 <style>
 	body {
-		float: left; 
+		height: 100%;
 	}
-	div.ressourcesWrapper {
+
+	div.ressourcesWrapper { 
 		font-size: 30px;
 		font-family: arial;
 		width: 85px;
@@ -15,15 +16,30 @@
 
 	div#FoodCounter {
 		background-color: white;
-		display: inline-block;
 		width: 85px;
 	}
 
 	div#PopulationCounter {
 		background-color: white;
-		display: inline-block;
 		width: 85px;
 	}
+
+	div.buildButtonWrapper {
+		position: absolute;
+		bottom: 10px;
+		width: 260px;
+		margin-right: auto;
+		margin-left:auto;
+		left: 0;
+		right: 0;
+	}
+	.bottomButton{
+		width: 64px;
+		height: 64px;
+		padding: 10px;
+		background-color: white;
+	}
+
 </style>
 <script>
    function updateFood(n)
@@ -43,12 +59,17 @@
 <body>
 	<div class="ressourcesWrapper">
 		<div id="FoodCounter" onclick="gengine_execute('Hud:selectMenuA()');">
-			 <img src="../data/food.png" style="width:32px;height:32px"><a id="food_counter">666</a>
+			 <img src="food.png" style="width:32px;height:32px"><a id="food_counter">666</a>
 		</div>
 
 		<div id="PopulationCounter" onclick="gengine_execute('Hud:selectMenuB()');">
-			<img src="../data/house.png" style="width:32px;height:32px"><a id="pop_counter">666</a><a>/</a><a id="max_pop_counter">666</a>
+			<img src="house.png" style="width:32px;height:32px"><a id="pop_counter">666</a><a>/</a><a id="max_pop_counter">666</a>
 		</div>
+	</div>
+	<div class="buildButtonWrapper">
+		<img class="bottomButton" src="food.png" onclick="gengine_execute('Hud:buildFood()');">
+		<img class="bottomButton" src="house.png" onclick="gengine_execute('Hud:buildHouse()');">
+		<img class="bottomButton" src="tower.png" onclick="gengine_execute('Hud:buildTower()');">
 	</div>
 </body>
 </html>
