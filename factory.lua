@@ -2,6 +2,8 @@ require 'component_coolguy'
 
 Factory = Factory or {}
 
+local Settings = Settings
+
 function Factory:init()
     local texture = gengine.graphics.texture.get("normal_left")
     local atlas = gengine.graphics.atlas.create("normal_left", texture, 4, 1)
@@ -24,7 +26,7 @@ function Factory:createMan()
         {
             animation = self.manLeft,
             extent = vector2(32, 32),
-            layer = 1
+            layer = 2
         },
         "sprite"
         )
@@ -32,6 +34,7 @@ function Factory:createMan()
     e:addComponent(
         ComponentWorldItem(),
         {
+            offset = 16
         },
         "worldItem"
         )
@@ -44,4 +47,32 @@ function Factory:createMan()
         )
 
     return e
+end
+
+function Factory:createHouse()
+    local e = gengine.entity.create()
+    local texture = gengine.graphics.texture.get(Settings.Buildings.House.Textures.complete)
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = texture,
+            extent = vector2(128, 128),
+            layer = 1
+        }
+    )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 64
+        },
+        "worldItem"
+    )
+
+    return e
+end
+
+function Factory:createFarm()
+
 end

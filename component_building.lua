@@ -16,7 +16,7 @@ function ComponentBuilding:productionRate()
 end
 
 function ComponentBuilding:addWorkers(n)
-	n = n or 1
+    n = n or 1
 end
 
 function ComponentBuilding.onStateEnter:inConstruction()

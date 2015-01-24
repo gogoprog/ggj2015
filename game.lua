@@ -76,6 +76,10 @@ function Game:update(dt)
         local e = Factory:createMan()
         e:insert()
         e.worldItem:setPosition(math.random() * math.pi)
+
+        local house = Factory:createHouse()
+        house:insert()
+        house.worldItem:setPosition(math.random() * math.pi)
     end
 end
 
