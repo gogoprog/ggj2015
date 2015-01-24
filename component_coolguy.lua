@@ -143,8 +143,6 @@ function ComponentCoolGuy.onStateEnter:interacting()
 end
 
 function ComponentCoolGuy.onStateUpdate:interacting(dt)
-    local delta = Util:getDeltaAngle(self.targetSite.worldItem.position, self.entity.worldItem.position)
-
     if self.targetSite.building:canInteract() then
 
     else

@@ -174,20 +174,6 @@ function Village:getClosestGuy(pos)
     return r, best
 end
 
-function Village:getClosestConstructingBuilding(pos)
-    local best = 10, r
-    for k, v in ipairs(self.constructingBuildings) do
-        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
-
-        if delta < best then
-            best = delta
-            r = v
-        end
-    end
-
-    return r
-end
-
 function Village:getClosestFarm(pos)
     local best = 10, r
     for k, v in ipairs(self.farms) do

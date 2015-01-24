@@ -431,7 +431,7 @@ function Factory:createHome()
         ComponentHome(),
         {
         },
-        "enemyFort"
+        "home"
     )
 
     return e
