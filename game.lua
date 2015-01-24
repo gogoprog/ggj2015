@@ -86,9 +86,6 @@ end
 
 function Game:onClick(r)
 
-    self.area = Factory:createAreaOfOrder()
-    self.area.worldItem.position = r
-
     UserAction:onClick(r)
 
 end 
