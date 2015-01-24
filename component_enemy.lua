@@ -20,6 +20,8 @@ function ComponentEnemy:remove()
             break
         end
     end
+    self.gauge:remove()
+    gengine.entity.destroy(self.gauge)
 end
 
 function ComponentEnemy:update(dt)
@@ -55,7 +57,8 @@ function ComponentEnemy:onHit()
 end
 
 function ComponentEnemy:onDead()
-
+    self.entity:remove()
+    gengine.entity.destroy(self.entity)
 end
 
 function ComponentEnemy.onStateUpdate:random(dt)
