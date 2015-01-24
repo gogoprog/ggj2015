@@ -85,3 +85,4 @@ function ComponentWorldItem.onStateUpdate:moving(dt)
         end
     end
 end
+

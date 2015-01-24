@@ -6,6 +6,7 @@ require 'component_farm'
 require 'component_area_of_order'
 require 'component_enemy_fort'
 require 'component_home'
+require 'component_life'
 
 Factory = Factory or {}
 
@@ -198,6 +199,13 @@ function Factory:createMan()
         "guy"
         )
 
+    e:addComponent(
+        ComponentLife(),
+        {
+        },
+        "life"
+        )
+
     return e
 end
 
@@ -228,6 +236,13 @@ function Factory:createEnemy()
         {
         },
         "enemy"
+        )
+
+    e:addComponent(
+        ComponentLife(),
+        {
+        },
+        "life"
         )
 
     return e

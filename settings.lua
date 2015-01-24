@@ -10,6 +10,7 @@ Settings = Settings or {
     cameraMinZoom = 0.5,
     clickableZone = 2000,
     hungryFactor = 0.1,
+    attackDistance = 0.02,
     Buildings = {
         House = {
             Textures = {
@@ -63,5 +64,9 @@ Settings = Settings or {
             areaSize = 0.075,
             hp = 100
         }
+    },
+    Enemy = {
+        damage = {1, 5},
+        attackInterval = 0.5
     }
 }

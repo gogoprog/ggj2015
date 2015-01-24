@@ -122,7 +122,7 @@ function Village:getClosestGuy(pos)
         end
     end
 
-    return r
+    return r, best
 end
 
 function Village:getClosestConstructingBuilding(pos)

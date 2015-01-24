@@ -30,6 +30,10 @@ function ComponentCoolGuy:update(dt)
     self:updateState(dt)
 end
 
+function ComponentCoolGuy:onHit()
+    self:changeState("fighting")
+end
+
 function ComponentCoolGuy.onStateUpdate:random(dt)
     local entity = self.entity
     local wi = entity.worldItem
@@ -85,6 +89,7 @@ function ComponentCoolGuy.onStateExit:eating()
 end
 
 function ComponentCoolGuy.onStateEnter:fighting()
+    self.entity.worldItem:stop()
     self.timeLeft = 1
 end
 
