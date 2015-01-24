@@ -66,7 +66,7 @@
 			<img src="house.png" style="width:32px;height:32px"><a id="pop_counter">666</a><a>/</a><a id="max_pop_counter">666</a>
 		</div>
 	</div>
-	<div class="buildButtonWrapper">
+	<div class="buildButtonWrapper" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
 		<img class="bottomButton" src="food.png" onclick="gengine_execute('Hud:buildFood()');">
 		<img class="bottomButton" src="house.png" onclick="gengine_execute('Hud:buildHouse()');">
 		<img class="bottomButton" src="tower.png" onclick="gengine_execute('Hud:buildTower()');">

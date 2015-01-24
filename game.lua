@@ -86,6 +86,10 @@ end
 
 function Game:onClick(r)
 
+    if self.skipMouse then
+        return
+    end
+
     UserAction:onClick(r)
 
 end 

@@ -7,6 +7,10 @@ function Hud:init()
 	gengine.gui.onPageLoaded = onPageLoaded
 end
 
+function Hud:onMouseDown()
+    print("hudcmousedown")
+end
+
 function Hud.buildFood()
     print("food")
 end
