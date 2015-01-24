@@ -37,6 +37,19 @@ Settings = Settings or {
             areaSize = 0.1,
             hp = 100
         },
+        Tower = {
+            Textures = {
+                beginConstruction = "tower",
+                halfConstruction = "tower",
+                complete = "tower"
+            },
+            constructionRate = 0.8,
+            maxWorkers = 10,
+            currentWorkers = 0,
+            baseProductionRate = 1.2,
+            areaSize = 0.1,
+            hp = 100
+        },
         Home = {
             Textures = {
                 beginConstruction = "town_hall",

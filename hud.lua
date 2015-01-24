@@ -12,7 +12,8 @@ function Hud:onMouseDown()
 end
 
 function Hud.buildFood()
-    print("food")
+    local e = Factory:createFarm()
+    UserAction:placeBuilding(e)
 end
 
 function Hud.buildHouse()
@@ -21,7 +22,8 @@ function Hud.buildHouse()
 end
 
 function Hud.buildTower()
-    print("tower")
+    local e = Factory:createTower()
+    UserAction:placeBuilding(e)
 end
 
 function onPageLoaded()

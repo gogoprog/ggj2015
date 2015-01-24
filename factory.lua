@@ -215,6 +215,45 @@ function Factory:createHouse()
     return e
 end
 
+function Factory:createTower()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            extent = vector2(128, 128),
+            layer = 1
+        },
+        "sprite"
+    )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 64
+        },
+        "worldItem"
+    )
+
+    e:addComponent(
+        ComponentBuilding(),
+        {
+            params = Settings.Buildings.Tower
+        },
+        "building"
+    )
+
+    e:addComponent(
+        ComponentHouse(),
+        {
+
+        },
+        "tower"
+    )
+
+    return e
+end
+
 function Factory:createFarm()
     local e = gengine.entity.create()
 
