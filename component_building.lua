@@ -18,6 +18,9 @@ end
 function ComponentBuilding:insert()
 end
 
+function ComponentBuilding:remove()
+end
+
 function ComponentBuilding:update(dt)
     self:updateState(dt)
 end

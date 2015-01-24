@@ -10,3 +10,6 @@ end
 
 function ComponentHouse:insert()
 end
+
+function ComponentHouse:remove()
+end

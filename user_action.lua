@@ -19,19 +19,16 @@ function UserAction.onStateEnter:placingBuilding()
 end
 
 function UserAction.onStateUpdate:placingBuilding(dt)
-
+    if not self:canPlaceBuilding(Game.cursor.worldItem.position) then
+        self.currentEntity.sprite.color = vector4(1, 0, 0, 0.5)
+    else
+        self.currentEntity.sprite.color = vector4(1, 1, 1, 0.5)
+    end
 end
 
 function UserAction:onClick(r)
     if self.state == "placingBuilding" then
-        local b = Village:getClosestBuilding(r)
-        if b then
-            if math.abs(b.worldItem.position - self.currentEntity.worldItem.position)
-                    > (self.currentEntity.building.params.areaSize + b.building.params.areaSize) then
-                self.currentEntity.building:changeState("inConstruction")
-                self:changeState("idle")
-            end
-        else
+        if self:canPlaceBuilding(r) then
             self.currentEntity.building:changeState("inConstruction")
             self:changeState("idle")
         end
@@ -57,10 +54,29 @@ function UserAction:onClick(r)
     end
 end
 
+function UserAction:canPlaceBuilding(r)
+    local b = Village:getClosestBuilding(r)
+    if b then
+        if math.abs(b.worldItem.position - self.currentEntity.worldItem.position)
+                > (self.currentEntity.building.params.areaSize + b.building.params.areaSize) then
+            return true
+        end
+    else
+        return true
+    end
+
+    return false
+end
+
 function UserAction:placeBuilding(e)
     if self.state == "idle" then
         self.currentEntity = e
         self.currentEntity:insert()
         self:changeState("placingBuilding")
+    elseif self.state == "placingBuilding" then
+        self.currentEntity:remove()
+        gengine.entity.destroy(self.currentEntity)
+        self.state = "idle"
+        self:placeBuilding(e)
     end
 end
