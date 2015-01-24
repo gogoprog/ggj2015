@@ -8,11 +8,14 @@ function ComponentBuilding:init()
     self.constructionProgression = 0
     self.justBegun = true
     self.placingOffset = 80
-    self:changeState("placing")
+    if self.params.constructionRate > 0 then
+        self:changeState("placing")
+    else
+        self:changeState("idle")
+    end
 end
 
 function ComponentBuilding:insert()
-    -- self:changeState("inConstruction")
 end
 
 function ComponentBuilding:update(dt)

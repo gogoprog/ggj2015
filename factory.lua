@@ -307,6 +307,14 @@ function Factory:createHome()
     )
 
     e:addComponent(
+        ComponentBuilding(),
+        {
+            params = Settings.Buildings.Home
+        },
+        "building"
+    )
+
+    e:addComponent(
         ComponentHome(),
         {
         },

@@ -2,6 +2,7 @@ ComponentHome = {}
 
 function ComponentHome:init()
     self.timeLeft = 2
+    self.params = self.params
 end
 
 function ComponentHome:insert()
