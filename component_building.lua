@@ -86,16 +86,18 @@ function ComponentBuilding.onStateEnter:inConstruction()
     self.gauge:insert()
     self.gauge.worldItem.position = self.entity.worldItem.position
     self.gauge.worldItem.offset = 85
+    self.gauge.sprite.extent = vector2(70, 8)
+    self.gauge.sprite_back.extent = vector2(70, 8)
 
 end
 
 function ComponentBuilding.onStateUpdate:inConstruction(dt)
     self.currentTime = self.currentTime + dt
 
-    self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate * #self.workers)
+    self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate * #self.workers * 0.1)
     self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
 
-    self.gauge.sprite.extent = vector2(self.constructionProgression * 50 , 8)
+    self.gauge.sprite.extent = vector2(self.constructionProgression * 70 , 8)
 
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.justBegun = false

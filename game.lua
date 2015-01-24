@@ -64,6 +64,12 @@ function Game:start()
     e = Factory:createHome()
     e.worldItem:setPosition(math.pi * 0.5)
     e:insert()
+
+    for i = 0, 3, 1 do
+        e = Factory:createMan()
+        e.worldItem:setPosition(math.pi * 0.5)
+        e:insert()
+    end
 end
 
 function Game:getClosestEnemy(pos)

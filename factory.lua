@@ -258,7 +258,7 @@ function Factory:createGauge()
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get("gauge_front"),
-            extent = vector2(50, 8),
+            extent = vector2(25, 8),
             layer = 5,
             color = vector4(0,1,0,1)
         },
@@ -269,7 +269,7 @@ function Factory:createGauge()
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get("gauge_back"),
-            extent = vector2(50, 8),
+            extent = vector2(25, 8),
             layer = 4,
             color = vector4(1,0,0,1)
         },
@@ -279,7 +279,7 @@ function Factory:createGauge()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 64
+            offset = 85
         },
         "worldItem"
     )
