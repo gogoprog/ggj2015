@@ -1,7 +1,6 @@
 ComponentFarm = {}
 
 function ComponentFarm:init()
-
 end
 
 function ComponentFarm:insert()
@@ -11,5 +10,4 @@ function ComponentFarm:remove()
 end
 
 function ComponentFarm:update(dt)
-
 end

@@ -10,6 +10,8 @@ function Village:reset()
     self.guys = {}
     self.buildings = {}
     self.home = nil
+    self.food = 0
+    self.population = 5
     self:changeState("build")
 end
 

@@ -8,7 +8,7 @@ function ComponentBuilding:init()
     self.constructionProgression = 0
     self.justBegun = true
     self.placingOffset = 80
-    if self.params.constructionRate > 0 then
+    if self.params.constructionRate then
         self:changeState("placing")
     else
         self:changeState("idle")
@@ -26,7 +26,7 @@ function ComponentBuilding:update(dt)
 end
 
 function ComponentBuilding:productionRate()
-    return sef.baseProductionRate * self.currentWorkers
+    return self.baseProductionRate * self.currentWorkers
 end
 
 function ComponentBuilding:addWorkers(n)
@@ -84,7 +84,6 @@ function ComponentBuilding.onStateExit:idle()
 end
 
 function ComponentBuilding.onStateEnter:producing()
-
 end
 
 function ComponentBuilding.onStateUpdate:producing()

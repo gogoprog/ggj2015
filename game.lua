@@ -76,7 +76,7 @@ end
 
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
-        self:changeState("showWDWDNMenu")
+        Village:reset()
     end
 
     if gengine.input.keyboard:isJustDown(44) then

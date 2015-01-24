@@ -22,6 +22,7 @@ Settings = Settings or {
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
+            productionTimer = 5,
             areaSize = 0.06,
             hp = 100
         },
@@ -35,6 +36,7 @@ Settings = Settings or {
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
+            productionTimer = 5,
             areaSize = 0.06,
             hp = 100
         },
@@ -44,10 +46,8 @@ Settings = Settings or {
                 halfConstruction = "tower",
                 complete = "tower"
             },
-            constructionRate = 0.1,
+            constructionRate = 0.3,
             maxWorkers = 10,
-            currentWorkers = 0,
-            baseProductionRate = 1.2,
             areaSize = 0.1,
             hp = 100
         },
@@ -57,10 +57,6 @@ Settings = Settings or {
                 halfConstruction = "town_hall",
                 complete = "town_hall"
             },
-            constructionRate = 0,
-            maxWorkers = 10,
-            currentWorkers = 0,
-            baseProductionRate = 1.2,
             areaSize = 0.075,
             hp = 100
         }
