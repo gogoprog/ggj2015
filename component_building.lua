@@ -3,7 +3,6 @@ ComponentBuilding = {}
 gengine.stateMachine(ComponentBuilding)
 
 function ComponentBuilding:init()
-    self.gauge = self.gauge
 
     self.params = self.params or {}
     self.currentTime = 0
@@ -19,7 +18,7 @@ function ComponentBuilding:init()
 end
 
 function ComponentBuilding:insert()
-    --self.gauge:insert()
+    
 end
 
 function ComponentBuilding:remove()
@@ -81,6 +80,13 @@ function ComponentBuilding.onStateEnter:inConstruction()
     self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.beginConstruction)
     self.entity.sprite.color = vector4(1, 1, 1, 1)
     self.entity.worldItem.offset = self.entity.worldItem.offset - self.placingOffset
+
+    self.gauge = nil
+    self.gauge = Factory:createGauge()
+    self.gauge:insert()
+    self.gauge.worldItem.position = self.entity.worldItem.position
+    self.gauge.worldItem.offset = 85
+
 end
 
 function ComponentBuilding.onStateUpdate:inConstruction(dt)
@@ -88,6 +94,8 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
 
     self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate * #self.workers)
     self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
+
+    self.gauge.sprite.extent = vector2(self.constructionProgression * 50 , 8)
 
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.justBegun = false

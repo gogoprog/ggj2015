@@ -266,6 +266,17 @@ function Factory:createGauge()
     )
 
     e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("gauge_back"),
+            extent = vector2(50, 8),
+            layer = 4,
+            color = vector4(1,0,0,1)
+        },
+        "sprite_back"
+    )
+
+    e:addComponent(
         ComponentWorldItem(),
         {
             offset = 64
@@ -303,22 +314,6 @@ function Factory:createHouse()
         },
         "building"
     )
-
-    e:addComponent(
-        ComponentHouse(),
-        {
-            gauge = self:createGauge()
-        },
-        "house"
-    )
-
-    e:addComponent(
-        ComponentLife(),
-        {
-            hp = Settings.Enemy.hp
-        },
-        "life"
-        )
 
     return e
 end
