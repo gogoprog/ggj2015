@@ -180,7 +180,7 @@ function Village:getClosestBuilding(pos)
         end
     end
 
-    return r
+    return r, best
 end
 
 function Village.onStateEnter:build()

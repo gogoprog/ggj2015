@@ -1,6 +1,7 @@
 ComponentCoolGuy = {}
 
 local Settings = Settings
+local mabs = math.abs
 
 gengine.stateMachine(ComponentCoolGuy)
 
@@ -39,14 +40,33 @@ function ComponentCoolGuy:onDead()
     gengine.entity.destroy(self.entity)
 end
 
+function ComponentCoolGuy.onStateEnter:random()
+    self.checkTimeLeft = 0.1
+end
+
 function ComponentCoolGuy.onStateUpdate:random(dt)
     local entity = self.entity
     local wi = entity.worldItem
 
     if self.repletion > 0 then
-        if wi.state == "idle" then
-            wi:moveTo(math.random() * math.pi * 2)
-            entity.sprite.extent = vector2(64 * wi.direction, 64)
+
+        self.checkTimeLeft = self.checkTimeLeft - dt
+
+        if self.checkTimeLeft < 0 then
+            self.checkTimeLeft = 0.1
+            if wi.state == "idle" then
+                wi:moveTo(math.random() * math.pi * 2)
+                entity.sprite.extent = vector2(64 * wi.direction, 64)
+            else
+                local b, d = Village:getClosestBuilding(wi.position)
+
+                if d < b.building.params.areaSize then
+                    if b.building.state ~= "idle" then
+                        self.targetSite = b
+                        self:changeState("interacting")
+                    end
+                end
+            end
         end
     end
 end
@@ -104,4 +124,24 @@ end
 
 function ComponentCoolGuy.onStateExit:fighting()
 
+end
+
+function ComponentCoolGuy.onStateEnter:interacting()
+    self.entity.worldItem:stop()
+    self.timeLeft = 1
+    self.targetSite.building:addWorker(self.entity)
+end
+
+function ComponentCoolGuy.onStateUpdate:interacting(dt)
+    local delta = Util:getDeltaAngle(self.targetSite.worldItem.position, self.entity.worldItem.position)
+
+    if mabs(delta) < self.targetSite.building.params.aeraSize then
+
+    else
+        self:changeState("random")
+    end
+end
+
+function ComponentCoolGuy.onStateExit:interacting()
+    self.targetSite.building:removeWorker(self.entity)
 end

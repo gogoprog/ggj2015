@@ -8,6 +8,7 @@ function ComponentBuilding:init()
     self.constructionProgression = 0
     self.justBegun = true
     self.placingOffset = 80
+    self.workers = {}
     if self.params.constructionRate then
         self:changeState("placing")
     else
@@ -29,8 +30,17 @@ function ComponentBuilding:productionRate()
     return self.baseProductionRate * self.currentWorkers
 end
 
-function ComponentBuilding:addWorkers(n)
-    n = n or 1
+function ComponentBuilding:addWorker(e)
+    table.insert(self.workers, e)
+end
+
+function ComponentBuilding:removeWorker(e)
+    for k, v in ipairs(self.workers) do
+        if v == e then
+            table.remove(self.workers, k)
+            break
+        end
+    end
 end
 
 function ComponentBuilding.onStateEnter:placing()
@@ -53,8 +63,8 @@ end
 function ComponentBuilding.onStateUpdate:inConstruction(dt)
     self.currentTime = self.currentTime + dt
 
-    self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate)
-    self.entity.sprite.color = vector4(1, 1, 1, self.constructionProgression)
+    self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate * #self.workers)
+    self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
 
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.justBegun = false
@@ -85,6 +95,7 @@ function ComponentBuilding.onStateExit:idle()
 end
 
 function ComponentBuilding.onStateEnter:producing()
+
 end
 
 function ComponentBuilding.onStateUpdate:producing()
