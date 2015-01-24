@@ -66,13 +66,30 @@ function Game:start()
     e:insert()
 end
 
+function Game:getClosestEnemy(pos)
+    local best = 10, r
+    for k, v in ipairs(self.enemies) do
+        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+
+        if delta < best then
+            best = delta
+            r = v
+        end
+    end
+
+    return r, best
+end
+
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
         self.enemies[1].life.hp = self.enemies[1].life.hp - 20
     end
 
     if gengine.input.keyboard:isJustDown(44) then
-
+        local e = Factory:createMan()
+        e.worldItem:setPosition(self.cursor.worldItem.position)
+        e:insert()
+        self.timeLeft = 30
     end
 
     self:updateState(dt)

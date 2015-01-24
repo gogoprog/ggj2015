@@ -31,7 +31,8 @@ function ComponentCoolGuy:update(dt)
     self:updateState(dt)
 end
 
-function ComponentCoolGuy:onHit()
+function ComponentCoolGuy:onHit(dmg)
+    self.entity.life.hp = self.entity.life.hp + dmg * ( 1 - Settings.Guys[Village.state].hitFactor)
     self:changeState("fighting")
 end
 
@@ -79,6 +80,17 @@ function ComponentCoolGuy:orderMoveTo(r)
     print("MOVETO")
 end
 
+function ComponentCoolGuy:checkForEnemies()
+    local wi = self.entity.worldItem
+    local g, d = Village:getClosestGuy(wi.position)
+
+    if g then
+        if d < Settings.attackDistance then
+            return g
+        end
+    end
+end
+
 function ComponentCoolGuy.onStateEnter:seekingFood()
     local entity = self.entity
     local wi = entity.worldItem
@@ -111,7 +123,6 @@ function ComponentCoolGuy.onStateEnter:eating()
     else
         self.timeLeft = 1
     end
-
 end
 
 function ComponentCoolGuy.onStateUpdate:eating(dt)
@@ -129,11 +140,22 @@ end
 
 function ComponentCoolGuy.onStateEnter:fighting()
     self.entity.worldItem:stop()
-    self.timeLeft = 1
+    self.timeLeft = 0
 end
 
 function ComponentCoolGuy.onStateUpdate:fighting(dt)
-
+    self.timeLeft = self.timeLeft - dt
+    if self.timeLeft < 0 then
+        local g = self:checkForEnemies()
+        if g then
+            local damage = Settings.Guys[Village.state].damage
+            local final_damage = damage[1] + (damage[2] - damage[1]) * math.random()
+            g.life:hit(final_damage)
+            self.timeLeft = Settings.Guys[Village.state].attackInterval
+        else
+            self:changeState("random")
+        end
+    end
 end
 
 function ComponentCoolGuy.onStateExit:fighting()
