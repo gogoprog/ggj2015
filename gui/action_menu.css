@@ -2,52 +2,160 @@ body {
 		height: 100%;
 	}
 
+	@font-face {
+		font-family: mainFont;
+		src: url("game_boy.ttf");
+	}
+
+	@font-face {
+		
+	}
+
 	div.ressourcesWrapper { 
+		position:absolute;
+		right:10px;
+		bottom:32px;
 		font-size: 30px;
 		font-family: arial;
-		width: 85px;
+		width: 140px;
+		height:65px;
+		text-align:left;
+		background-image: url("beige_panel.png");
 	}
 
-	div#FoodCounter {
-		background-color: white;
-		width: 85px;
-	}
-
-	div#PopulationCounter {
-		background-color: white;
-		width: 85px;
-	}
-
-	.topButton{
+	div#FoodCounter, div#PopulationCounter {
+		position:relative;
 		display:inline-block;
-		position: relative;
-		margin-left:  8px;
-		margin-top: 32px;
-		width: 64px;
-		height: 64px;		
-		background-image: url("button_brown64.png");	
+		width: 150px;
+		height:30px;
 	}
 
-	.topButton:hover{
-		
-		background-image: url("button_brown_pressed64.png");		
+	div#FoodCounter img, div#PopulationCounter img{
+		position:relative;
+		display:inline-block;
+		width: 32px;
+		margin-left:5px;
+		margin-right:10px;
+		bottom:-4px;
 	}
 
-	div.whatDoWeDoWrapper {
+	div#FoodCounter a, div#PopulationCounter a{
+		position:relative;
+		display:inline-block;
+		font-family: mainFont;
+		font-size :16px;
+		bottom:4px;
+		letter-spacing: -2px;
+		color:#838796;
+	}
+
+
+	div.whatDoWedoWrapper{
+
 		position: absolute;
-		top: 10px;
+		top: -20px;
+		width: 416px;
+		height: 128px;
+		margin-right: auto;
+		margin-left:auto;
+		left: 0;
+		right: 0;
+		background-image: url("panel_grey_wide_bigger.png");				
+		z-index:1;
+	}
+
+	div.whatDoWedoWrapper:hover, div.whatDoWedoWrapper:active{
+
+		top:-15px;
+		background-image: url("panel_grey_wide_bigger_pressed.png");
+	}
+
+	.whatDoWeDoText{
+
+		display:inline-block;
+		position: absolute;
+		margin-left:  14px;
+		margin-right:  4px;
+		top: 35px;
+		width: 310px;
+		height: 75px;		
+		font-size: 30px;
+		font-family: mainFont;
+		text-align:left;
+		color:#b9bdc9;		
+	}
+
+	.whatDoWeDoNumber{
+
+		display:inline-block;
+		position: absolute;
+		margin-left:  14px;
+		margin-right:  4px;
+		right:20px;
+		top: 30px;
+		width: 100px;
+		height: 75px;		
+		font-size: 65px;
+		letter-spacing: -10px;
+		font-family: mainFont;		
+		color:white;
+		text-align:right;
+	}
+
+	#whatDoWeDoButtonsWrapper {
+
+		display: none;
+		position: absolute;
+		top: 104px;
 		width: 384px;
 		height: 128px;
 		margin-right: auto;
 		margin-left:auto;
 		left: 0;
 		right: 0;
-		background-image: url("panel_brown.png");
+		background-image: url("panel_grey_wide.png");
+		text-align:center;
+		z-index:0;
 	}
+
+	.topButton{
+
+		display:inline-block;
+		position: relative;
+		margin-left:  10px;
+		margin-right:  10px;
+		margin-top: 8px;
+		width: 96px;
+		height: 96px;
+		background-image: url("button_brown96.png");	
+	}
+
+	.whatDoWeDoButtonsText{
+
+		display:inline-block;
+		position: relative;
+		margin-left:  4px;
+		margin-right:  4px;
+		top: -2px;
+		width: 110px;
+		height: 10px;		
+		font-size: 14px;
+		font-family: mainFont;
+		text-align:center;
+		color:#b9bdc9;
+	}
+
+	.topButton:hover{
+		
+		top:4px;
+		background-image: url("button_brown_pressed96.png");		
+	}
+
+	
 
 	div.buildButtonWrapper {
 		position: absolute;
-		bottom: 10px;
+		bottom: -20px;
 		width: 384px;
 		height: 128px;
 		margin-right: auto;
@@ -70,6 +178,7 @@ body {
 
 	.bottomButton:hover{
 		
+		top:4px;
 		background-image: url("bottom_button_grey_pressed.png");
 		
 	}
