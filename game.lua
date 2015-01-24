@@ -11,7 +11,6 @@ Game = Game or {}
 
 gengine.stateMachine(Game)
 
-
 function Game:init()
     Factory:init()
 

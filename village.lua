@@ -34,12 +34,20 @@ end
 
 function Village:addConstructingBuilding(e)
     table.insert(self.constructingBuildings, e)
+    table.insert(self.buildings, e)
 end
 
 function Village:removeConstructingBuilding(e)
     for k, v in ipairs(self.constructingBuildings) do
         if v == e then
             table.remove(self.constructingBuildings, k)
+            break
+        end
+    end
+
+    for k, v in ipairs(self.buildings) do
+        if v == e then
+            table.remove(self.buildings, k)
             break
         end
     end
@@ -54,6 +62,10 @@ function Village:addBuilding(e)
 
     if e.house then
         Village:addHouse(e)
+    end
+
+    if e.tower then
+        Village:addTower(e)
     end
 end
 
@@ -71,6 +83,10 @@ function Village:removeBuilding(e)
 
     if e.house then
         Village:removeHouse(e)
+    end
+
+    if e.tower then
+        Village:removeTower(e)
     end
 end
 
@@ -100,10 +116,14 @@ function Village:removeHouse(e)
     end
 end
 
-function Village:removeHouse(e)
-    for k, v in ipairs(self.houses) do
+function Village:addTower(e)
+    table.insert(self.towers, e)
+end
+
+function Village:removeTower(e)
+    for k, v in ipairs(self.towers) do
         if v == e then
-            table.remove(self.houses, k)
+            table.remove(self.towers, k)
             break
         end
     end

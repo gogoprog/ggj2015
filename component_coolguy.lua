@@ -135,7 +135,7 @@ end
 function ComponentCoolGuy.onStateUpdate:interacting(dt)
     local delta = Util:getDeltaAngle(self.targetSite.worldItem.position, self.entity.worldItem.position)
 
-    if mabs(delta) < self.targetSite.building.params.aeraSize then
+    if mabs(delta) < self.targetSite.building.params.areaSize then
 
     else
         self:changeState("random")
