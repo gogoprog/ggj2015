@@ -1,3 +1,5 @@
+require 'component_coolguy'
+
 Factory = Factory or {}
 
 function Factory:init()
@@ -24,7 +26,7 @@ function Factory:createMan()
             extent = vector2(32, 32),
             layer = 1
         },
-        "spaceShipAnimation"
+        "sprite"
         )
 
     e:addComponent(
@@ -32,6 +34,13 @@ function Factory:createMan()
         {
         },
         "worldItem"
+        )
+
+    e:addComponent(
+        ComponentCoolGuy(),
+        {
+        },
+        "guy"
         )
 
     return e

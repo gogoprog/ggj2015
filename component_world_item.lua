@@ -47,7 +47,12 @@ function ComponentWorldItem:moveTo(target)
     self.startPosition = self.position
     self.targetPosition = target
 
-    self.direction = 1
+    if target > self.position then
+        self.direction = 1
+    else
+        self.direction = -1
+    end
+
     self:changeState("moving")
 end
 

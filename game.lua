@@ -72,11 +72,10 @@ function Game:update(dt)
         self:changeState("showWDWDNMenu")
     end
 
-    if gengine.input.keyboard:isDown(44) then
+    if gengine.input.keyboard:isJustDown(44) then
         local e = Factory:createMan()
         e:insert()
         e.worldItem:setPosition(math.random() * math.pi)
-        e.worldItem:moveTo(math.random() * math.pi * 2)
     end
 end
 
