@@ -44,7 +44,6 @@ function ComponentWorldItem:computePosition()
 end
 
 function ComponentWorldItem:moveTo(target)
-    self.startPosition = self.position
     self.targetPosition = target
 
     if target > self.position then
@@ -54,6 +53,10 @@ function ComponentWorldItem:moveTo(target)
     end
 
     self:changeState("moving")
+end
+
+function ComponentWorldItem:stop()
+    self:changeState("idle")
 end
 
 function ComponentWorldItem.onStateUpdate:idle(dt)

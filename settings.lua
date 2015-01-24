@@ -9,6 +9,7 @@ Settings = Settings or {
     cameraMaxZoom = 3,
     cameraMinZoom = 0.5,
     clickableZone = 2000,
+    hungryFactor = 0.5,
     Buildings = {
         House = {
             Textures = {
