@@ -42,23 +42,21 @@ function ComponentWorld:update(dt)
        entity.rotation = entity.rotation - 0.025
     end
 
+    local x,y = gengine.input.mouse:getPosition()
+    local wx, wy = self.camera.camera:getWorldPosition(x,y)
+    local dist = gengine.math.getDistance(entity.position, vector2(wx, wy))
 
-        local x,y = gengine.input.mouse:getPosition()
-        local wx, wy = self.camera.camera:getWorldPosition(x,y)
-        local dist = gengine.math.getDistance(entity.position, vector2(wx, wy))
+    if math.abs(dist - Settings.worldRadius) < Settings.clickableZone then
+        local dx, dy
 
-        if math.abs(dist - Settings.worldRadius) < Settings.clickableZone then
-            local dx, dy
+        dy = wy - entity.position.y
+        dx = wx - entity.position.x
+        local r = matan2(dy, dx)
 
-            dy = wy - entity.position.y
-            dx = wx - entity.position.x
-            local r = matan2(dy, dx)
+        r = r - entity.rotation
 
-            r = r - entity.rotation
-
-            Game.cursor.worldItem:setPosition(r)
-        end
-    
+        Game.cursor.worldItem:setPosition(r)
+    end
 
     if self.rotateSpeed > 0 then
         self.rotateSpeed = self.rotateSpeed - dt * Settings.cameraSlowDown
@@ -99,6 +97,18 @@ function ComponentWorld:update(dt)
         self.camera.camera.extent = self.cameraExtent * self.zoom
     elseif keyboard:isDown(82) then
         self.zoom = self.zoom - 1 * dt
+        self.camera.camera.extent = self.cameraExtent * self.zoom
+    end
+
+    if self.zoom < Settings.cameraMinZoom then
+        self.zoom = Settings.cameraMinZoom
+        self.zoomSpeed = 0
+        self.camera.camera.extent = self.cameraExtent * self.zoom
+    end
+
+    if self.zoom > Settings.cameraMaxZoom then
+        self.zoom = Settings.cameraMaxZoom
+        self.zoomSpeed = 0
         self.camera.camera.extent = self.cameraExtent * self.zoom
     end
 
