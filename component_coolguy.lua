@@ -63,8 +63,8 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
             else
                 local b, d = Village:getClosestBuilding(wi.position)
 
-                if d < b.building.params.areaSize then
-                    if b.building.state ~= "idle" then
+                if b.building:canInteract() then
+                    if d < b.building.params.areaSize then
                         self.targetSite = b
                         self:changeState("interacting")
                     end
@@ -138,7 +138,7 @@ end
 function ComponentCoolGuy.onStateUpdate:interacting(dt)
     local delta = Util:getDeltaAngle(self.targetSite.worldItem.position, self.entity.worldItem.position)
 
-    if mabs(delta) < self.targetSite.building.params.areaSize then
+    if self.targetSite.building:canInteract() then
 
     else
         self:changeState("random")

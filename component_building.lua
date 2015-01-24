@@ -30,6 +30,10 @@ function ComponentBuilding:productionRate()
     return self.baseProductionRate * self.currentWorkers
 end
 
+function ComponentBuilding:isFullWorkers()
+    return #self.workers >= self.params.maxWorkers
+end
+
 function ComponentBuilding:addWorker(e)
     table.insert(self.workers, e)
 end
@@ -41,6 +45,18 @@ function ComponentBuilding:removeWorker(e)
             break
         end
     end
+end
+
+function ComponentBuilding:canInteract()
+    if self:isFullWorkers() then
+        return false
+    end
+
+    if self.state ~= "idle" then
+        return true
+    end
+
+    return false
 end
 
 function ComponentBuilding.onStateEnter:placing()
@@ -64,7 +80,7 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     self.currentTime = self.currentTime + dt
 
     self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate * #self.workers)
-    -- self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
+    self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
 
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.justBegun = false

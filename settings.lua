@@ -60,6 +60,7 @@ Settings = Settings or {
                 complete = "home"
             },
             areaSize = 0.075,
+            maxWorkers = 0,
             hp = 100
         }
     },
