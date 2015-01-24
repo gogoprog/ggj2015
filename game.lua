@@ -81,20 +81,6 @@ function Game:update(dt)
 
     if gengine.input.keyboard:isJustDown(44) then
 
-
-        local e = Factory:createEnemy()
-        e:insert()
-        e.worldItem:setPosition(math.random() * -math.pi)
-
-        local house = Factory:createHouse()
-        house:insert()
-        house.worldItem:setPosition(math.random() * math.pi)
-
-        local farm = Factory:createFarm()
-        farm:insert()
-        farm.worldItem:setPosition(math.random() * math.pi)
-
-        Village:addFarm(farm)
     end
 
     self:updateState(dt)
