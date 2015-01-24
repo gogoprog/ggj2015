@@ -48,6 +48,7 @@ function Game:init()
     self.buildingToPlace = nil
 
     Hud:init()
+    UserAction:init()
     self:changeState("gameplay")
 end
 

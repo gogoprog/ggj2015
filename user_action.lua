@@ -4,6 +4,7 @@ gengine.stateMachine(UserAction)
 
 function UserAction:init()
     self.currentEntity = nil
+    self:changeState("idle")
 end
 
 function UserAction:update(dt)
@@ -34,7 +35,9 @@ function UserAction:onClick(r)
 end
 
 function UserAction:placeBuilding(e)
-    self.currentEntity = e
-    self.currentEntity:insert()
-    self:changeState("placingBuilding")
+    if self.state == "idle" then
+        self.currentEntity = e
+        self.currentEntity:insert()
+        self:changeState("placingBuilding")
+    end
 end
