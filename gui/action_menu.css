@@ -1,0 +1,75 @@
+body {
+		height: 100%;
+	}
+
+	div.ressourcesWrapper { 
+		font-size: 30px;
+		font-family: arial;
+		width: 85px;
+	}
+
+	div#FoodCounter {
+		background-color: white;
+		width: 85px;
+	}
+
+	div#PopulationCounter {
+		background-color: white;
+		width: 85px;
+	}
+
+	.topButton{
+		display:inline-block;
+		position: relative;
+		margin-left:  8px;
+		margin-top: 32px;
+		width: 64px;
+		height: 64px;		
+		background-image: url("button_brown64.png");	
+	}
+
+	.topButton:active{
+		
+		background-image: url("button_brown_pressed64.png");		
+	}
+
+	div.whatDoWeDoWrapper {
+		position: absolute;
+		top: 10px;
+		width: 384px;
+		height: 128px;
+		margin-right: auto;
+		margin-left:auto;
+		left: 0;
+		right: 0;
+		background-image: url("panel_brown.png");
+	}
+
+	div.buildButtonWrapper {
+		position: absolute;
+		bottom: 10px;
+		width: 384px;
+		height: 128px;
+		margin-right: auto;
+		margin-left:auto;
+		left: 0;
+		right: 0;
+		background-image: url("panel_brown.png");
+	}
+	
+	.bottomButton{
+		display:inline-block;
+		position: relative;
+		margin-left:  8px;
+		margin-top: 32px;
+		width: 64px;
+		height: 64px;		
+		background-image: url("bottom_button_grey.png");
+	
+	}
+
+	.bottomButton:active{
+		
+		background-image: url("bottom_button_grey_pressed.png");
+		
+	}
