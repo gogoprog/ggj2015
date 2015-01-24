@@ -13,7 +13,7 @@ end
 
 function Hud.buildHouse()
     local e = Factory:createHouse()
-    Game:placeBuilding(e)
+    UserAction:placeBuilding(e)
 end
 
 function Hud.buildTower()
