@@ -90,6 +90,10 @@ function Game:onClick(r)
             self.buildingToPlace = nil
         end
     end
+
+    self.area = Factory:createAreaOfOrder()
+    self.area.worldItem.position = r
+
 end 
 
 function Game.onStateEnter:gameplay()
