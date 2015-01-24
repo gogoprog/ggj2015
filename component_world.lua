@@ -82,7 +82,7 @@ function ComponentWorld:update(dt)
         self.camera.camera.extent = self.cameraExtent * self.zoom
     end
 
-    entity.position.y = - Settings.worldRadius + self.zoom * Settings.cameraFactor
+    entity.position.y = - Settings.worldRadius * Settings.cameraOffsetFactor + self.zoom * Settings.cameraFactor
 end
 
 function ComponentWorld:remove()

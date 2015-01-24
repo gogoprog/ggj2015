@@ -1,6 +1,7 @@
 require 'component_coolguy'
 require 'component_building'
 require 'component_house'
+require 'component_enemy'
 
 Factory = Factory or {}
 
@@ -72,6 +73,38 @@ function Factory:createMan()
         {
         },
         "guy"
+        )
+
+    return e
+end
+
+function Factory:createEnemy()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentAnimatedSprite(),
+        {
+            animation = self.manLeft,
+            extent = vector2(32, 32),
+            layer = 2,
+            color = vector4(1, 0.0, 0.0, 1)
+        },
+        "sprite"
+        )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 16
+        },
+        "worldItem"
+        )
+
+    e:addComponent(
+        ComponentEnemy(),
+        {
+        },
+        "enemy"
         )
 
     return e

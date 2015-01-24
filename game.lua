@@ -60,6 +60,10 @@ function Game:update(dt)
         e:insert()
         e.worldItem:setPosition(math.random() * math.pi)
 
+        local e = Factory:createEnemy()
+        e:insert()
+        e.worldItem:setPosition(math.random() * -math.pi)
+
         local house = Factory:createHouse()
         house:insert()
         house.worldItem:setPosition(math.random() * math.pi)

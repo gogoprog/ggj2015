@@ -1,7 +1,10 @@
 ComponentCoolGuy = {}
 
+gengine.stateMachine(ComponentCoolGuy)
+
 function ComponentCoolGuy:init()
     self.hp = 100
+    self:changeState("random")
 end
 
 function ComponentCoolGuy:insert()
@@ -11,6 +14,10 @@ function ComponentCoolGuy:remove()
 end
 
 function ComponentCoolGuy:update(dt)
+    self:updateState(dt)
+end
+
+function ComponentCoolGuy.onStateUpdate:random(dt)
     local entity = self.entity
     local wi = entity.worldItem
     if wi.state == "idle" then
