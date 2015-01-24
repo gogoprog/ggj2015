@@ -498,5 +498,14 @@ function Factory:createHome()
         "home"
     )
 
+    e:addComponent(
+        ComponentLife(),
+        {
+            hp = 100
+        },
+        "life"
+    )
+
+
     return e
 end

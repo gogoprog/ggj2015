@@ -2,6 +2,7 @@ ComponentLife = {}
 
 function ComponentLife:init()
     self.hp = self.hp or 100
+    self.maxHp = self.hp
 end
 
 function ComponentLife:insert()

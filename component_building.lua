@@ -11,6 +11,7 @@ function ComponentBuilding:init()
     self.placingOffset = 80
     self.workers = {}
     self.instantCreation = self.instantCreation or false
+    self.hp = 1
 
     if self.instantCreation then
         self:changeState("idle")
@@ -27,6 +28,10 @@ function ComponentBuilding:remove()
 end
 
 function ComponentBuilding:update(dt)
+    if self.state ~= "placing" then
+        self.gauge.sprite.extent = vector2((self.entity.life.hp / self.entity.life.maxHp) * 70 , 8)
+    end
+
     self:updateState(dt)
 end
 
@@ -83,14 +88,20 @@ function ComponentBuilding.onStateEnter:inConstruction()
     self.entity.sprite.color = vector4(1, 1, 1, 1)
     self.entity.worldItem.offset = self.entity.worldItem.offset - self.placingOffset
 
+    self:addGauge()
+
+end
+
+function ComponentBuilding:addGauge()
     self.gauge = nil
     self.gauge = Factory:createGauge()
     self.gauge:insert()
     self.gauge.worldItem.position = self.entity.worldItem.position
-    self.gauge.worldItem.offset = 85
+    self.gauge.worldItem.offset = 128
     self.gauge.sprite.extent = vector2(70, 8)
     self.gauge.sprite_back.extent = vector2(70, 8)
 
+    self.entity.life.hp = 1
 end
 
 function ComponentBuilding.onStateUpdate:inConstruction(dt)
@@ -98,8 +109,7 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
 
     self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate * #self.workers * 0.1)
     self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
-
-    self.gauge.sprite.extent = vector2(self.constructionProgression * 70 , 8)
+    self.entity.life.hp = self.entity.life.maxHp * self.constructionProgression 
 
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)

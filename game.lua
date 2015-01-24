@@ -57,14 +57,16 @@ end
 function Game:start()
     self.enemies = {}
     Village:reset()
-    local e
-    e = Factory:createEnemyFort()
+    local e = Factory:createEnemyFort()
     e.worldItem:setPosition(-math.pi * 0.5)
     e:insert()
 
     e = Factory:createHome()
     e.worldItem:setPosition(math.pi * 0.5)
+    e.building:addGauge()
+    e.life.hp = e.life.maxHp
     e:insert()
+
 
     for i = 0, 3, 1 do
         e = Factory:createMan()
@@ -74,19 +76,22 @@ function Game:start()
 
     local t = Factory:createTower(true)
     t.worldItem.position = 1.10
+    t.building:addGauge()
+    t.life.hp = e.life.maxHp
     t:insert()
-    t.building:changeState("idle")
+    
 
     t = Factory:createTower(true)
     t.worldItem.position = 2.0
+    t.building:addGauge()
+    t.life.hp = e.life.maxHp
     t:insert()
-    t.building:changeState("idle")
+
 
 end
 
 function Game:getClosestEnemy(pos)
-    local best = 10
-    local r
+    local best = 10, r
     for k, v in ipairs(self.enemies) do
         local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
