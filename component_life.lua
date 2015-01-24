@@ -15,7 +15,7 @@ end
 
 function ComponentLife:hit(dmg)
     self.hp = self.hp - dmg
-    self.entity:onHit()
+    self.entity:onHit(dmg)
     if self.hp < 0 then
         self.entity:onDead()
     end

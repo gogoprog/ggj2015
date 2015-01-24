@@ -136,3 +136,7 @@ end
 function ComponentBuilding.onStateExit:producing()
 
 end
+
+function ComponentBuilding:onHit()
+
+end

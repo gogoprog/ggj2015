@@ -315,6 +315,21 @@ function Factory:createHouse()
         "building"
     )
 
+    e:addComponent(
+        ComponentHouse(),
+        {
+        },
+        "house"
+    )
+
+    e:addComponent(
+        ComponentLife(),
+        {
+            hp = Settings.Buildings.House.hp
+        },
+        "life"
+        )
+
     return e
 end
 
@@ -352,6 +367,14 @@ function Factory:createTower()
 
         },
         "tower"
+    )
+
+    e:addComponent(
+        ComponentLife(),
+        {
+            hp = Settings.Buildings.Tower.hp
+        },
+        "life"
     )
 
     return e
@@ -393,6 +416,13 @@ function Factory:createFarm()
         "farm"
     )
 
+    e:addComponent(
+        ComponentLife(),
+        {
+            hp = Settings.Buildings.Farm.hp
+        },
+        "life"
+    )
 
     return e
 end

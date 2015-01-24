@@ -28,6 +28,17 @@ function ComponentEnemy:update(dt)
     self:updateState(dt)
 end
 
+function ComponentEnemy:checkForBuildings()
+    local wi = self.entity.worldItem
+    local b, d = Village:getClosestBuilding(wi.position)
+
+    if b then
+        if d < (Settings.attackDistance + b.building.params.areaSize) then
+            return b
+        end
+    end
+end
+
 function ComponentEnemy:checkForGuys()
     local wi = self.entity.worldItem
     local g, d = Village:getClosestGuy(wi.position)
@@ -44,11 +55,16 @@ function ComponentEnemy.onStateUpdate:random(dt)
     local wi = entity.worldItem
     if wi.state == "idle" then
         wi:moveTo(math.random() * math.pi * 2)
-        entity.sprite.extent = vector2(64 * wi.direction, 64)
+        entity.sprite.extent = vector2(128 * wi.direction, 128)
     end
 
     local g = self:checkForGuys()
     if g then
+        self:changeState("fighting")
+    end
+
+    local b = self:checkForBuildings()
+    if b then
         self:changeState("fighting")
     end
 end
@@ -63,10 +79,16 @@ function ComponentEnemy.onStateUpdate:fighting(dt)
     self.timeLeft = self.timeLeft - dt
     if self.timeLeft < 0 then
         local g = self:checkForGuys()
-        if g then
+        local b = self:checkForBuildings()
+        if g or b then
             local damage = Settings.Enemy.damage
             local final_damage = damage[1] + (damage[2] - damage[1]) * math.random()
-            g.life:hit(final_damage)
+            if g then
+                g.life:hit(final_damage)
+            elseif b then
+                b.life:hit(final_damage)
+            end
+            
             self.timeLeft = Settings.Enemy.attackInterval
         else
             self:changeState("random")
