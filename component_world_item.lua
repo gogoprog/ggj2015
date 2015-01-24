@@ -12,6 +12,7 @@ function ComponentWorldItem:init()
     self.world = Game.world
     self.position = 0
     self.speed = 10
+    self.offset = 0
     self:changeState("idle")
 end
 
@@ -35,8 +36,8 @@ function ComponentWorldItem:computePosition()
     local x, y
     local cpos = self.position + self.world.rotation
 
-    x = mcos(cpos) * Settings.worldRadius
-    y = msin(cpos) * Settings.worldRadius
+    x = mcos(cpos) * (Settings.worldRadius+self.offset)
+    y = msin(cpos) * (Settings.worldRadius+self.offset)
 
     self.entity.position = self.world.position + vector2(x, y)
     self.entity.rotation = cpos - mpi * 0.5

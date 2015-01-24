@@ -2,12 +2,15 @@ require 'settings'
 require 'component_world'
 require 'component_world_item'
 require 'hud'
+require 'factory'
 
 Game = Game or {}
 
 gengine.stateMachine(Game)
 
 function Game:init()
+    Factory:init()
+
     self.camera = gengine.entity.create()
     self.camera:addComponent(
         ComponentCamera(),
@@ -67,6 +70,13 @@ end
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
         self:changeState("showWDWDNMenu")
+    end
+
+    if gengine.input.keyboard:isDown(44) then
+        local e = Factory:createMan()
+        e:insert()
+        e.worldItem:setPosition(math.random() * math.pi)
+        e.worldItem:moveTo(math.random() * math.pi * 2)
     end
 end
 
