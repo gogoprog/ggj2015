@@ -29,6 +29,10 @@ function Village:removeGuy(e)
     end
 end
 
+function Village:getGuysCount()
+    return #self.guys
+end
+
 function Village.onStateEnter:build()
     for k, v in ipairs(self.guys) do
         v.sprite.animation = gengine.graphics.animation.get("builderLeft")
