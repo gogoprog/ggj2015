@@ -9,6 +9,7 @@ function ComponentWorld:init()
     self.zoom = 1
     self.rotateSpeed = 0
     self.zoomSpeed = 0
+    self.currentRadiant = 0
 end
 
 function ComponentWorld:insert()

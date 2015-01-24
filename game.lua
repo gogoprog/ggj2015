@@ -42,6 +42,7 @@ function Game:init()
     self.world:insert()
 
     self.cursor.worldItem.position = 1.5
+    self.buildingToPlace = nil
 
     Hud:init()
 end
@@ -68,6 +69,8 @@ function Game:update(dt)
         house:insert()
         house.worldItem:setPosition(math.random() * math.pi)
     end
+
+    self:updateState(dt)
 end
 
 function Game:onClick(r)
@@ -108,4 +111,15 @@ end
 
 function Game.onStateExit:pending()
 
+end
+
+function Game.onStateEnter:placeBuilding()
+end
+
+function Game.onStateUpdate:placeBuilding(dt)
+end
+
+function Game:placeBuilding(e)
+    self.buildingToPlace = e
+    self:changeState("placeBuilding")
 end

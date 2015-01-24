@@ -42,8 +42,6 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     if self.constructionProgression >= 1 then
         self:changeState("idle")
     end
-
-    print(self.constructionProgression)
 end
 
 function ComponentBuilding.onStateExit:inConstruction()

@@ -12,7 +12,8 @@ function Hud.buildFood()
 end
 
 function Hud.buildHouse()
-    print("house")
+    local e = Factory:createHouse()
+    Game:placeBuilding(e)
 end
 
 function Hud.buildTower()
