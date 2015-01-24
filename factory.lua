@@ -5,6 +5,7 @@ require 'component_enemy'
 require 'component_farm'
 require 'component_area_of_order'
 require 'component_enemy_fort'
+require 'component_home'
 
 Factory = Factory or {}
 
@@ -276,6 +277,37 @@ function Factory:createEnemyFort()
 
     e:addComponent(
         ComponentEnemyFort(),
+        {
+        },
+        "enemyFort"
+    )
+
+    return e
+end
+
+function Factory:createHome()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("town_hall"),
+            extent = vector2(128, 128),
+            layer = 1
+        },
+        "sprite"
+    )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 64
+        },
+        "worldItem"
+    )
+
+    e:addComponent(
+        ComponentHome(),
         {
         },
         "enemyFort"

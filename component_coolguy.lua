@@ -44,17 +44,44 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
 end
 
 function ComponentCoolGuy.onStateEnter:seekingFood()
+    local entity = self.entity
+    local wi = entity.worldItem
     local farm = Village:getClosestFarm(self.entity.worldItem.position)
 
     if farm then
         self.entity.worldItem:moveTo(farm.worldItem.position)
+        self.targetForFood = farm
+    else
+        self.entity.worldItem:moveTo(Village.home.worldItem.position)
+        self.targetForFood = Village.home
     end
+
+    entity.sprite.extent = vector2(64 * wi.direction, 64)
 end
 
 function ComponentCoolGuy.onStateUpdate:seekingFood(dt)
-
+    if self.entity.worldItem.state == "idle" then
+        self:changeState("eating")
+    end
 end
 
 function ComponentCoolGuy.onStateExit:seekingFood()
+
+end
+
+function ComponentCoolGuy.onStateEnter:eating()
+    self.timeLeft = 1
+end
+
+function ComponentCoolGuy.onStateUpdate:eating(dt)
+    self.timeLeft = self.timeLeft - dt
+
+    if self.timeLeft < 0 then
+        self.repletion = 1
+        self:changeState("random")
+    end
+end
+
+function ComponentCoolGuy.onStateExit:eating()
 
 end

@@ -8,9 +8,16 @@ function ComponentEnemy:init()
 end
 
 function ComponentEnemy:insert()
+    table.insert(Game.enemies, e)
 end
 
 function ComponentEnemy:remove()
+    for k, v in ipairs(Game.enemies) do
+        if v == self.entity then
+            table.remove(Game.enemies, k)
+            break
+        end
+    end
 end
 
 function ComponentEnemy:update(dt)

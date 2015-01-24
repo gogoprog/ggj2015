@@ -58,6 +58,10 @@ function Game:start()
     local e = Factory:createEnemyFort()
     e.worldItem:setPosition(-math.pi * 0.5)
     e:insert()
+
+    e = Factory:createHome()
+    e.worldItem:setPosition(math.pi * 0.5)
+    e:insert()
 end
 
 function Game:update(dt)
@@ -66,9 +70,7 @@ function Game:update(dt)
     end
 
     if gengine.input.keyboard:isJustDown(44) then
-        local e = Factory:createMan()
-        e:insert()
-        e.worldItem:setPosition(math.random() * math.pi)
+
 
         local e = Factory:createEnemy()
         e:insert()

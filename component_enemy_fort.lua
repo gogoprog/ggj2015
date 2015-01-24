@@ -5,16 +5,10 @@ function ComponentEnemyFort:init()
 end
 
 function ComponentEnemyFort:insert()
-    table.insert(Game.enemies, e)
 end
 
 function ComponentEnemyFort:remove()
-    for k, v in ipairs(Game.enemies) do
-        if v == self.entity then
-            table.remove(Game.enemies, k)
-            break
-        end
-    end
+
 end
 
 function ComponentEnemyFort:update(dt)
