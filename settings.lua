@@ -18,7 +18,7 @@ Settings = Settings or {
                 halfConstruction = "house",
                 complete = "house"
             },
-            constructionRate = 0.8,
+            constructionRate = 0.2,
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
@@ -31,7 +31,7 @@ Settings = Settings or {
                 halfConstruction = "farm",
                 complete = "farm"
             },
-            constructionRate = 0.8,
+            constructionRate = 0.2,
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
@@ -44,7 +44,7 @@ Settings = Settings or {
                 halfConstruction = "tower",
                 complete = "tower"
             },
-            constructionRate = 0.1,
+            constructionRate = 0.2,
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,

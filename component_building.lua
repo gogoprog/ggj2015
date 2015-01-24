@@ -73,6 +73,7 @@ end
 
 function ComponentBuilding.onStateEnter:idle()
     Village:addBuilding(self.entity)
+    self.entity.built = true;
 end
 
 function ComponentBuilding.onStateUpdate:idle()

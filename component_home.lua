@@ -20,6 +20,6 @@ function ComponentHome:update(dt)
         local e = Factory:createMan()
         e.worldItem:setPosition(self.entity.worldItem.position)
         e:insert()
-        self.timeLeft = 5
+        self.timeLeft = 30
     end
 end
