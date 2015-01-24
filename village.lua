@@ -7,12 +7,32 @@ function Village:reset()
     self.farms = {}
     self.towers = {}
     self.houses = {}
+    self.guys = {}
     self.home = nil
     self:changeState("build")
 end
 
-function Village.onStateEnter:build()
+function Village:addGuy(e)
+    table.insert(self.guys, e)
 
+    if self.state == "build" then
+        e.sprite.animation = gengine.graphics.animation.get("builderLeft")
+    end
+end
+
+function Village:removeGuy(e)
+    for k, v in ipairs(self.guys) do
+        if v == e then
+            table.remove(self.guys, k)
+            break
+        end
+    end
+end
+
+function Village.onStateEnter:build()
+    for k, v in ipairs(self.guys) do
+        v.sprite.animation = gengine.graphics.animation.get("builderLeft")
+    end
 end
 
 function Village.onStateUpdate:build(dt)

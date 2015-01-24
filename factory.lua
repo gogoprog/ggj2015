@@ -8,10 +8,24 @@ Factory = Factory or {}
 local Settings = Settings
 
 function Factory:init()
-    local texture = gengine.graphics.texture.get("normal_left")
-    local atlas = gengine.graphics.atlas.create("normal_left", texture, 4, 1)
-    self.manLeft = gengine.graphics.animation.create(
+    local texture, atlas
+
+    texture = gengine.graphics.texture.get("normal_left")
+    atlas = gengine.graphics.atlas.create("normal_left", texture, 4, 1)
+    gengine.graphics.animation.create(
         "normalLeft",
+        {
+            atlas = atlas,
+            frames = { 0, 1, 2, 3 },
+            framerate = 6,
+            loop = true
+        }
+        )
+
+    texture = gengine.graphics.texture.get("builder_left")
+    atlas = gengine.graphics.atlas.create("builder_left", texture, 4, 1)
+    gengine.graphics.animation.create(
+        "builderLeft",
         {
             atlas = atlas,
             frames = { 0, 1, 2, 3 },
@@ -53,8 +67,8 @@ function Factory:createMan()
     e:addComponent(
         ComponentAnimatedSprite(),
         {
-            animation = self.manLeft,
-            extent = vector2(32, 32),
+            animation = gengine.graphics.animation.get("normalLeft"),
+            extent = vector2(64, 64),
             layer = 2
         },
         "sprite"
@@ -63,7 +77,7 @@ function Factory:createMan()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 16
+            offset = 32
         },
         "worldItem"
         )
