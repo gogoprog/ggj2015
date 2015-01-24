@@ -28,8 +28,9 @@ function UserAction:onClick(r)
         self.currentEntity = nil
         self:changeState("idle")
     else
-        self.area = Factory:createAreaOfOrder()
-        self.area.worldItem.position = r
+        area = nil
+        area = Factory:areaClicked()
+        area.worldItem.position = r
     end
 
 end

@@ -3,6 +3,7 @@ require 'component_building'
 require 'component_house'
 require 'component_enemy'
 require 'component_farm'
+require 'component_area_of_order'
 
 Factory = Factory or {}
 
@@ -62,7 +63,8 @@ function Factory:createCursor()
     return e
 end
 
-function Factory:createAreaOfOrder()
+function Factory:areaClicked()
+
     local e = gengine.entity.create()
     e:addComponent(
         ComponentSprite(),
@@ -83,9 +85,18 @@ function Factory:createAreaOfOrder()
         "worldItem"
         )
 
+    e:addComponent(
+        ComponentAreaOfOrder(),
+        {
+
+        },
+        "areaOfOrder"
+        )
+
     e:insert()
 
     return e
+
 end
 
 function Factory:createMan()
