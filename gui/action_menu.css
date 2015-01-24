@@ -28,7 +28,7 @@ body {
 		background-image: url("button_brown64.png");	
 	}
 
-	.topButton:active{
+	.topButton:hover{
 		
 		background-image: url("button_brown_pressed64.png");		
 	}
@@ -68,7 +68,7 @@ body {
 	
 	}
 
-	.bottomButton:active{
+	.bottomButton:hover{
 		
 		background-image: url("bottom_button_grey_pressed.png");
 		
