@@ -2,6 +2,7 @@ require 'component_coolguy'
 require 'component_building'
 require 'component_house'
 require 'component_enemy'
+require 'component_farm'
 
 Factory = Factory or {}
 

@@ -29,6 +29,19 @@ function Village:removeGuy(e)
     end
 end
 
+function Village:addFarm(e)
+    table.insert(self.farms, e)
+end
+
+function Village:removeFarm(e)
+    for k, v in ipairs(self.farms) do
+        if v == e then
+            table.remove(self.farms, k)
+            break
+        end
+    end
+end
+
 function Village:getGuysCount()
     return #self.guys
 end

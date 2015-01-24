@@ -23,6 +23,19 @@ Settings = Settings or {
             baseProductionRate = 1.2,
             areaSize = 3,
             hp = 100
+        },
+        Farm = {
+            Textures = {
+                beginConstruction = "farm",
+                halfConstruction = "farm",
+                complete = "farm"
+            },
+            constructionRate = 0.8,
+            maxWorkers = 10,
+            currentWorkers = 0,
+            baseProductionRate = 1.2,
+            areaSize = 0.1,
+            hp = 100
         }
     }
 }

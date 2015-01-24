@@ -70,6 +70,12 @@ function Game:update(dt)
         local house = Factory:createHouse()
         house:insert()
         house.worldItem:setPosition(math.random() * math.pi)
+
+        local farm = Factory:createFarm()
+        farm:insert()
+        farm.worldItem:setPosition(math.random() * math.pi)
+
+        Village:addFarm(farm)
     end
 
     self:updateState(dt)
