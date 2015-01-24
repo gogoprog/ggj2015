@@ -61,7 +61,6 @@ function ComponentWorld:update(dt)
         if mouse:isJustDown(1) then
             Game:onClick(r)
         end
-
     end
 
     if self.rotateSpeed > 0 then

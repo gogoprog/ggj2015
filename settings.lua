@@ -14,7 +14,7 @@ Settings = Settings or {
         House = {
             Textures = {
                 beginConstruction = "house",
-                halfConstruction = "",
+                halfConstruction = "house",
                 complete = "house"
             },
             constructionRate = 0.8,

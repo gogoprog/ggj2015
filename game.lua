@@ -46,6 +46,7 @@ function Game:init()
     self.buildingToPlace = nil
 
     Hud:init()
+    self:changeState("gameplay")
 end
 
 function Game:start()
@@ -75,15 +76,23 @@ function Game:update(dt)
 end
 
 function Game:onClick(r)
-    
+    if self.state == "gameplay" then
+        if (self.buildingToPlace or '') ~= '' then
+            self.buildingToPlace.worldItem:setPosition(r)
+            self.buildingToPlace:insert()
+            self.buildingToPlace = nil
+        end
+    end
 end 
 
 function Game.onStateEnter:gameplay()
 
 end
 
-function Game.onStateUpdate:gameplay()
-
+function Game.onStateUpdate:gameplay(dt)
+    if (self.buildingToPlace or '') ~= '' then
+        
+    end
 end
 
 function Game.onStateExit:gameplay()
@@ -114,13 +123,6 @@ function Game.onStateExit:pending()
 
 end
 
-function Game.onStateEnter:placeBuilding()
-end
-
-function Game.onStateUpdate:placeBuilding(dt)
-end
-
 function Game:placeBuilding(e)
     self.buildingToPlace = e
-    self:changeState("placeBuilding")
 end
