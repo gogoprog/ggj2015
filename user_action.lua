@@ -27,7 +27,7 @@ function UserAction:onClick(r)
         local b = Village:getClosestBuilding(r)
         if b then
             if math.abs(b.worldItem.position - self.currentEntity.worldItem.position)
-                    > (self.currentEntity.building.params.areaSize) then
+                    > (self.currentEntity.building.params.areaSize + b.building.params.areaSize) then
                 self.currentEntity.building:changeState("inConstruction")
                 self:changeState("idle")
             end

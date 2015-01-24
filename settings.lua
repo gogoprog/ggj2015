@@ -21,7 +21,7 @@ Settings = Settings or {
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
-            areaSize = 0.12,
+            areaSize = 0.06,
             hp = 100
         },
         Farm = {
@@ -34,7 +34,7 @@ Settings = Settings or {
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
-            areaSize = 0.1,
+            areaSize = 0.06,
             hp = 100
         },
         Tower = {
@@ -60,7 +60,7 @@ Settings = Settings or {
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
-            areaSize = 0.1,
+            areaSize = 0.075,
             hp = 100
         }
     }
