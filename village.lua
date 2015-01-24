@@ -12,7 +12,7 @@ function Village:reset()
     self.home = nil
     self.food = 0
     self.population = 0
-    self.populationMax = 0
+    self.populationMax = 6
     self:changeState("build")
 end
 
@@ -31,6 +31,7 @@ function Village:removeGuy(e)
             break
         end
     end
+    print("???")
 end
 
 function Village:upFood()
@@ -38,8 +39,21 @@ function Village:upFood()
     gengine.gui.executeScript("updateFood('" .. self.food .. "');")
 end
 
+function Village:upPop()
+    print("UP POP")
+    self.population = self.population + 1
+    gengine.gui.executeScript("updatePop('" .. self.population .. "');")
+end
+
+function Village:downPop()
+    print("DOWN POP")
+    self.population = self.population - 1
+    gengine.gui.executeScript("updatePop('" .. self.population .. "');")
+end
+
 function Village:upMaxPop()
-    self.populationMax = self.populationMax + 1
+    print("UP POP MAX")
+    self.populationMax = self.populationMax + 5
     gengine.gui.executeScript("updateMaxPop('" .. self.populationMax .. "');")
 end
 

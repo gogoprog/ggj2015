@@ -8,6 +8,7 @@ gengine.stateMachine(ComponentCoolGuy)
 function ComponentCoolGuy:init()
     self.repletion = 1
     self:changeState("random")
+    Village:upPop()
 end
 
 function ComponentCoolGuy:insert()
@@ -36,6 +37,8 @@ function ComponentCoolGuy:onHit()
 end
 
 function ComponentCoolGuy:onDead()
+    print("GUY DEAD")
+    Village:downPop()
     self.entity:remove()
     gengine.entity.destroy(self.entity)
 end

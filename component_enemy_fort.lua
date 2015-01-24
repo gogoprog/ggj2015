@@ -15,9 +15,9 @@ function ComponentEnemyFort:update(dt)
     self.timeLeft = self.timeLeft - dt
 
     if self.timeLeft < 0 then
-        local e = Factory:createEnemy()
-        e.worldItem:setPosition(self.entity.worldItem.position)
-        e:insert()
+        --local e = Factory:createEnemy()
+        --e.worldItem:setPosition(self.entity.worldItem.position)
+        --e:insert()
         self.timeLeft = 2
     end
 end

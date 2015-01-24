@@ -27,9 +27,5 @@ function Hud.buildTower()
 end
 
 function onPageLoaded()
-	pop = 4
-	max_pop = 5
-    
-    gengine.gui.executeScript("updatePop('" .. pop .. "');")
     
 end
