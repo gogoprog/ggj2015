@@ -18,7 +18,7 @@ function ComponentFarm:update(dt)
 	self.prodTime = self.prodTime - dt
 	if self.prodTime <= 0 then
 		if self.entity.built and self.peasants > 0 then
-			print("produce food")
+			Village:upFood()
 		end
 
 		self.prodTime = 5
