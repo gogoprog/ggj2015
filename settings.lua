@@ -4,6 +4,7 @@ Settings = Settings or {
     cameraFactor = -100,
     cameraOffsetFactor = 1,
     cameraSlowDown = 10,
+    cameraZoomSlowDown = 10,
     cameraRotateFactor = 0.5,
     clickableZone = 2000,
     Buildings = {

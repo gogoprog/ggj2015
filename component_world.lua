@@ -8,6 +8,7 @@ function ComponentWorld:init()
     self.cameraExtent = vector2(1024 * 2, 600 * 2)
     self.zoom = 1
     self.rotateSpeed = 0
+    self.zoomSpeed = 0
 end
 
 function ComponentWorld:insert()
@@ -72,6 +73,25 @@ function ComponentWorld:update(dt)
         end
 
         entity.rotation = entity.rotation + self.rotateSpeed * dt
+    end
+
+    local wheel = mouse:getWheelY()
+    self.zoomSpeed = self.zoomSpeed + wheel
+
+    if self.zoomSpeed > 0 then
+        self.zoomSpeed = self.zoomSpeed - dt * Settings.cameraZoomSlowDown
+        if self.zoomSpeed < 0 then
+            self.zoomSpeed = 0
+        end
+        self.zoom = self.zoom - self.zoomSpeed * dt
+        self.camera.camera.extent = self.cameraExtent * self.zoom
+    elseif self.zoomSpeed < 0 then
+        self.zoomSpeed = self.zoomSpeed + dt * Settings.cameraZoomSlowDown
+        if self.zoomSpeed > 0 then
+            self.zoomSpeed = 0
+        end
+        self.zoom = self.zoom - self.zoomSpeed * dt
+        self.camera.camera.extent = self.cameraExtent * self.zoom
     end
 
     if keyboard:isDown(81) then
