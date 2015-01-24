@@ -83,3 +83,15 @@ end
 function ComponentCoolGuy.onStateExit:eating()
     self.repletion = 1
 end
+
+function ComponentCoolGuy.onStateEnter:fighting()
+    self.timeLeft = 1
+end
+
+function ComponentCoolGuy.onStateUpdate:fighting(dt)
+
+end
+
+function ComponentCoolGuy.onStateExit:fighting()
+
+end

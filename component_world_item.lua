@@ -44,6 +44,9 @@ function ComponentWorldItem:computePosition()
 end
 
 function ComponentWorldItem:moveTo(target)
+    local pos =  self.position
+    local delta = Util:getDeltaAngle(pos, target)
+    target = pos + delta
     self.targetPosition = target
 
     if target > self.position then
