@@ -4,5 +4,5 @@ Settings = Settings or {
     cameraFactor = -100,
     cameraSlowDown = 10,
     cameraRotateFactor = 0.5,
-    clickableZone = 100
+    clickableZone = 2000
 }

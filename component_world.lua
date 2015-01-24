@@ -34,7 +34,14 @@ function ComponentWorld:update(dt)
         self.rotateSpeed = (x - self.lastX) * - 1.0 * Settings.cameraRotateFactor
     end
 
-    if mouse:isJustDown(1) then
+    if gengine.input.keyboard:isDown(79) then
+       entity.rotation = entity.rotation + 0.025
+    end
+    if gengine.input.keyboard:isDown(80) then
+       entity.rotation = entity.rotation - 0.025
+    end
+
+
         local x,y = gengine.input.mouse:getPosition()
         local wx, wy = self.camera.camera:getWorldPosition(x,y)
         local dist = gengine.math.getDistance(entity.position, vector2(wx, wy))
@@ -50,7 +57,7 @@ function ComponentWorld:update(dt)
 
             Game.cursor.worldItem:setPosition(r)
         end
-    end
+    
 
     if self.rotateSpeed > 0 then
         self.rotateSpeed = self.rotateSpeed - dt * Settings.cameraSlowDown
