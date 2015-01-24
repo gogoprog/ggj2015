@@ -65,12 +65,6 @@ function Game:start()
     e.worldItem:setPosition(math.pi * 0.5)
     e:insert()
 
-    -- for i = 0, 5, 1 do
-    --     local e = Factory:createMan()
-    --     e.worldItem:setPosition(math.rad(math.deg(math.pi * 0.5)+i))
-    --     e:insert()
-    -- end
-
 end
 
 function Game:update(dt)

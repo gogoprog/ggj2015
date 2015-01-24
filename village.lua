@@ -39,20 +39,22 @@ function Village:upFood()
     gengine.gui.executeScript("updateFood('" .. self.food .. "');")
 end
 
+function Village:downFood()
+    self.food = self.food - 1
+    gengine.gui.executeScript("updateFood('" .. self.food .. "');")
+end
+
 function Village:upPop()
-    print("UP POP")
     self.population = self.population + 1
     gengine.gui.executeScript("updatePop('" .. self.population .. "');")
 end
 
 function Village:downPop()
-    print("DOWN POP")
     self.population = self.population - 1
     gengine.gui.executeScript("updatePop('" .. self.population .. "');")
 end
 
 function Village:upMaxPop()
-    print("UP POP MAX")
     self.populationMax = self.populationMax + 5
     gengine.gui.executeScript("updateMaxPop('" .. self.populationMax .. "');")
 end

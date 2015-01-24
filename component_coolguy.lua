@@ -102,12 +102,14 @@ end
 
 function ComponentCoolGuy.onStateEnter:eating()
     self.timeLeft = 1
+
 end
 
 function ComponentCoolGuy.onStateUpdate:eating(dt)
     self.timeLeft = self.timeLeft - dt
 
     if self.timeLeft < 0 then
+        Village:downFood()
         self:changeState("random")
     end
 end
