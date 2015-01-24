@@ -19,6 +19,7 @@ function ComponentWorld:update(dt)
     local mouse = gengine.input.mouse
     local keyboard = gengine.input.keyboard
     local entity = self.entity
+    local zoomFactor = (self.zoom -  Settings.cameraMinZoom) / ( Settings.cameraMaxZoom -  Settings.cameraMinZoom)
 
     if mouse:isJustDown(3) then
         local x,y = gengine.input.mouse:getPosition()
@@ -28,7 +29,7 @@ function ComponentWorld:update(dt)
         local x,y = gengine.input.mouse:getPosition()
         self.lastX = x
 
-        entity.rotation = self.startRotation + (x - self.startX) * -0.005
+        entity.rotation = self.startRotation + (x - self.startX) * -0.01 * ( 0.1 + zoomFactor )
 
     elseif mouse:isJustUp(3) then
         local x,y = gengine.input.mouse:getPosition()
@@ -117,7 +118,9 @@ function ComponentWorld:update(dt)
         self.camera.camera.extent = self.cameraExtent * self.zoom
     end
 
-    entity.position.y = - Settings.worldRadius * Settings.cameraOffsetFactor + self.zoom * Settings.cameraFactor
+    zoomFactor = 1 - zoomFactor
+
+    entity.position.y = - Settings.worldRadius * Settings.cameraOffsetFactor * zoomFactor + self.zoom * Settings.cameraFactor
 end
 
 function ComponentWorld:remove()
