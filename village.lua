@@ -13,15 +13,13 @@ function Village:reset()
     self.food = 0
     self.population = 0
     self.populationMax = 400
-    self:changeState("build")
+    self:changeMode("build")
 end
 
 function Village:addGuy(e)
     table.insert(self.guys, e)
 
-    if self.state == "build" then
-        e.sprite.animation = gengine.graphics.animation.get("builderLeft")
-    end
+    e.sprite.animation = gengine.graphics.animation.get(Settings.Guys[self.state].moveAnimation)
 end
 
 function Village:removeGuy(e)
@@ -216,10 +214,17 @@ function Village:getClosestBuilding(pos, interactable)
     return r, best
 end
 
-function Village.onStateEnter:build()
+function Village:changeMode(which)
+    print("MODE " .. which)
     for k, v in ipairs(self.guys) do
-        v.sprite.animation = gengine.graphics.animation.get("builderLeft")
+        v.sprite.animation = gengine.graphics.animation.get(Settings.Guys[which].moveAnimation)
     end
+
+    self:changeState(which)
+end
+
+function Village.onStateEnter:build()
+
 end
 
 function Village.onStateUpdate:build(dt)

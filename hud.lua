@@ -27,15 +27,15 @@ function Hud.buildTower()
 end
 
 function Hud:modeBuild()
-
+    Village:changeMode("build")
 end
 
 function Hud:modeFight()
-
+    Village:changeMode("fight")
 end
 
 function Hud:modeProduce()
-
+    Village:changeMode("produce")
 end
 
 function onPageLoaded()

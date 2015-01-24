@@ -42,7 +42,7 @@ function UserAction:onClick(r)
             if click_angle >= left_angle and click_angle <= right_angle then
                 v.areaOfOrder:increaseZone()
                 v.areaOfOrder.areaTimer = 3
-                v.areaOfOrder:apply()
+                --v.areaOfOrder:apply()
                 return
             end
         end
@@ -54,7 +54,7 @@ function UserAction:onClick(r)
         area.worldItem.position = r
         table.insert(Game.orderAreaTable, area)
 
-        area.areaOfOrder:apply()
+        --area.areaOfOrder:apply()
     end
 end
 

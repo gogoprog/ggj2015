@@ -73,15 +73,18 @@ Settings = Settings or {
     Guys = {
         build = {
             damage = {1, 5},
-            attackInterval = 0.5
+            attackInterval = 0.5,
+            moveAnimation = "builder_left"
         },
         fight = {
             damage = {5, 10},
-            attackInterval = 0.5
+            attackInterval = 0.5,
+            moveAnimation = "warrior_left"
         },
         produce = {
             damage = {1, 2},
-            attackInterval = 0.5
+            attackInterval = 0.5,
+            moveAnimation = "farmer_left"
         },
         speed = 10
     }

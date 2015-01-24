@@ -15,10 +15,10 @@ local Settings = Settings
 function Factory:init()
     local texture, atlas
 
-    texture = gengine.graphics.texture.get("normal_left")
-    atlas = gengine.graphics.atlas.create("normal_left", texture, 4, 1)
+    texture = gengine.graphics.texture.get("builder_left")
+    atlas = gengine.graphics.atlas.create("builder_left", texture, 4, 1)
     gengine.graphics.animation.create(
-        "normalLeft",
+        "builder_left",
         {
             atlas = atlas,
             frames = { 0, 1, 2, 3 },
@@ -27,10 +27,10 @@ function Factory:init()
         }
         )
 
-    texture = gengine.graphics.texture.get("builder_left")
-    atlas = gengine.graphics.atlas.create("builder_left", texture, 4, 1)
+    texture = gengine.graphics.texture.get("farmer_left")
+    atlas = gengine.graphics.atlas.create("farmer_left", texture, 4, 1)
     gengine.graphics.animation.create(
-        "builderLeft",
+        "farmer_left",
         {
             atlas = atlas,
             frames = { 0, 1, 2, 3 },
@@ -42,7 +42,7 @@ function Factory:init()
     texture = gengine.graphics.texture.get("warrior_left")
     atlas = gengine.graphics.atlas.create("warrior_left", texture, 4, 1)
     gengine.graphics.animation.create(
-        "warriorLeft",
+        "warrior_left",
         {
             atlas = atlas,
             frames = { 0, 1, 2, 3 },
@@ -177,7 +177,6 @@ function Factory:createMan()
     e:addComponent(
         ComponentAnimatedSprite(),
         {
-            animation = gengine.graphics.animation.get("normalLeft"),
             extent = vector2(64, 64),
             layer = 2
         },
@@ -216,7 +215,7 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentAnimatedSprite(),
         {
-            animation = gengine.graphics.animation.get("warriorLeft"),
+            animation = gengine.graphics.animation.get("warrior_left"),
             extent = vector2(64, 64),
             layer = 2,
             color = vector4(1, 0.0, 0.0, 1)
