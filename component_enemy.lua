@@ -50,6 +50,14 @@ function ComponentEnemy:checkForGuys()
     end
 end
 
+function ComponentEnemy:onHit()
+
+end
+
+function ComponentEnemy:onDead()
+
+end
+
 function ComponentEnemy.onStateUpdate:random(dt)
     local entity = self.entity
     local wi = entity.worldItem
@@ -99,3 +107,4 @@ end
 function ComponentEnemy.onStateExit:fighting()
 
 end
+

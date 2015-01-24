@@ -82,7 +82,7 @@ end
 
 function ComponentCoolGuy:checkForEnemies()
     local wi = self.entity.worldItem
-    local g, d = Village:getClosestGuy(wi.position)
+    local g, d = Game:getClosestEnemy(wi.position)
 
     if g then
         if d < Settings.attackDistance then
