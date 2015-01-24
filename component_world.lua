@@ -121,6 +121,7 @@ function ComponentWorld:update(dt)
     zoomFactor = 1 - zoomFactor
 
     entity.position.y = - Settings.worldRadius * Settings.cameraOffsetFactor * zoomFactor + self.zoom * Settings.cameraFactor
+    entity.rotation = Util:getDeltaAngle(0, entity.rotation)
 end
 
 function ComponentWorld:remove()

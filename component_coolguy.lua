@@ -68,6 +68,7 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
                         self:changeState("interacting")
                     else
                         wi:moveTo(b.worldItem.position)
+                        entity.sprite.extent = vector2(64 * wi.direction, 64)
                     end
                 end
             end
