@@ -83,6 +83,8 @@ function ComponentCoolGuy:orderMoveTo(r)
     entity.sprite.extent = vector2(64 * wi.direction, 64)
 
     self:changeState("executing")
+
+    Factory:createNotif(self.entity, 23)
 end
 
 function ComponentCoolGuy:checkForEnemies()

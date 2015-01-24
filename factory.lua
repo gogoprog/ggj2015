@@ -7,6 +7,7 @@ require 'component_area_of_order'
 require 'component_enemy_fort'
 require 'component_home'
 require 'component_life'
+require 'component_notif'
 
 Factory = Factory or {}
 
@@ -50,6 +51,10 @@ function Factory:init()
             loop = true
         }
         )
+
+    texture = gengine.graphics.texture.get("text_atlas")
+    atlas = gengine.graphics.atlas.create("text_atlas", texture, 4, 6)
+
 end
 
 function Factory:createCursor()
@@ -498,5 +503,39 @@ function Factory:createHome()
         "home"
     )
 
+    return e
+end
+
+function Factory:createNotif(target, index)
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            atlas = gengine.graphics.atlas.get("text_atlas"),
+            atlasItem = index,
+            extent = vector2(64, 32),
+            layer = 3
+        },
+        "sprite"
+    )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 70
+        },
+        "worldItem"
+    )
+
+    e:addComponent(
+        ComponentNotif(),
+        {
+            target = target
+        },
+        "notif"
+    )
+
+    e:insert()
     return e
 end
