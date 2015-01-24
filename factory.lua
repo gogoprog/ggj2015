@@ -287,7 +287,7 @@ function Factory:createGauge()
     return e
 end
 
-function Factory:createHouse()
+function Factory:createHouse(instantCreation)
     local e = gengine.entity.create()
 
     e:addComponent(
@@ -310,7 +310,8 @@ function Factory:createHouse()
     e:addComponent(
         ComponentBuilding(),
         {
-            params = Settings.Buildings.House
+            params = Settings.Buildings.House,
+            instantCreation = instantCreation
         },
         "building"
     )
@@ -333,12 +334,13 @@ function Factory:createHouse()
     return e
 end
 
-function Factory:createTower()
+function Factory:createTower(instantCreation)
     local e = gengine.entity.create()
 
     e:addComponent(
         ComponentSprite(),
         {
+            texture = gengine.graphics.texture.get("tower"),
             extent = vector2(128, 128),
             layer = 1
         },
@@ -356,7 +358,8 @@ function Factory:createTower()
     e:addComponent(
         ComponentBuilding(),
         {
-            params = Settings.Buildings.Tower
+            params = Settings.Buildings.Tower,
+            instantCreation = instantCreation
         },
         "building"
     )
@@ -482,7 +485,8 @@ function Factory:createHome()
     e:addComponent(
         ComponentBuilding(),
         {
-            params = Settings.Buildings.Home
+            params = Settings.Buildings.Home,
+            instantCreation = true
         },
         "building"
     )

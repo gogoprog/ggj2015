@@ -33,7 +33,13 @@ function UserAction:onClick(r)
             self:changeState("idle")
         end
     else
-        local click_angle = math.deg(r)
+        local e = Village:getClosestGuy(Game.cursor.worldItem.position, true)
+
+        if e then
+            e.guy:orderMoveTo(Game.cursor.worldItem.position)
+        end
+
+        --[[local click_angle = math.deg(r)
         for k, v in ipairs(Game.orderAreaTable) do
 
             local left_angle = math.deg(v.worldItem.position)-5
@@ -54,7 +60,7 @@ function UserAction:onClick(r)
         area.worldItem.position = r
         table.insert(Game.orderAreaTable, area)
 
-        --area.areaOfOrder:apply()
+        --area.areaOfOrder:apply()]]
     end
 end
 

@@ -157,14 +157,17 @@ function Village:getGuysCount()
     return #self.guys
 end
 
-function Village:getClosestGuy(pos)
+function Village:getClosestGuy(pos, no_order)
     local best = 10, r
     for k, v in ipairs(self.guys) do
-        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+        if not no_order or v.guy.state ~= "executing" then
+            local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
-        if delta < best then
-            best = delta
-            r = v
+
+            if delta < best then
+                best = delta
+                r = v
+            end
         end
     end
 
