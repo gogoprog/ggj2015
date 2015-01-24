@@ -216,14 +216,15 @@ function Village:getClosestHouse(pos)
     return r
 end
 
-function Village:getClosestBuilding(pos)
+function Village:getClosestBuilding(pos, interactable)
     local best = 10, r
     for k, v in ipairs(self.buildings) do
-        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
-
-        if delta < best then
-            best = delta
-            r = v
+        if not interactable or v.building:canInteract() then
+            local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+            if delta < best then
+                best = delta
+                r = v
+            end
         end
     end
 

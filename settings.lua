@@ -33,7 +33,7 @@ Settings = Settings or {
                 complete = "farm"
             },
             constructionRate = 0.2,
-            maxWorkers = 10,
+            maxWorkers = 3,
             currentWorkers = 0,
             baseProductionRate = 1.2,
             productionTimer = 5,

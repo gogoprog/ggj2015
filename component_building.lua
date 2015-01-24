@@ -56,6 +56,10 @@ function ComponentBuilding:canInteract()
         return true
     end
 
+    if self.entity.farm then
+        return true
+    end
+
     return false
 end
 

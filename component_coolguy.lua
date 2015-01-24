@@ -61,12 +61,13 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
                 wi:moveTo(math.random() * math.pi * 2)
                 entity.sprite.extent = vector2(64 * wi.direction, 64)
             else
-                local b, d = Village:getClosestBuilding(wi.position)
-
-                if b.building:canInteract() then
+                local b, d = Village:getClosestBuilding(wi.position, true)
+                if b then
                     if d < b.building.params.areaSize then
                         self.targetSite = b
                         self:changeState("interacting")
+                    else
+                        wi:moveTo(b.worldItem.position)
                     end
                 end
             end
