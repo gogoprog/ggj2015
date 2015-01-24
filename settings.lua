@@ -14,10 +14,12 @@ Settings = Settings or {
                 halfConstruction = "",
                 complete = "house"
             },
-            constructionRate = 1,
+            constructionRate = 0.8,
             maxWorkers = 10,
             currentWorkers = 0,
-            baseProductionRate = 1.2
+            baseProductionRate = 1.2,
+            areaSize = 3,
+            hp = 100
         }
     }
 }
