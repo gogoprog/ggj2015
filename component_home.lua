@@ -1,7 +1,7 @@
 ComponentHome = {}
 
 function ComponentHome:init()
-    self.timeLeft = 2
+    self.timeLeft = 5
     self.params = self.params
 end
 
@@ -20,6 +20,6 @@ function ComponentHome:update(dt)
         local e = Factory:createMan()
         e.worldItem:setPosition(self.entity.worldItem.position)
         e:insert()
-        self.timeLeft = 2
+        self.timeLeft = 5
     end
 end
