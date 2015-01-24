@@ -402,7 +402,7 @@ function Factory:createHome()
     e:addComponent(
         ComponentSprite(),
         {
-            texture = gengine.graphics.texture.get("town_hall"),
+            texture = gengine.graphics.texture.get("home"),
             extent = vector2(128, 128),
             layer = 1
         },
