@@ -16,7 +16,7 @@ end
 function ComponentHome:update(dt)
     self.timeLeft = self.timeLeft - dt
 
-    if self.timeLeft < 0 and Village.population < Village.populationMax then
+    if (self.timeLeft < 0 or gengine.input.keyboard:isJustDown(44) )and Village.population < Village.populationMax then
         local e = Factory:createMan()
         e.worldItem:setPosition(self.entity.worldItem.position)
         e:insert()

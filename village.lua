@@ -12,7 +12,7 @@ function Village:reset()
     self.home = nil
     self.food = 0
     self.population = 0
-    self.populationMax = 4
+    self.populationMax = 400
     self:changeState("build")
 end
 

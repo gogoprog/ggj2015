@@ -48,15 +48,15 @@ function ComponentBuilding:removeWorker(e)
 end
 
 function ComponentBuilding:canInteract()
-    if self:isFullWorkers() then
-        return false
-    end
-
     if self.state ~= "idle" then
         return true
     end
 
     if self.entity.farm then
+        return true
+    end
+
+    if self.entity.home then
         return true
     end
 

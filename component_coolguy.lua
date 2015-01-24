@@ -61,7 +61,7 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
                 entity.sprite.extent = vector2(64 * wi.direction, 64)
             else
                 local b, d = Village:getClosestBuilding(wi.position, true)
-                if b then
+                if b and not b.building:isFullWorkers() then
                     if d < b.building.params.areaSize then
                         self.targetSite = b
                         self:changeState("interacting")
