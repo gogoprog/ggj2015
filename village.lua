@@ -8,6 +8,7 @@ function Village:reset()
     self.towers = {}
     self.houses = {}
     self.guys = {}
+    self.buildings = {}
     self.home = nil
     self:changeState("build")
 end
@@ -29,6 +30,48 @@ function Village:removeGuy(e)
     end
 end
 
+function Village:addConstructingBuilding(e)
+    table.insert(self.constructingBuildings, e)
+end
+
+function Village:removeConstructingBuilding(e)
+    for k, v in ipairs(self.constructingBuildings) do
+        if v == e then
+            table.remove(self.constructingBuildings, k)
+            break
+        end
+    end
+end
+
+function Village:addBuilding(e)
+    table.insert(self.buildings, e)
+
+    if e.farm then
+        Village:addFarm(e)
+    end
+
+    if e.house then
+        Village:addHouse(e)
+    end
+end
+
+function Village:removeBuilding(e)
+    for k, v in ipairs(self.buildings) do
+        if v == e then
+            table.remove(self.buildings, k)
+            break
+        end
+    end
+
+    if e.farm then
+        Village:removeFarm(e)
+    end
+
+    if e.house then
+        Village:removeHouse(e)
+    end
+end
+
 function Village:addFarm(e)
     table.insert(self.farms, e)
 end
@@ -42,13 +85,77 @@ function Village:removeFarm(e)
     end
 end
 
+function Village:addHouse(e)
+    table.insert(self.houses, e)
+end
+
+function Village:removeHouse(e)
+    for k, v in ipairs(self.houses) do
+        if v == e then
+            table.remove(self.houses, k)
+            break
+        end
+    end
+end
+
+function Village:removeHouse(e)
+    for k, v in ipairs(self.houses) do
+        if v == e then
+            table.remove(self.houses, k)
+            break
+        end
+    end
+end
+
 function Village:getGuysCount()
     return #self.guys
+end
+
+function Village:getClosestConstructingBuilding(pos)
+    local best = 10, r
+    for k, v in ipairs(self.constructingBuildings) do
+        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+
+        if delta < best then
+            best = delta
+            r = v
+        end
+    end
+
+    return r
 end
 
 function Village:getClosestFarm(pos)
     local best = 10, r
     for k, v in ipairs(self.farms) do
+        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+
+        if delta < best then
+            best = delta
+            r = v
+        end
+    end
+
+    return r
+end
+
+function Village:getClosestHouse(pos)
+    local best = 10, r
+    for k, v in ipairs(self.houses) do
+        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+
+        if delta < best then
+            best = delta
+            r = v
+        end
+    end
+
+    return r
+end
+
+function Village:getClosestBuilding(pos)
+    local best = 10, r
+    for k, v in ipairs(self.buildings) do
         local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
         if delta < best then

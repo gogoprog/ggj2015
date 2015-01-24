@@ -38,6 +38,7 @@ function ComponentBuilding.onStateUpdate:placing(dt)
 end
 
 function ComponentBuilding.onStateEnter:inConstruction()
+    Village:addConstructingBuilding(self.entity)
     self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.beginConstruction)
     self.entity.sprite.color = vector4(1, 1, 1, 1)
     self.entity.worldItem.offset = self.entity.worldItem.offset - self.placingOffset
@@ -60,11 +61,11 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
 end
 
 function ComponentBuilding.onStateExit:inConstruction()
-
+    Village:removeConstructingBuilding(self.entity)
 end
 
 function ComponentBuilding.onStateEnter:idle()
-
+    Village:addBuilding(self.entity)
 end
 
 function ComponentBuilding.onStateUpdate:idle()

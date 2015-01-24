@@ -24,14 +24,21 @@ end
 
 function UserAction:onClick(r)
     if self.state == "placingBuilding" then
-        self.currentEntity.building:changeState("inConstruction")
-        self:changeState("idle")
+        local b = Village:getClosestBuilding(r)
+        if b then
+            if math.abs(b.worldItem.position - self.currentEntity.worldItem.position) > self.currentEntity.building.params.areaSize then
+                self.currentEntity.building:changeState("inConstruction")
+                self:changeState("idle")
+            end
+        else
+            self.currentEntity.building:changeState("inConstruction")
+            self:changeState("idle")
+        end
     else
         area = nil
         area = Factory:areaClicked()
         area.worldItem.position = r
     end
-
 end
 
 function UserAction:placeBuilding(e)

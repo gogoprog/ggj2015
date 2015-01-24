@@ -21,7 +21,7 @@ Settings = Settings or {
             maxWorkers = 10,
             currentWorkers = 0,
             baseProductionRate = 1.2,
-            areaSize = 3,
+            areaSize = 0.12,
             hp = 100
         },
         Farm = {
