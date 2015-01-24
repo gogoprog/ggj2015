@@ -15,6 +15,9 @@ end
 function ComponentAreaOfOrder:insert()
 end
 
+function ComponentAreaOfOrder:remove()
+end
+
 function ComponentAreaOfOrder:destroy()
-	
+
 end
