@@ -187,7 +187,8 @@ function Factory:createMan()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 32
+            offset = 32,
+            speed = Settings.Guys.speed
         },
         "worldItem"
         )
@@ -226,7 +227,8 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 32
+            offset = 32,
+            speed = Settings.Enemy.speed
         },
         "worldItem"
         )

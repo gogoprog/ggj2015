@@ -65,7 +65,8 @@ Settings = Settings or {
     },
     Enemy = {
         damage = {1, 5},
-        attackInterval = 0.5
+        attackInterval = 0.5,
+        speed = 5
     },
     Guys = {
         build = {
@@ -79,6 +80,7 @@ Settings = Settings or {
         produce = {
             damage = {1, 2},
             attackInterval = 0.5
-        }
+        },
+        speed = 10
     }
 }
