@@ -75,6 +75,10 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
     end
 end
 
+function ComponentCoolGuy:orderMoveTo(r)
+    print("MOVETO")
+end
+
 function ComponentCoolGuy.onStateEnter:seekingFood()
     local entity = self.entity
     local wi = entity.worldItem

@@ -29,7 +29,7 @@ function ComponentWorldItem:remove()
 end
 
 function ComponentWorldItem:setPosition(pos)
-    self.position = pos
+    self.position = Util:getDeltaAngle(0, pos)
 end
 
 function ComponentWorldItem:computePosition()

@@ -26,6 +26,18 @@ function Hud.buildTower()
     UserAction:placeBuilding(e)
 end
 
+function Hud:modeBuild()
+
+end
+
+function Hud:modeFight()
+
+end
+
+function Hud:modeProduce()
+
+end
+
 function onPageLoaded()
     
 end

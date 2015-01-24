@@ -2,6 +2,7 @@ ComponentWorld = {}
 
 local Settings = Settings
 local matan2 = math.atan2
+local mpi = math.pi
 
 function ComponentWorld:init()
     self.camera = Game.camera

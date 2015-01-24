@@ -43,6 +43,23 @@ function ComponentAreaOfOrder:createArrows()
 end
 
 function ComponentAreaOfOrder:increaseZone()
-	self.left_arrow.worldItem.position = math.rad(math.deg(self.left_arrow.worldItem.position) + 5)
-	self.right_arrow.worldItem.position = math.rad(math.deg(self.right_arrow.worldItem.position) - 5)
+	self.left_arrow.worldItem:setPosition(math.rad(math.deg(self.left_arrow.worldItem.position) + 5))
+	self.right_arrow.worldItem:setPosition(math.rad(math.deg(self.right_arrow.worldItem.position) - 5))
+end
+
+function ComponentAreaOfOrder:apply()
+    local p = self.entity.worldItem.position
+    local delta = math.abs(
+        Util:getDeltaAngle(
+            self.left_arrow.worldItem.position,
+            p
+            )
+        )
+    for k, v in ipairs(Village.guys) do
+        local diff = math.abs(v.worldItem.position - p)
+        if math.abs(v.worldItem.position - p ) < delta then
+            v.guy:orderMoveTo(p)
+            v:onDead()
+        end
+    end
 end
