@@ -5,6 +5,7 @@ require 'component_world_item'
 require 'hud'
 require 'factory'
 require 'village'
+require 'user_action'
 
 Game = Game or {}
 
@@ -80,16 +81,11 @@ function Game:update(dt)
     end
 
     self:updateState(dt)
+    UserAction:update(dt)
 end
 
 function Game:onClick(r)
-    if self.state == "gameplay" then
-        if (self.buildingToPlace or '') ~= '' then
-            self.buildingToPlace.worldItem:setPosition(r)
-            self.buildingToPlace:insert()
-            self.buildingToPlace = nil
-        end
-    end
+    UserAction:onClick(r)
 end 
 
 function Game.onStateEnter:gameplay()
@@ -97,9 +93,7 @@ function Game.onStateEnter:gameplay()
 end
 
 function Game.onStateUpdate:gameplay(dt)
-    if (self.buildingToPlace or '') ~= '' then
-        
-    end
+
 end
 
 function Game.onStateExit:gameplay()
@@ -128,8 +122,4 @@ end
 
 function Game.onStateExit:pending()
 
-end
-
-function Game:placeBuilding(e)
-    self.buildingToPlace = e
 end
