@@ -46,6 +46,20 @@ function Village:getGuysCount()
     return #self.guys
 end
 
+function Village:getClosestFarm(pos)
+    local best = 10, r
+    for k, v in ipairs(self.farms) do
+        local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+
+        if delta < best then
+            best = delta
+            r = v
+        end
+    end
+
+    return r
+end
+
 function Village.onStateEnter:build()
     for k, v in ipairs(self.guys) do
         v.sprite.animation = gengine.graphics.animation.get("builderLeft")

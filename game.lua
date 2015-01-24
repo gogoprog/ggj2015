@@ -1,3 +1,4 @@
+require 'util'
 require 'settings'
 require 'component_world'
 require 'component_world_item'
