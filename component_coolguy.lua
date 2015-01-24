@@ -5,7 +5,6 @@ local Settings = Settings
 gengine.stateMachine(ComponentCoolGuy)
 
 function ComponentCoolGuy:init()
-    self.hp = 100
     self.repletion = 1
     self:changeState("random")
 end
@@ -77,11 +76,10 @@ function ComponentCoolGuy.onStateUpdate:eating(dt)
     self.timeLeft = self.timeLeft - dt
 
     if self.timeLeft < 0 then
-        self.repletion = 1
         self:changeState("random")
     end
 end
 
 function ComponentCoolGuy.onStateExit:eating()
-
+    self.repletion = 1
 end

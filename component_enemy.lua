@@ -3,7 +3,6 @@ ComponentEnemy = {}
 gengine.stateMachine(ComponentEnemy)
 
 function ComponentEnemy:init()
-    self.hp = 100
     self:changeState("random")
 end
 
