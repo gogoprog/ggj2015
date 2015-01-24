@@ -31,7 +31,6 @@ function Village:removeGuy(e)
             break
         end
     end
-    print("???")
 end
 
 function Village:upFood()

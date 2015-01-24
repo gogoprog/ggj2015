@@ -227,7 +227,7 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 32,
+            offset = 64,
             speed = Settings.Enemy.speed
         },
         "worldItem"
@@ -236,16 +236,43 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentEnemy(),
         {
+            gauge = self:createGauge()
         },
-        "enemy"
+        "gauge"
         )
 
     e:addComponent(
         ComponentLife(),
         {
+            hp = Settings.Enemy.hp
         },
         "life"
         )
+
+    return e
+end
+
+function Factory:createGauge()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("gauge_front"),
+            extent = vector2(50, 8),
+            layer = 5,
+            color = vector4(0,1,0,1)
+        },
+        "sprite"
+    )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 90
+        },
+        "worldItem"
+    )
 
     return e
 end

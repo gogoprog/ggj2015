@@ -3,11 +3,14 @@ ComponentEnemy = {}
 gengine.stateMachine(ComponentEnemy)
 
 function ComponentEnemy:init()
+    self.gauge = self.gauge
+
     self:changeState("random")
 end
 
 function ComponentEnemy:insert()
-    table.insert(Game.enemies, e)
+    table.insert(Game.enemies, self.entity)
+    self.gauge:insert()
 end
 
 function ComponentEnemy:remove()
@@ -20,6 +23,8 @@ function ComponentEnemy:remove()
 end
 
 function ComponentEnemy:update(dt)
+    self.gauge.worldItem.position = self.entity.worldItem.position
+    self.gauge.sprite.extent = vector2(self.entity.life.hp / 4 , 8)
     self:updateState(dt)
 end
 

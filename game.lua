@@ -64,12 +64,11 @@ function Game:start()
     e = Factory:createHome()
     e.worldItem:setPosition(math.pi * 0.5)
     e:insert()
-
 end
 
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
-        Village:reset()
+        self.enemies[1].life.hp = self.enemies[1].life.hp - 20
     end
 
     if gengine.input.keyboard:isJustDown(44) then
