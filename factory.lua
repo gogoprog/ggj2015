@@ -226,7 +226,7 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 32,
+            offset = 64,
             speed = Settings.Enemy.speed
         },
         "worldItem"
