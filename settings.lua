@@ -14,8 +14,8 @@ Settings = Settings or {
     Buildings = {
         House = {
             Textures = {
-                beginConstruction = "house",
-                halfConstruction = "house",
+                beginConstruction = "works",
+                halfConstruction = "works",
                 complete = "house"
             },
             constructionRate = 0.2,
@@ -28,8 +28,8 @@ Settings = Settings or {
         },
         Farm = {
             Textures = {
-                beginConstruction = "farm",
-                halfConstruction = "farm",
+                beginConstruction = "works",
+                halfConstruction = "works",
                 complete = "farm"
             },
             constructionRate = 0.2,
@@ -42,8 +42,8 @@ Settings = Settings or {
         },
         Tower = {
             Textures = {
-                beginConstruction = "tower",
-                halfConstruction = "tower",
+                beginConstruction = "works",
+                halfConstruction = "works",
                 complete = "tower"
             },
 
@@ -55,9 +55,9 @@ Settings = Settings or {
         },
         Home = {
             Textures = {
-                beginConstruction = "town_hall",
-                halfConstruction = "town_hall",
-                complete = "town_hall"
+                beginConstruction = "home",
+                halfConstruction = "home",
+                complete = "home"
             },
             areaSize = 0.075,
             hp = 100
