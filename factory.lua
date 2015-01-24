@@ -226,7 +226,7 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 64,
+            offset = 32,
             speed = Settings.Enemy.speed
         },
         "worldItem"
@@ -268,7 +268,7 @@ function Factory:createGauge()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 90
+            offset = 64
         },
         "worldItem"
     )
@@ -282,7 +282,7 @@ function Factory:createHouse()
     e:addComponent(
         ComponentSprite(),
         {
-            extent = vector2(128, 128),
+            extent = vector2(96, 96),
             layer = 1
         },
         "sprite"
@@ -291,7 +291,7 @@ function Factory:createHouse()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 64
+            offset = 48
         },
         "worldItem"
     )
@@ -307,10 +307,18 @@ function Factory:createHouse()
     e:addComponent(
         ComponentHouse(),
         {
-
+            gauge = self:createGauge()
         },
         "house"
     )
+
+    e:addComponent(
+        ComponentLife(),
+        {
+            hp = Settings.Enemy.hp
+        },
+        "life"
+        )
 
     return e
 end
@@ -360,7 +368,7 @@ function Factory:createFarm()
     e:addComponent(
         ComponentSprite(),
         {
-            extent = vector2(128, 128),
+            extent = vector2(96, 96),
             layer = 1
         },
         "sprite"
@@ -369,7 +377,7 @@ function Factory:createFarm()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 64
+            offset = 48
         },
         "worldItem"
     )
@@ -389,6 +397,7 @@ function Factory:createFarm()
         },
         "farm"
     )
+
 
     return e
 end
@@ -431,7 +440,7 @@ function Factory:createHome()
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get("home"),
-            extent = vector2(128, 128),
+            extent = vector2(192, 192),
             layer = 1
         },
         "sprite"
@@ -440,7 +449,7 @@ function Factory:createHome()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 64
+            offset = 96
         },
         "worldItem"
     )

@@ -3,6 +3,8 @@ ComponentBuilding = {}
 gengine.stateMachine(ComponentBuilding)
 
 function ComponentBuilding:init()
+    self.gauge = self.gauge
+
     self.params = self.params or {}
     self.currentTime = 0
     self.constructionProgression = 0
@@ -17,6 +19,7 @@ function ComponentBuilding:init()
 end
 
 function ComponentBuilding:insert()
+    --self.gauge:insert()
 end
 
 function ComponentBuilding:remove()
