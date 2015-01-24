@@ -31,5 +31,5 @@ function onPageLoaded()
 	max_pop = 5
     
     gengine.gui.executeScript("updatePop('" .. pop .. "');")
-    gengine.gui.executeScript("updateMaxPop('" .. max_pop .. "');")
+    
 end
