@@ -7,10 +7,12 @@ function ComponentBuilding:init()
     self.currentTime = 0
     self.constructionProgression = 0
     self.justBegun = true
+    self.placingOffset = 80
+    self:changeState("placing")
 end
 
 function ComponentBuilding:insert()
-    self:changeState("inConstruction")
+    -- self:changeState("inConstruction")
 end
 
 function ComponentBuilding:update(dt)
@@ -25,8 +27,20 @@ function ComponentBuilding:addWorkers(n)
     n = n or 1
 end
 
+function ComponentBuilding.onStateEnter:placing()
+    self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
+    self.entity.sprite.color = vector4(1, 1, 1, 0.5)
+    self.entity.worldItem.offset = self.entity.worldItem.offset + self.placingOffset
+end
+
+function ComponentBuilding.onStateUpdate:placing(dt)
+    self.entity.worldItem.position = Game.cursor.worldItem.position
+end
+
 function ComponentBuilding.onStateEnter:inConstruction()
     self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.beginConstruction)
+    self.entity.sprite.color = vector4(1, 1, 1, 1)
+    self.entity.worldItem.offset = self.entity.worldItem.offset - self.placingOffset
 end
 
 function ComponentBuilding.onStateUpdate:inConstruction(dt)

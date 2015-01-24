@@ -23,9 +23,7 @@ end
 
 function UserAction:onClick(r)
     if self.state == "placingBuilding" then
-        self.currentEntity.worldItem:setPosition(r)
-        self.currentEntity:insert()
-        self.currentEntity = nil
+        self.currentEntity.building:changeState("inConstruction")
         self:changeState("idle")
     else
         area = nil
@@ -37,5 +35,6 @@ end
 
 function UserAction:placeBuilding(e)
     self.currentEntity = e
+    self.currentEntity:insert()
     self:changeState("placingBuilding")
 end
