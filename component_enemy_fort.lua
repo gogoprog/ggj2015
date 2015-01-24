@@ -1,7 +1,7 @@
 ComponentEnemyFort = {}
 
 function ComponentEnemyFort:init()
-    self.timeLeft = 2
+    self.timeLeft = 20
 end
 
 function ComponentEnemyFort:insert()

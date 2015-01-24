@@ -56,20 +56,21 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
 
         if self.checkTimeLeft < 0 then
             self.checkTimeLeft = 0.1
-            if wi.state == "idle" then
-                wi:moveTo(math.random() * math.pi * 2)
-                entity.sprite.extent = vector2(64 * wi.direction, 64)
-            else
-                local b, d = Village:getClosestBuilding(wi.position, true)
-                if b and not b.building:isFullWorkers() then
-                    if d < b.building.params.areaSize then
-                        self.targetSite = b
-                        self:changeState("interacting")
-                    else
-                        wi:moveTo(b.worldItem.position)
-                        entity.sprite.extent = vector2(64 * wi.direction, 64)
-                    end
+
+            local b, d = Village:getClosestBuilding(wi.position, true)
+            if b and not b.building:isFullWorkers() then
+                if d < b.building.params.areaSize then
+                    self.targetSite = b
+                    self:changeState("interacting")
+                else
+                    wi:moveTo(b.worldItem.position)
+                    entity.sprite.extent = vector2(64 * wi.direction, 64)
                 end
+            elseif wi.state == "idle" then
+                local b, d = Village:getClosestBuilding(wi.position)
+                local t = b.worldItem.position + (math.random() - 0.5) * 0.3
+                wi:moveTo(t)
+                entity.sprite.extent = vector2(64 * wi.direction, 64)
             end
         end
     end
