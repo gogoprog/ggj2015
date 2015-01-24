@@ -1,10 +1,13 @@
 ComponentBuilding = {}
 
+gengine.stateMachine(ComponentBuilding)
+
 function ComponentBuilding:init()
-    self.constructionRate = 1
-    self.maxWorkers = 10
-    self.currentWorkers = 0
-    self.baseProductionRate = 1.2
+    self.params = self.params or {}
+end
+
+function ComponentBuilding:insert()
+    self:changeState("inConstruction")
 end
 
 function ComponentBuilding:update(dt)
@@ -20,7 +23,7 @@ function ComponentBuilding:addWorkers(n)
 end
 
 function ComponentBuilding.onStateEnter:inConstruction()
-
+    self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.beginConstruction)
 end
 
 function ComponentBuilding.onStateUpdate:inConstruction()

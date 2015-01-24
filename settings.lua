@@ -8,10 +8,14 @@ Settings = Settings or {
     Buildings = {
         House = {
             Textures = {
-                beginConstruction = "",
+                beginConstruction = "town_hall",
                 halfConstruction = "",
                 complete = "town_hall"
-            }
+            },
+            constructionRate = 1,
+            maxWorkers = 10,
+            currentWorkers = 0,
+            baseProductionRate = 1.2
         }
     }
 }

@@ -1,4 +1,6 @@
 require 'component_coolguy'
+require 'component_building'
+require 'component_house'
 
 Factory = Factory or {}
 
@@ -77,15 +79,14 @@ end
 
 function Factory:createHouse()
     local e = gengine.entity.create()
-    local texture = gengine.graphics.texture.get(Settings.Buildings.House.Textures.complete)
 
     e:addComponent(
         ComponentSprite(),
         {
-            texture = texture,
             extent = vector2(128, 128),
             layer = 1
-        }
+        },
+        "sprite"
     )
 
     e:addComponent(
@@ -94,6 +95,22 @@ function Factory:createHouse()
             offset = 64
         },
         "worldItem"
+    )
+
+    e:addComponent(
+        ComponentBuilding(),
+        {
+            params = Settings.Buildings.House
+        },
+        "building"
+    )
+
+    e:addComponent(
+        ComponentHouse(),
+        {
+
+        },
+        "house"
     )
 
     return e
