@@ -36,9 +36,24 @@ function UserAction:onClick(r)
             self:changeState("idle")
         end
     else
-        area = nil
-        area = Factory:areaClicked()
+        local click_angle = math.deg(r)
+        for k, v in ipairs(Game.orderAreaTable) do
+
+            local left_angle = math.deg(v.worldItem.position)-5
+            local right_angle = math.deg(v.worldItem.position)+5
+
+            if click_angle >= left_angle and click_angle <= right_angle then
+                v.areaOfOrder:increaseZone()
+                v.areaOfOrder.areaTimer = 3
+                return
+            end
+            
+        end
+
+        local area = nil
+        area = Factory:areaClicked(r)
         area.worldItem.position = r
+        table.insert(Game.orderAreaTable, area)
     end
 end
 

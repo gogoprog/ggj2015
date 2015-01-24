@@ -11,8 +11,11 @@ Game = Game or {}
 
 gengine.stateMachine(Game)
 
+
 function Game:init()
     Factory:init()
+
+    self.orderAreaTable = {}
 
     self.camera = gengine.entity.create()
     self.camera:addComponent(
@@ -89,6 +92,7 @@ function Game:update(dt)
 
     self:updateState(dt)
     UserAction:update(dt)
+
 end
 
 function Game:onClick(r)

@@ -77,7 +77,7 @@ function Factory:createCursor()
     return e
 end
 
-function Factory:areaClicked()
+function Factory:areaClicked(r)
 
     local e = gengine.entity.create()
     e:addComponent(
@@ -102,16 +102,73 @@ function Factory:areaClicked()
     e:addComponent(
         ComponentAreaOfOrder(),
         {
-
+            position = r
         },
         "areaOfOrder"
         )
 
     e:insert()
+    e.areaOfOrder:createArrows()
 
     return e
 
 end
+
+function Factory:createRightArrow(r, offset)
+    local right_arrow = gengine.entity.create()
+    right_arrow:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("rally_area_right"),
+            extent = vector2(64, 64),
+            layer = 5,
+            color = vector4(1,1,1,0.5)
+        },
+        "sprite"
+        )
+
+    right_arrow:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 32
+        },
+        "worldItem"
+        )
+
+    right_arrow:insert()
+    right_arrow.worldItem.position = math.rad(math.deg(r) - offset)
+
+    return right_arrow
+end
+
+function Factory:createLeftArrow(r, offset)
+
+    local left_arrow = gengine.entity.create()
+    left_arrow:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("rally_area_left"),
+            extent = vector2(64, 64),
+            layer = 5,
+            color = vector4(1,1,1,0.5)
+        },
+        "sprite"
+        )
+
+    left_arrow:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 32
+        },
+        "worldItem"
+        )
+
+    left_arrow:insert()
+    left_arrow.worldItem.position = math.rad(math.deg(r) + offset)
+
+    return left_arrow
+
+end 
 
 function Factory:createMan()
     local e = gengine.entity.create()
