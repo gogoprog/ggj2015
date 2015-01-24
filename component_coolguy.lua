@@ -34,6 +34,11 @@ function ComponentCoolGuy:onHit()
     self:changeState("fighting")
 end
 
+function ComponentCoolGuy:onDead()
+    self.entity:remove()
+    gengine.entity.destroy(self.entity)
+end
+
 function ComponentCoolGuy.onStateUpdate:random(dt)
     local entity = self.entity
     local wi = entity.worldItem

@@ -68,5 +68,19 @@ Settings = Settings or {
     Enemy = {
         damage = {1, 5},
         attackInterval = 0.5
+    },
+    Guys = {
+        build = {
+            damage = {1, 5},
+            attackInterval = 0.5
+        },
+        fight = {
+            damage = {5, 10},
+            attackInterval = 0.5
+        },
+        produce = {
+            damage = {1, 2},
+            attackInterval = 0.5
+        }
     }
 }
