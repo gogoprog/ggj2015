@@ -22,6 +22,6 @@ function ComponentEnemy.onStateUpdate:random(dt)
     local wi = entity.worldItem
     if wi.state == "idle" then
         wi:moveTo(math.random() * math.pi * 2)
-        entity.sprite.extent = vector2(32 * wi.direction, 32)
+        entity.sprite.extent = vector2(64 * wi.direction, 64)
     end
 end

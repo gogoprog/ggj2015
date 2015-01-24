@@ -4,6 +4,7 @@ require 'component_house'
 require 'component_enemy'
 require 'component_farm'
 require 'component_area_of_order'
+require 'component_enemy_fort'
 
 Factory = Factory or {}
 
@@ -28,6 +29,18 @@ function Factory:init()
     atlas = gengine.graphics.atlas.create("builder_left", texture, 4, 1)
     gengine.graphics.animation.create(
         "builderLeft",
+        {
+            atlas = atlas,
+            frames = { 0, 1, 2, 3 },
+            framerate = 6,
+            loop = true
+        }
+        )
+
+    texture = gengine.graphics.texture.get("warrior_left")
+    atlas = gengine.graphics.atlas.create("warrior_left", texture, 4, 1)
+    gengine.graphics.animation.create(
+        "warriorLeft",
         {
             atlas = atlas,
             frames = { 0, 1, 2, 3 },
@@ -136,8 +149,8 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentAnimatedSprite(),
         {
-            animation = self.manLeft,
-            extent = vector2(32, 32),
+            animation = gengine.graphics.animation.get("warriorLeft"),
+            extent = vector2(64, 64),
             layer = 2,
             color = vector4(1, 0.0, 0.0, 1)
         },
@@ -147,7 +160,7 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 16
+            offset = 32
         },
         "worldItem"
         )
@@ -235,6 +248,37 @@ function Factory:createFarm()
 
         },
         "farm"
+    )
+
+    return e
+end
+
+function Factory:createEnemyFort()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("town_hall"),
+            extent = vector2(128, 128),
+            layer = 1
+        },
+        "sprite"
+    )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 64
+        },
+        "worldItem"
+    )
+
+    e:addComponent(
+        ComponentEnemyFort(),
+        {
+        },
+        "enemyFort"
     )
 
     return e

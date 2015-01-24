@@ -53,7 +53,11 @@ function Game:init()
 end
 
 function Game:start()
+    self.enemies = {}
     Village:reset()
+    local e = Factory:createEnemyFort()
+    e.worldItem:setPosition(-math.pi * 0.5)
+    e:insert()
 end
 
 function Game:update(dt)
