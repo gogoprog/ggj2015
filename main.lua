@@ -13,6 +13,7 @@ function start()
     gengine.graphics.texture.createFromDirectory("data/")
 
     Game:init()
+    Game:start()
 end
 
 function update(dt)

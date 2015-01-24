@@ -3,6 +3,7 @@ require 'component_world'
 require 'component_world_item'
 require 'hud'
 require 'factory'
+require 'village'
 
 Game = Game or {}
 
@@ -48,7 +49,7 @@ function Game:init()
 end
 
 function Game:start()
-
+    Village:reset()
 end
 
 function Game:update(dt)
