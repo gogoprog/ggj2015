@@ -2,7 +2,7 @@ ComponentFarm = {}
 
 function ComponentFarm:init()
 
-	self.prodTime = 5
+	self.prodTime = 25
 	self.peasants = 1
 
 end

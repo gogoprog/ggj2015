@@ -37,7 +37,6 @@ function ComponentCoolGuy:onHit()
 end
 
 function ComponentCoolGuy:onDead()
-    print("GUY DEAD")
     Village:downPop()
     self.entity:remove()
     gengine.entity.destroy(self.entity)
@@ -103,7 +102,11 @@ function ComponentCoolGuy.onStateExit:seekingFood()
 end
 
 function ComponentCoolGuy.onStateEnter:eating()
-    self.timeLeft = 1
+    if Village.food <= 0 then
+        self.onDead()
+    else
+        self.timeLeft = 1
+    end
 
 end
 

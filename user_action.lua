@@ -43,10 +43,11 @@ function UserAction:onClick(r)
                 v.areaOfOrder:increaseZone()
                 v.areaOfOrder.areaTimer = 3
                 return
-            end
-            
+            end   
         end
-
+        for k, v in ipairs(Game.orderAreaTable) do
+             v.areaOfOrder:destroy()           
+        end
         local area = nil
         area = Factory:areaClicked(r)
         area.worldItem.position = r

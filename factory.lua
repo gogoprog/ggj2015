@@ -81,16 +81,16 @@ end
 function Factory:areaClicked(r)
 
     local e = gengine.entity.create()
-    e:addComponent(
-        ComponentSprite(),
-        {
-            texture = gengine.graphics.texture.get("effect_area"),
-            extent = vector2(64, 64),
-            layer = 5,
-            color = vector4(1,1,1,0.5)
-        },
-        "sprite"
-        )
+    -- e:addComponent(
+    --     ComponentSprite(),
+    --     {
+    --         texture = gengine.graphics.texture.get("effect_area"),
+    --         extent = vector2(64, 64),
+    --         layer = 5,
+    --         color = vector4(1,1,1,0.5)
+    --     },
+    --     "sprite"
+    --     )
 
     e:addComponent(
         ComponentWorldItem(),

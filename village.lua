@@ -12,7 +12,7 @@ function Village:reset()
     self.home = nil
     self.food = 0
     self.population = 0
-    self.populationMax = 6
+    self.populationMax = 4
     self:changeState("build")
 end
 
@@ -55,7 +55,7 @@ function Village:downPop()
 end
 
 function Village:upMaxPop()
-    self.populationMax = self.populationMax + 5
+    self.populationMax = self.populationMax + 4
     gengine.gui.executeScript("updateMaxPop('" .. self.populationMax .. "');")
 end
 
