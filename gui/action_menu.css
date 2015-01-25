@@ -57,6 +57,15 @@ body {
 		color:#838796;
 	}
 
+	div#HousePrice img, div#FarmPrice img, div#TowerPrice img{
+		position:relative;
+		display:inline-block;
+		width: 24px;
+		margin-left:5px;
+		margin-right:10px;
+		bottom:-4px;
+	}
+
 	div#GoldCounter img{
 		position:relative;
 		display:inline-block;
@@ -65,6 +74,8 @@ body {
 		margin-right:10px;
 		bottom:-4px;
 	}
+
+
 
 	div#GoldCounter a{
 		position:relative;
@@ -76,11 +87,48 @@ body {
 		color:#838796;
 	}
 
+	div#HousePrice a, div#FarmPrice a, div#TowerPrice a{
+		position:relative;
+		display:inline-block;
+		font-family: mainFont;
+		font-size :16px;
+		bottom:4px;
+		letter-spacing: -2px;
+		color:#ffffff;
+	}
+
 	div#GoldCounter {
 		z-index: -2;
 		position:absolute;
 		right:333px;
 		bottom:41px;
+
+	}
+
+	div#FarmPrice {
+		pointer-events: none;
+		z-index: -2;
+		position:absolute;
+		right:630px;
+		bottom:32px;
+
+	}
+
+	div#HousePrice {
+		pointer-events: none;
+		z-index: -2;
+		position:absolute;
+		right:555px;
+		bottom:32px;
+
+	}
+
+	div#TowerPrice {
+		pointer-events: none;
+		z-index: -2;
+		position:absolute;
+		right:480px;
+		bottom:32px;
 
 	}
 
