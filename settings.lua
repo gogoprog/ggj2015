@@ -56,7 +56,7 @@ Settings = Settings or {
             hp = 100,
 	        price = 15,
             attackInterval = 0.5,
-            damage = {10, 20},
+            damage = {5, 10},
             attackArea = 0.25,
             price = 15
         },
@@ -81,7 +81,7 @@ Settings = Settings or {
         damage = {1, 5},
         attackInterval = 0.5,
         speed = 4,
-        hp = 50
+        hp = 100
     },
     Guys = {
         build = {
@@ -90,8 +90,8 @@ Settings = Settings or {
             hitFactor = 1,
             buildFactor = 1,
             productionFactor = 1,
-            moveAnimation = "builder_left",
-            buildAnimation = "builder_left"
+            moveAnimation = "farmer_left",
+            buildAnimation = "farmer_building_left"
         },
         fight = {
             damage = {5, 10},
