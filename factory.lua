@@ -522,8 +522,8 @@ function Factory:createHome()
         "life"
     )
 
-
     return e
+end
 
 function Factory:createNotif(target, index, offset)
     local e = gengine.entity.create()
