@@ -27,15 +27,24 @@ function Hud.buildTower()
 end
 
 function Hud:modeBuild()
-    Village:changeMode("build")
+    if Village.whatDoWeDoNowCredits > 0 then
+        Village:downWhatDoWeDoNowCredits()
+        Village:changeMode("build")
+    end
 end
 
 function Hud:modeFight()
-    Village:changeMode("fight")
+    if Village.whatDoWeDoNowCredits > 0 then
+        Village:downWhatDoWeDoNowCredits()
+        Village:changeMode("fight")
+    end
 end
 
 function Hud:modeProduce()
-    Village:changeMode("produce")
+    if Village.whatDoWeDoNowCredits > 0 then
+        Village:downWhatDoWeDoNowCredits()
+        Village:changeMode("produce")
+    end
 end
 
 function Hud:winGame()

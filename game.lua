@@ -106,10 +106,11 @@ end
 
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
-        local e = Factory:createEnemy()
-        e.worldItem:setPosition(self.cursor.worldItem.position)
-        e:insert()
-        table.insert(self.enemies, e)
+        -- local e = Factory:createEnemy()
+        -- e.worldItem:setPosition(self.cursor.worldItem.position)
+        -- e:insert()
+        -- table.insert(self.enemies, e)
+        Village:buyWhatDoWeDoNomCredit()
     end
 
     if gengine.input.keyboard:isJustDown(44) then
