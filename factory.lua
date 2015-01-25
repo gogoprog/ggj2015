@@ -341,7 +341,8 @@ function Factory:createHouse(instantCreation)
         ComponentBuilding(),
         {
             params = Settings.Buildings.House,
-            instantCreation = instantCreation
+            instantCreation = instantCreation,
+            price = Settings.Buildings.House.price
         },
         "building"
     )
@@ -389,6 +390,7 @@ function Factory:createTower(instantCreation)
         ComponentBuilding(),
         {
             params = Settings.Buildings.Tower,
+            price = Settings.Buildings.Tower.price,
             instantCreation = instantCreation
         },
         "building"
@@ -436,7 +438,8 @@ function Factory:createFarm()
     e:addComponent(
         ComponentBuilding(),
         {
-            params = Settings.Buildings.Farm
+            params = Settings.Buildings.Farm,
+            price = Settings.Buildings.Farm.price
         },
         "building"
     )

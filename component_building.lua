@@ -12,6 +12,7 @@ function ComponentBuilding:init()
     self.workers = {}
     self.instantCreation = self.instantCreation or false
     self.hp = 1
+    self.price = self.price or 100
 
     if self.instantCreation then
         self:changeState("idle")

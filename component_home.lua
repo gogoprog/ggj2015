@@ -2,7 +2,8 @@ ComponentHome = {}
 
 function ComponentHome:init()
     self.timeLeft = 5
-    self.params = self.params
+    self.params = Settings.Buildings.Home
+    self.goldTimer = Settings.Buildings.Home.goldGenerationRate
 end
 
 function ComponentHome:insert()
@@ -15,11 +16,17 @@ end
 
 function ComponentHome:update(dt)
     self.timeLeft = self.timeLeft - dt
+    self.goldTimer = self.goldTimer - dt
 
     if self.timeLeft < 0 and Village.population < Village.populationMax then
         local e = Factory:createMan()
         e.worldItem:setPosition(self.entity.worldItem.position)
         e:insert()
         self.timeLeft = 30
+    end
+
+    if self.goldTimer < 0 then
+        Village.treasure = Village.treasure + self.params.goldGeneration
+        self.goldTimer = self.params.goldGenerationRate
     end
 end

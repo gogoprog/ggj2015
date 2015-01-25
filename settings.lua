@@ -11,6 +11,7 @@ Settings = Settings or {
     clickableZone = 2000,
     hungryFactor = 0.01,
     attackDistance = 0.02,
+    startingGold = 10,
     Buildings = {
         House = {
             Textures = {
@@ -24,7 +25,8 @@ Settings = Settings or {
             baseProductionRate = 1.2,
             productionTimer = 5,
             areaSize = 0.05,
-            hp = 100
+            hp = 100,
+            price = 5
         },
         Farm = {
             Textures = {
@@ -38,7 +40,8 @@ Settings = Settings or {
             baseProductionRate = 1.2,
             productionTimer = 5,
             areaSize = 0.05,
-            hp = 100
+            hp = 100,
+            price = 10
         },
         Tower = {
             Textures = {
@@ -55,7 +58,9 @@ Settings = Settings or {
 
             attackInterval = 0.5,
             damage = {10, 20},
-            attackArea = 0.25
+            attackArea = 0.25,
+
+            price = 15
         },
         Home = {
             Textures = {
@@ -65,7 +70,9 @@ Settings = Settings or {
             },
             areaSize = 0.05,
             maxWorkers = 0,
-            hp = 100
+            hp = 100,
+            goldGeneration = 1,
+            goldGenerationRate = 5
         },
         EnemyFort = {
             hp = 100,
