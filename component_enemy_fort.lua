@@ -22,7 +22,7 @@ function ComponentEnemyFort:update(dt)
             e.worldItem:setPosition(self.entity.worldItem.position - 0.05)
         end
         e:insert()
-        self.spawnCount = self.spawnCount + 1
-        self.timeLeft = 30 - math.min(self.spawnCount, 20)
+        self.spawnCount = self.spawnCount + 2
+        self.timeLeft = 30 - math.min(self.spawnCount, 28)
     end
 end

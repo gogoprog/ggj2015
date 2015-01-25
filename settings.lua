@@ -11,7 +11,7 @@ Settings = Settings or {
     clickableZone = 2000,
     hungryFactor = 1 / 30,
     attackDistance = 0.02,
-    startingGold = 5,
+    startingGold = 10,
     startingFood = 10,
     whatDoWeDoNowCreditsPrice = 5,
     Buildings = {
@@ -74,7 +74,7 @@ Settings = Settings or {
             maxWorkers = 0,
             hp = 100,
             goldGeneration = 1,
-            goldGenerationRate = 15
+            goldGenerationRate = 10
         },
         EnemyFort = {
             hp = 100,
@@ -83,7 +83,7 @@ Settings = Settings or {
         }
     },
     Enemy = {
-        damage = {1, 5},
+        damage = {3, 10},
         attackInterval = 0.5,
         speed = 4,
         hp = 200
