@@ -74,6 +74,21 @@
     {
         document.getElementById("gold_counter").innerHTML = n;
     }
+
+    function updateFarmPrice(n)
+    {
+        document.getElementById("farm_price").innerHTML = n;
+    }
+
+    function updateHousePrice(n)
+    {
+        document.getElementById("house_price").innerHTML = n;
+    }
+
+    function updateTowerPrice(n)
+    {
+        document.getElementById("tower_price").innerHTML = n;
+    }
 </script>
 
 </head>
@@ -106,14 +121,14 @@
 	</div>
 
 	<div id="FarmPrice">
-				<img src="coin.png"><a id="xx">0</a>
+				<img src="coin.png"><a id="farm_price">0</a>
 	</div>
 	
 	<div id="HousePrice">
-				<img src="coin.png"><a id="xx">0</a>
+				<img src="coin.png"><a id="house_price">0</a>
 	</div>
 	<div id="TowerPrice">
-				<img src="coin.png"><a id="xx">0</a>
+				<img src="coin.png"><a id="tower_price">0</a>
 	</div>
 	
 	<div class="buildButtonWrapper" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">

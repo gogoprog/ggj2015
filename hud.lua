@@ -55,6 +55,9 @@ end
 function onPageLoaded()
     gengine.gui.executeScript("updateFood('" .. Village.food .. "');")
     gengine.gui.executeScript("updateGold('" .. Village.treasure .. "');")
+    gengine.gui.executeScript("updateHousePrice('" .. Settings.Buildings.House.price .. "');")
+    gengine.gui.executeScript("updateFarmPrice('" .. Settings.Buildings.Farm.price .. "');")
+    gengine.gui.executeScript("updateTowerPrice('" .. Settings.Buildings.Tower.price .. "');")
 end
 
 function Hud:showMainMenu()
