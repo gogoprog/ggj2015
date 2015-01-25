@@ -75,7 +75,7 @@ end
 function ComponentBuilding:onDead()
     self.gauge:remove()
     self.entity:remove()
-    Village:removeBuilding(self)
+    Village:removeBuilding(self.entity)
     gengine.entity.destroy(self.gauge)
     gengine.entity.destroy(self.entity)
 end

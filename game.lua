@@ -67,7 +67,6 @@ function Game:start()
     e.life.hp = e.life.maxHp
     e:insert()
 
-
     for i = 0, 3, 1 do
         e = Factory:createMan()
         e.worldItem:setPosition(math.pi * 0.5)
@@ -79,7 +78,6 @@ function Game:start()
     t.building:addGauge()
     t.life.hp = e.life.maxHp
     t:insert()
-    
 
     t = Factory:createTower(true)
     t.worldItem.position = 2.0
@@ -87,11 +85,11 @@ function Game:start()
     t.life.hp = e.life.maxHp
     t:insert()
 
-
 end
 
 function Game:getClosestEnemy(pos)
-    local best = 10, r
+    local best = 10
+    local r
     for k, v in ipairs(self.enemies) do
         local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
@@ -106,7 +104,10 @@ end
 
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
-        print(self.cursor.worldItem.position)
+        local e = Factory:createEnemy()
+        e.worldItem:setPosition(self.cursor.worldItem.position)
+        e:insert()
+        table.insert(self.enemies, e)
     end
 
     if gengine.input.keyboard:isJustDown(44) then

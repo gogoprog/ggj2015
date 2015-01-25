@@ -120,4 +120,3 @@ end
 function ComponentEnemy.onStateExit:fighting()
 
 end
-
