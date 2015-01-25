@@ -46,6 +46,12 @@ function Hud:loseGame()
     gengine.gui.executeScript("showWinOrLose('" .. 0 .. "');")
 end
 
+function Hud:buyWhatDoWeDoNowCredit()
+    if not Village:buyWhatDoWeDoNowCredit() then
+        gengine.gui.executeScript("showCannotBuyWhatDoWeDoNowCredit();")
+    end
+end
+
 function onPageLoaded()
     
 end

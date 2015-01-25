@@ -14,6 +14,8 @@ function Village:reset()
     self.treasure = Settings.startingGold
     self.population = 0
     self.populationMax = 5
+    self.whatDoWeDoKnowCredits = Settings.whatDoWeDoKnowCredits
+    self.whatDoWeDoKnowCreditsPrice = Settings.whatDoWeDoKnowCreditsPrice
     self:changeMode("build")
 end
 
@@ -250,6 +252,16 @@ function Village:changeMode(which)
     end
 
     self:changeState(which)
+end
+
+function Village:buyWhatDoWeDoNomCredit()
+    if self.whatDoWeDoKnowCreditsPrice <= self.treasure then
+        self.treasure = self.treasure - self.whatDoWeDoKnowCreditsPrice
+        self.whatDoWeDoKnowCredits = self.whatDoWeDoKnowCredits + 1
+        return true
+    end
+
+    return false
 end
 
 function Village.onStateEnter:build()
