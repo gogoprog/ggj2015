@@ -13,6 +13,7 @@ end
 
 function ComponentCoolGuy:insert()
     Village:addGuy(self.entity)
+    Factory:createIcon(self.entity, 3, 70)
 end
 
 function ComponentCoolGuy:remove()
@@ -53,6 +54,8 @@ end
 
 function ComponentCoolGuy:onDead()
     Village:downPop()
+
+    Factory:createIcon(self.entity, 2, 70)
 
     if self.targetSite then
         self.targetSite.building:removeWorker(self.entity)
