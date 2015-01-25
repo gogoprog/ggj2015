@@ -51,15 +51,13 @@ Settings = Settings or {
             },
 
             constructionRate = 0.3,
-
             maxWorkers = 10,
             areaSize = 0.05,
             hp = 100,
-	        price = 15
+	        price = 15,
             attackInterval = 0.5,
             damage = {10, 20},
             attackArea = 0.25,
-
             price = 15
         },
         Home = {
