@@ -23,7 +23,7 @@ Settings = Settings or {
             currentWorkers = 0,
             baseProductionRate = 1.2,
             productionTimer = 5,
-            areaSize = 0.06,
+            areaSize = 0.05,
             hp = 100
         },
         Farm = {
@@ -37,7 +37,7 @@ Settings = Settings or {
             currentWorkers = 0,
             baseProductionRate = 1.2,
             productionTimer = 5,
-            areaSize = 0.06,
+            areaSize = 0.05,
             hp = 100
         },
         Tower = {
@@ -50,7 +50,7 @@ Settings = Settings or {
             constructionRate = 0.3,
 
             maxWorkers = 10,
-            areaSize = 0.1,
+            areaSize = 0.05,
             hp = 100
         },
         Home = {
@@ -59,7 +59,7 @@ Settings = Settings or {
                 halfConstruction = "home",
                 complete = "home"
             },
-            areaSize = 0.075,
+            areaSize = 0.05,
             maxWorkers = 0,
             hp = 100
         }
@@ -68,7 +68,7 @@ Settings = Settings or {
         damage = {1, 5},
         attackInterval = 0.5,
         speed = 5,
-        hp = 200
+        hp = 50
     },
     Guys = {
         build = {

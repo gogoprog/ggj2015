@@ -28,7 +28,7 @@ end
 
 function ComponentEnemy:update(dt)
     self.gauge.worldItem.position = self.entity.worldItem.position
-    self.gauge.sprite.extent = vector2(self.entity.life.hp / 8 , 8)
+    self.gauge.sprite.extent = vector2((self.entity.life.hp / self.entity.life.maxHp) * 25 , 8)
     self:updateState(dt)
 
     self.speakTimeLeft = self.speakTimeLeft - dt
