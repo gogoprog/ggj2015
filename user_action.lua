@@ -67,7 +67,7 @@ end
 function UserAction:canPlaceBuilding()
     local b = Village:getClosestBuilding(self.currentEntity.worldItem.position)
 
-    if self.currentEntity.building.price < Village.treasure then
+    if self.currentEntity.building.price <= Village.treasure then
         if b then
             if math.abs(b.worldItem.position - self.currentEntity.worldItem.position)
                     > (self.currentEntity.building.params.areaSize + b.building.params.areaSize) then
