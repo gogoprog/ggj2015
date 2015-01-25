@@ -74,6 +74,8 @@ function ComponentEnemy:onHit()
 end
 
 function ComponentEnemy:onDead()
+    Village:upGold()
+    Factory:createIcon(self.entity, 7, 96)
     self.entity:remove()
     gengine.entity.destroy(self.entity)
 end

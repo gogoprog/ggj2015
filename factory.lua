@@ -603,12 +603,12 @@ end
 function Factory:createNotif(atlas, target, index, offset, upspeed)
     local e = gengine.entity.create()
 
-    local extent 
+    local extent
 
     if atlas == "text_atlas" then
         extent = vector2(64, 32)
     else
-        extent = vector2(16, 16)
+        extent = vector2(32, 32)
     end
 
     e:addComponent(

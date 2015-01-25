@@ -26,6 +26,7 @@ function ComponentCoolGuy:update(dt)
             self.repletion = 0
             if Village.food > 0 then
                 Village:downFood()
+                Factory:createIcon(self.entity, 0, 70)
                 self.repletion = 1
             else
                 self:onDead()
