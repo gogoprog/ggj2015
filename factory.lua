@@ -8,6 +8,8 @@ require 'component_enemy_fort'
 require 'component_home'
 require 'component_life'
 require 'component_notif'
+require 'component_bullet'
+require 'component_tower'
 
 Factory = Factory or {}
 
@@ -417,7 +419,7 @@ function Factory:createTower(instantCreation)
     )
 
     e:addComponent(
-        ComponentHouse(),
+        ComponentTower(),
         {
 
         },
@@ -611,4 +613,38 @@ function Factory:createNotif(target, index, offset)
     e:insert()
     return e
     
+end
+
+function Factory:createBullet(position, target)
+    local e = gengine.entity.create()
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("fire"),
+            extent = vector2(16, 16),
+            layer = 5
+        },
+        "sprite"
+        )
+
+    e:addComponent(
+        ComponentWorldItem(),
+        {
+            offset = 32,
+            position = position
+        },
+        "worldItem"
+        )
+
+    e:addComponent(
+        ComponentBullet(),
+        {
+            target = target
+        },
+        "bullet"
+        )
+
+    e:insert()
+
+    return e
 end

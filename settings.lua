@@ -51,7 +51,10 @@ Settings = Settings or {
 
             maxWorkers = 10,
             areaSize = 0.05,
-            hp = 100
+            hp = 100,
+
+            attackInterval = 0.5,
+            damage = {10, 20}
         },
         Home = {
             Textures = {

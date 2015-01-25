@@ -20,5 +20,4 @@ function ComponentFarm:update(dt)
 		end
 		self.prodTime = 5
 	end
-
 end

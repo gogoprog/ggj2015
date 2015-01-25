@@ -10,7 +10,7 @@ gengine.stateMachine(ComponentWorldItem)
 
 function ComponentWorldItem:init()
     self.world = Game.world
-    self.position = 0
+    self.position = self.position or 0
     self.speed = self.speed or 10
     self.offset = self.offset or 0
     self.direction = 1
