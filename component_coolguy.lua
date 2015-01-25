@@ -178,6 +178,7 @@ function ComponentCoolGuy.onStateUpdate:fighting(dt)
     self.timeLeft = self.timeLeft - dt
     if self.timeLeft < 0 then
         local g = self:checkForEnemies()
+
         if g then
             local damage = Settings.Guys[Village.state].damage
             local final_damage = damage[1] + (damage[2] - damage[1]) * math.random()

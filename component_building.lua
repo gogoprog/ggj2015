@@ -73,6 +73,14 @@ function ComponentBuilding:canInteract()
 end
 
 function ComponentBuilding:onDead()
+    if self.entity.home then
+        Game:loseGame()
+    end
+
+    if self.entity.enemyFort then
+        Game:winGame()
+    end
+
     self.gauge:remove()
     self.entity:remove()
     Village:removeBuilding(self.entity)

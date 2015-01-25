@@ -510,6 +510,14 @@ function Factory:createEnemyFort()
         "enemyFort"
     )
 
+    e:addComponent(
+        ComponentLife(),
+        {
+            hp = Settings.Buildings.EnemyFort.hp
+        },
+        "life"
+    )
+
     return e
 end
 

@@ -9,7 +9,6 @@ local e, cameraEntity
 
 function start()
     gengine.graphics.setClearColor(0.0, 0.0, 0.0, 1)
-
     gengine.graphics.texture.createFromDirectory("data/")
 
     Game:init()

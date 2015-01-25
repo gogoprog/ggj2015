@@ -60,6 +60,7 @@ function Game:start()
     local e = Factory:createEnemyFort()
     e.worldItem:setPosition(-math.pi * 0.5)
     e:insert()
+    self.enemyFort = e
 
     e = Factory:createHome()
     e.worldItem:setPosition(math.pi * 0.5)
@@ -68,9 +69,9 @@ function Game:start()
     e:insert()
 
     for i = 0, 3, 1 do
-        e = Factory:createMan()
-        e.worldItem:setPosition(math.pi * 0.5)
-        e:insert()
+        -- e = Factory:createMan()
+        -- e.worldItem:setPosition(math.pi * 0.5)
+        -- e:insert()
     end
 
     local t = Factory:createTower(true)
@@ -122,25 +123,31 @@ function Game:update(dt)
 end
 
 function Game:onClick(r)
-
     if self.skipMouse then
         return
     end
 
     UserAction:onClick(r)
-
-end 
-
-function Game.onStateEnter:gameplay()
-
 end
 
-function Game.onStateUpdate:gameplay(dt)
-
+function Game:winGame()
+    Hud:winGame()
+    self:changeState("gameOver")
 end
 
-function Game.onStateExit:gameplay()
+function Game:loseGame()
+    Hud:loseGame()
+    self:changeState("gameOver")
+end
 
+function Game.onStateEnter:gameOver()
+    Hud:showMainMenu()
+end
+
+function Game.onStateUpdate:gameOver(dt)
+    if gengine.input.keyboard:isJustDown(44) then
+        self:changeState("menu")
+    end
 end
 
 function Game.onStateEnter:showWDWDNMenu()
@@ -149,20 +156,7 @@ function Game.onStateEnter:showWDWDNMenu()
 end
 
 function Game.onStateUpdate:showWDWDNMenu()
-
 end
 
 function Game.onStateExit:showWDWDNMenu()
-
-end
-
-function Game.onStateEnter:pending()
-end
-
-function Game.onStateUpdate:pending()
-
-end
-
-function Game.onStateExit:pending()
-
 end

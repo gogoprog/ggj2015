@@ -38,6 +38,18 @@ function Hud:modeProduce()
     Village:changeMode("produce")
 end
 
+function Hud:winGame()
+    gengine.gui.executeScript("showWinOrLose('" .. 1 .. "');")
+end
+
+function Hud:loseGame()
+    gengine.gui.executeScript("showWinOrLose('" .. 0 .. "');")
+end
+
 function onPageLoaded()
     
+end
+
+function Hud:showMainMenu()
+    gengine.gui.loadFile("gui/main_menu.html")
 end

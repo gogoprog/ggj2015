@@ -62,6 +62,10 @@ Settings = Settings or {
             areaSize = 0.05,
             maxWorkers = 0,
             hp = 100
+        },
+        EnemyFort = {
+            hp,
+            areaSize = 0.06
         }
     },
     Enemy = {
