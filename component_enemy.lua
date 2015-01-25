@@ -82,7 +82,7 @@ function ComponentEnemy.onStateUpdate:random(dt)
     local entity = self.entity
     local wi = entity.worldItem
     if wi.state == "idle" then
-        wi:moveTo(math.random() * math.pi * 2)
+        wi:moveTo(math.pi * 0.5)
         self:ensureAnim()
     end
 
