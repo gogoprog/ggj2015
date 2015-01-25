@@ -62,6 +62,13 @@ function ComponentEnemy:checkForGuys()
     end
 end
 
+function ComponentEnemy:ensureAnim()
+    local entity = self.entity
+    local wi = entity.worldItem
+    self.entity.sprite.animation = gengine.graphics.animation.get("enemy_left")
+    entity.sprite.extent = vector2(64 * wi.direction, 64)
+end
+
 function ComponentEnemy:onHit()
 
 end
@@ -76,7 +83,7 @@ function ComponentEnemy.onStateUpdate:random(dt)
     local wi = entity.worldItem
     if wi.state == "idle" then
         wi:moveTo(math.random() * math.pi * 2)
-        entity.sprite.extent = vector2(64 * wi.direction, 64)
+        self:ensureAnim()
     end
 
     local g = self:checkForGuys()
@@ -94,6 +101,8 @@ function ComponentEnemy.onStateEnter:fighting()
     local wi = self.entity.worldItem
     wi:stop()
     self.timeLeft = 0
+
+    self.entity.sprite:pushAnimation(gengine.graphics.animation.get("enemy_fight_left"))
 end
 
 function ComponentEnemy.onStateUpdate:fighting(dt)
@@ -109,8 +118,8 @@ function ComponentEnemy.onStateUpdate:fighting(dt)
             elseif b then
                 b.life:hit(final_damage)
             end
-            
             self.timeLeft = Settings.Enemy.attackInterval
+            self.entity.sprite:pushAnimation(gengine.graphics.animation.get("enemy_fight_left"))
         else
             self:changeState("random")
         end

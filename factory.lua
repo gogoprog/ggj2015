@@ -88,6 +88,18 @@ function Factory:init()
         }
         )
 
+    texture = gengine.graphics.texture.get("enemy_fight_left")
+    atlas = gengine.graphics.atlas.create("enemy_fight_left", texture, 4, 1)
+    gengine.graphics.animation.create(
+        "enemy_fight_left",
+        {
+            atlas = atlas,
+            frames = { 0, 1, 2, 3 },
+            framerate = 6,
+            loop = false
+        }
+        )
+
     texture = gengine.graphics.texture.get("text_atlas")
     atlas = gengine.graphics.atlas.create("text_atlas", texture, 4, 6)
 

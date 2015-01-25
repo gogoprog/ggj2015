@@ -33,7 +33,9 @@ end
 
 function ComponentCoolGuy:onHit(dmg)
     self.entity.life.hp = self.entity.life.hp + dmg * ( 1 - Settings.Guys[Village.state].hitFactor)
-    self:changeState("fighting")
+    if self.state ~= "fighting" then
+        self:changeState("fighting")
+    end
 end
 
 function ComponentCoolGuy:onDead()
