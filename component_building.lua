@@ -2,6 +2,8 @@ ComponentBuilding = {}
 
 gengine.stateMachine(ComponentBuilding)
 
+local Settings = Settings
+
 function ComponentBuilding:init()
 
     self.params = self.params or {}
@@ -156,7 +158,7 @@ end
 
 function ComponentBuilding.onStateUpdate:idle(dt)
     if self.entity.life:isWounded() then
-        self.entity.life.hp = self.entity.life.hp + dt * #self.workers
+        self.entity.life.hp = self.entity.life.hp + dt * #self.workers * Settings.Guys[Village.state].repairFactor
     end
 end
 

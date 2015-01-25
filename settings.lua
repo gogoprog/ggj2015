@@ -95,7 +95,8 @@ Settings = Settings or {
             productionFactor = 1,
             moveAnimation = "farmer_left",
             buildAnimation = "farmer_building_left",
-            fightAnimation = "farmer_fight_left"
+            fightAnimation = "farmer_fight_left",
+            repairFactor = 2
         },
         fight = {
             damage = {5, 10},
@@ -105,9 +106,9 @@ Settings = Settings or {
             productionFactor = 0.5,
             moveAnimation = "warrior_left",
             buildAnimation = "warrior_building_left",
-            fightAnimation = "warrior_fight_left"
+            fightAnimation = "warrior_fight_left",
+            repairFactor = 1
         },
-
-        speed = 4;
+        speed = 4
     }
 }

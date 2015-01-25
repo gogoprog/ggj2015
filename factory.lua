@@ -627,7 +627,6 @@ function Factory:createNotif(target, index, offset)
 
     e:insert()
     return e
-    
 end
 
 function Factory:createBullet(position, target)

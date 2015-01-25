@@ -87,7 +87,7 @@
 		<span class="whatDoWeDoNumber">3</span>
 	</div>
 
-	<div  id="whatDoWeDoButtonsWrapper" style="display:none;">
+	<div  id="whatDoWeDoButtonsWrapper" style="display:none;" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
 
 		<img id="mode_build" class="topButton" src="icon_build.png" onclick="modeBuild();">
 		<img id="mode_fight" class="topButton" src="icon_fight.png" onclick="modeFight();">
@@ -127,7 +127,7 @@
 
 		</div>
 	</div>		
-	<div id="helpButton" onclick="showHelp()">
+	<div id="helpButton" onclick="showHelp()" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
 		
 	</div>
 
