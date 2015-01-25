@@ -36,13 +36,11 @@ function Village:removeGuy(e)
 end
 
 function Village:upFood(numWorkers)
-    print("PRODUCE FOOD")
     self.food = self.food + numWorkers
     gengine.gui.executeScript("updateFood('" .. self.food .. "');")
 end
 
 function Village:downFood()
-    print("EAT FOOD")
     self.food = self.food - 1
     gengine.gui.executeScript("updateFood('" .. self.food .. "');")
 end

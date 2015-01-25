@@ -18,7 +18,6 @@ function ComponentFarm:update(dt)
 		if self.entity.built and self.peasants > 0 then
             Factory:createIcon(self.entity, 1, 140)
 			Village:upFood(#self.entity.building.workers)
-			print(#self.entity.building.workers)
 		end
 		self.prodTime = 5
 	end
