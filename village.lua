@@ -254,7 +254,7 @@ end
 
 function Village:what()
     for k, v in ipairs(self.guys) do
-        Factory:createNotif(v, math.random(20, 22))
+        Factory:createNotif("text_atlas", v, math.random(20, 22))
     end
 end
 

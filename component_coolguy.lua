@@ -95,7 +95,7 @@ function ComponentCoolGuy:orderMoveTo(r)
 
     self:changeState("executing")
 
-    Factory:createNotif(self.entity, 23)
+    Factory:createNotif("text_atlas", self.entity, 23)
 
     self:ensureAnim()
 end
@@ -133,7 +133,7 @@ function ComponentCoolGuy.onStateEnter:seekingFood()
 
     self:ensureAnim()
 
-    Factory:createNotif(self.entity, math.random(17, 19))
+    Factory:createNotif("text_atlas", self.entity, math.random(17, 19))
 end
 
 function ComponentCoolGuy.onStateUpdate:seekingFood(dt)
@@ -170,7 +170,7 @@ end
 function ComponentCoolGuy.onStateEnter:fighting()
     self.entity.worldItem:stop()
     self.timeLeft = 0
-    Factory:createNotif(self.entity, math.random(11, 16))
+    Factory:createNotif("text_atlas", self.entity, math.random(11, 16))
 
     self.entity.sprite:pushAnimation(gengine.graphics.animation.get(Settings.Guys[Village.state].fightAnimation))
 end
@@ -203,7 +203,7 @@ function ComponentCoolGuy.onStateEnter:interacting()
     self.targetSite.building:addWorker(self.entity)
     self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].buildAnimation)
 
-    Factory:createNotif(self.entity, math.random(7, 10))
+    Factory:createNotif("text_atlas", self.entity, math.random(7, 10))
 
     local area = self.targetSite.building.params.areaSize
     local count = self.targetSite.building.params.maxWorkers

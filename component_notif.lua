@@ -19,6 +19,8 @@ function ComponentNotif:update(dt)
 
     self.entity.sprite.color = vector4(1,1,1,self.timeLeft)
 
+    self.entity.worldItem.offset = self.entity.worldItem.offset + self.upSpeed * dt
+
     if self.timeLeft < 0 then
         self.entity:remove()
         gengine.entity.destroy(self.entity)

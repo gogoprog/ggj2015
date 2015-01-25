@@ -34,7 +34,7 @@ function ComponentEnemy:update(dt)
     self.speakTimeLeft = self.speakTimeLeft - dt
     if self.speakTimeLeft < 0 then
         if math.random(1, 2) == 1 then
-            Factory:createNotif(self.entity, math.random(0, 6), 110)
+            Factory:createNotif("text_atlas", self.entity, math.random(0, 6), 110)
             self.speakTimeLeft = math.random(5, 10)
         end
     end

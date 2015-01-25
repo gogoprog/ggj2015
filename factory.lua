@@ -595,13 +595,13 @@ function Factory:createHome()
     return e
 end
 
-function Factory:createNotif(target, index, offset)
+function Factory:createNotif(atlas, target, index, offset, upspeed)
     local e = gengine.entity.create()
 
     e:addComponent(
         ComponentSprite(),
         {
-            atlas = gengine.graphics.atlas.get("text_atlas"),
+            atlas = gengine.graphics.atlas.get(atlas),
             atlasItem = index,
             extent = vector2(64, 32),
             layer = 3
@@ -620,7 +620,8 @@ function Factory:createNotif(target, index, offset)
     e:addComponent(
         ComponentNotif(),
         {
-            target = target
+            target = target,
+            upSpeed = upspeed or 0
         },
         "notif"
     )
