@@ -116,6 +116,10 @@ function ComponentCoolGuy.onStateEnter:seekingFood()
     entity.sprite.extent = vector2(64 * wi.direction, 64)
 end
 
+function ComponentCoolGuy.onStateEnter:seekingFood()
+    Factory:createNotif(self.entity, math.random(17, 19))
+end
+
 function ComponentCoolGuy.onStateUpdate:seekingFood(dt)
     if self.entity.worldItem.state == "idle" then
         self:changeState("eating")
@@ -150,6 +154,7 @@ end
 function ComponentCoolGuy.onStateEnter:fighting()
     self.entity.worldItem:stop()
     self.timeLeft = 0
+    Factory:createNotif(self.entity, math.random(11, 16))
 end
 
 function ComponentCoolGuy.onStateUpdate:fighting(dt)
@@ -176,6 +181,7 @@ function ComponentCoolGuy.onStateEnter:interacting()
     self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].buildAnimation)
     self.timeLeft = 1
     self.targetSite.building:addWorker(self.entity)
+    Factory:createNotif(self.entity, math.random(7, 10))
 end
 
 function ComponentCoolGuy.onStateUpdate:interacting(dt)

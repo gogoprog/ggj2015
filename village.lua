@@ -224,6 +224,7 @@ function Village:changeMode(which)
     print("MODE " .. which)
     for k, v in ipairs(self.guys) do
         v.sprite.animation = gengine.graphics.animation.get(Settings.Guys[which].moveAnimation)
+        Factory:createNotif(v, math.random(20, 22))
     end
 
     self:changeState(which)
