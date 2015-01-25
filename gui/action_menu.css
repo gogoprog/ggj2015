@@ -75,6 +75,7 @@ body {
 		margin-left:5px;
 		margin-right:10px;
 		bottom:-4px;
+		left: -25px;
 	}
 
 
@@ -85,7 +86,7 @@ body {
 		font-family: mainFont;
 		font-size :16px;
 		bottom:4px;
-		left:-10px;
+		left:-30px;
 		letter-spacing: -2px;
 		color:#838796;
 	}
