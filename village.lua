@@ -220,6 +220,22 @@ function Village:getClosestBuilding(pos, interactable)
     return r, best
 end
 
+function Village:getClosestCoolBuilding(pos)
+    local best = 10
+    local r
+    for k, v in ipairs(self.buildings) do
+        if not v.enemyFort then
+            local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
+            if delta < best then
+                best = delta
+                r = v
+            end
+        end
+    end
+
+    return r, best
+end
+
 function Village:what()
     for k, v in ipairs(self.guys) do
         Factory:createNotif(v, math.random(20, 22))

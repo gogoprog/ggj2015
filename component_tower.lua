@@ -1,15 +1,28 @@
 ComponentTower = {}
 
 function ComponentTower:init()
-    self.timeLeft = 1.0
+    self.params = self.entity.building.params
+    self.timeLeft = self.params.attackInterval
 end
 
 function ComponentTower:update(dt)
-    self.timeLeft = self.timeLeft - dt
+    if self.entity.building.state == "idle" then
+        self.timeLeft = self.timeLeft - dt
 
-    if self.timeLeft < 0 then
-        Factory:createBullet(self.entity.worldItem.position, self.entity.worldItem.position + 0.5 * math.random(-1, 1))
-        self.timeLeft = 1.0 * math.random()
+        if self.timeLeft < 0 then
+            local wi = self.entity.worldItem
+            local e, d = Game:getClosestEnemy(wi.position)
+
+            if e then
+                if d < self.params.attackArea then
+                    local diff = Util:getDeltaAngle(wi.position, e.worldItem.position)
+                    Factory:createBullet(wi.position, wi.position + diff)
+                    
+                end
+            end
+
+            self.timeLeft = self.params.attackInterval
+        end
     end
 end
 

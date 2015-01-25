@@ -54,7 +54,8 @@ Settings = Settings or {
             hp = 100,
 
             attackInterval = 0.5,
-            damage = {10, 20}
+            damage = {10, 20},
+            attackArea = 0.25
         },
         Home = {
             Textures = {
@@ -84,8 +85,8 @@ Settings = Settings or {
             hitFactor = 1,
             buildFactor = 0.5,
             productionFactor = 0.5,
-            moveAnimation = "builder_left",
-            buildAnimation = "builder_building_left"
+            moveAnimation = "farmer_left",
+            buildAnimation = "farmer_building_left"
         },
         fight = {
             damage = {5, 10},
@@ -95,15 +96,6 @@ Settings = Settings or {
             productionFactor = 0.5,
             moveAnimation = "warrior_left",
             buildAnimation = "warrior_building_left"
-        },
-        produce = {
-            damage = {1, 2},
-            attackInterval = 0.5,
-            hitFactor = 0.5,
-            buildFactor = 0.5,
-            productionFactor = 1,
-            moveAnimation = "farmer_left",
-            buildAnimation = "farmer_building_left"
         },
         speed = 10
     }

@@ -42,7 +42,7 @@ end
 
 function ComponentEnemy:checkForBuildings()
     local wi = self.entity.worldItem
-    local b, d = Village:getClosestBuilding(wi.position)
+    local b, d = Village:getClosestCoolBuilding(wi.position)
 
     if b then
         if d < (Settings.attackDistance + b.building.params.areaSize) then
