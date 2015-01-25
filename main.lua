@@ -4,6 +4,7 @@ require 'application'
 function init()
     gengine.application.setName("global.game.jam.2015")
     gengine.application.setExtent(1024,600)
+    print("STARTING GAME")
 end
 
 local e, cameraEntity
