@@ -86,7 +86,7 @@ function ComponentCoolGuy:orderMoveTo(r)
 
     Factory:createNotif(self.entity, 23)
 
-    wi:ensureAnim()
+    self:ensureAnim()
 end
 
 function ComponentCoolGuy:checkForEnemies()
