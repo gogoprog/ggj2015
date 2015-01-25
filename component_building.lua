@@ -93,12 +93,11 @@ function ComponentBuilding.onStateEnter:inConstruction()
 
     self.gauge = nil
     self.gauge = Factory:createGauge()
-    self.gauge:insert()
     self.gauge.worldItem.position = self.entity.worldItem.position
     self.gauge.worldItem.offset = 85
     self.gauge.sprite.extent = vector2(70, 8)
     self.gauge.sprite_back.extent = vector2(70, 8)
-
+    self.gauge:insert()
 end
 
 function ComponentBuilding.onStateUpdate:inConstruction(dt)

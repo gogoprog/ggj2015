@@ -506,7 +506,7 @@ function Factory:createHome()
     return e
 end
 
-function Factory:createNotif(target, index)
+function Factory:createNotif(target, index, offset)
     local e = gengine.entity.create()
 
     e:addComponent(
@@ -523,7 +523,7 @@ function Factory:createNotif(target, index)
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 70
+            offset = offset or 70
         },
         "worldItem"
     )

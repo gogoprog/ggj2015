@@ -1,7 +1,7 @@
 ComponentNotif = {}
 
 function ComponentNotif:init()
-    self.timeLeft = 1
+    self.timeLeft = 2
 end
 
 function ComponentNotif:insert()
