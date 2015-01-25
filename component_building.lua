@@ -32,7 +32,7 @@ end
 
 function ComponentBuilding:update(dt)
     if self.state ~= "placing" then
-        self.gauge.sprite.extent = vector2((self.entity.life.hp / self.entity.life.maxHp) * 70 , 8)
+        self.gauge.sprite.extent = vector2((self.entity.life.hp / self.entity.life.maxHp) * 65 , 8)
     end
 
     self:updateState(dt)
@@ -121,8 +121,8 @@ function ComponentBuilding:addGauge()
     self.gauge = Factory:createGauge()
     self.gauge.worldItem.position = self.entity.worldItem.position
     self.gauge.worldItem.offset = 128
-    self.gauge.sprite.extent = vector2(70, 8)
-    self.gauge.sprite_back.extent = vector2(70, 8)
+    self.gauge.sprite.extent = vector2(65, 8)
+    self.gauge.sprite_back.extent = vector2(65, 8)
     self.entity.life.hp = 1
     self.gauge:insert()
 

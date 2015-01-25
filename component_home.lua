@@ -24,7 +24,7 @@ function ComponentHome:update(dt)
         e.worldItem:setPosition(self.entity.worldItem.position)
         e:insert()
         -- time to spawn next human
-        self.timeLeft = 30
+        self.timeLeft = 25
     end
 
     if self.goldTimer < 0 then

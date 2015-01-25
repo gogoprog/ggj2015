@@ -55,6 +55,7 @@ body {
 		bottom:4px;
 		letter-spacing: -2px;
 		color:#838796;
+		left:-10px;
 	}
 
 	div#HousePrice img, div#FarmPrice img, div#TowerPrice img{
@@ -83,6 +84,7 @@ body {
 		font-family: mainFont;
 		font-size :16px;
 		bottom:4px;
+		left:-10px;
 		letter-spacing: -2px;
 		color:#838796;
 	}
@@ -100,7 +102,7 @@ body {
 	div#GoldCounter {
 		z-index: -2;
 		position:absolute;
-		right:333px;
+		right:310px;
 		bottom:41px;
 
 	}
