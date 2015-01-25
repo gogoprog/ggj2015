@@ -49,6 +49,18 @@
 	}
 
     function showWinOrLose(b) {
+        var e;
+        if(b)
+        {
+            e = document.getElementById("win");
+        }
+        else
+        {
+            e = document.getElementById("lose");
+        }
+
+        e.style.display = 'block';
+
         // if true : win
         // if false : lose
         // press spacebar to continue
@@ -175,7 +187,9 @@
 		</div>
 	</div>
 
-	
+    <img id="win" src="win.png" style="display:none;"/>
+    <img id="lose" src="lose.png" style="display:none;"/>
+
 	<script>
 		$( "#progressbar" ).progressbar({
 		  value: 37
