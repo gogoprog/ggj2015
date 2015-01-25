@@ -57,6 +57,33 @@ body {
 		color:#838796;
 	}
 
+	div#GoldCounter img{
+		position:relative;
+		display:inline-block;
+		width: 32px;
+		margin-left:5px;
+		margin-right:10px;
+		bottom:-4px;
+	}
+
+	div#GoldCounter a{
+		position:relative;
+		display:inline-block;
+		font-family: mainFont;
+		font-size :16px;
+		bottom:4px;
+		letter-spacing: -2px;
+		color:#838796;
+	}
+
+	div#GoldCounter {
+		z-index: -2;
+		position:absolute;
+		right:333px;
+		bottom:41px;
+
+	}
+
 	#whatDoWeDoTimer{
 		position:absolute;
 		height:64px;
@@ -173,6 +200,7 @@ body {
 	
 
 	div.buildButtonWrapper {
+		z-index: -5;
 		position: absolute;
 		bottom: -20px;
 		width: 384px;

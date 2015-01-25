@@ -91,20 +91,25 @@
 		<span class="whatDoWeDoButtonsText">fight!</span>
 		
 	</div>
+
+	<div id="GoldCounter">
+				<img src="coin.png"><a id="gold_counter">0</a>
+	</div>
 	
 	<div class="buildButtonWrapper" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
 		<img class="bottomButton" src="icon_farm.png" onclick="gengine_execute('Hud:buildFood()');">
 		<img class="bottomButton" src="icon_house.png" onclick="gengine_execute('Hud:buildHouse()');">
 		<img class="bottomButton" src="icon_tower.png" onclick="gengine_execute('Hud:buildTower()');">
-	
+
 		<div class="ressourcesWrapper">
-			<div id="FoodCounter" onclick="gengine_execute('Hud:selectMenuA()');">
+			<div id="FoodCounter">
 				 <img src="icon_food.png"><a id="food_counter">0</a>
 			</div>
 
-			<div id="PopulationCounter" onclick="gengine_execute('Hud:selectMenuB()');">
+			<div id="PopulationCounter">
 				<img src="icon_guy.png"><a id="pop_counter">0</a><a>/</a><a id="max_pop_counter">5</a>
 			</div>
+
 		</div>
 	</div>		
 	<div id="helpButton" onclick="showHelp()">
