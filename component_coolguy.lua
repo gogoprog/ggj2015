@@ -63,13 +63,14 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
                     self:changeState("interacting")
                 else
                     wi:moveTo(b.worldItem.position)
-                    entity.sprite.extent = vector2(64 * wi.direction, 64)
+                    self:ensureAnim()
                 end
             elseif wi.state == "idle" then
                 local b, d = Village:getClosestBuilding(wi.position)
                 local t = b.worldItem.position + (math.random() - 0.5) * 0.3
                 wi:moveTo(t)
                 entity.sprite.extent = vector2(64 * wi.direction, 64)
+                self:ensureAnim()
             end
         end
     end
@@ -80,11 +81,12 @@ function ComponentCoolGuy:orderMoveTo(r)
     local wi = entity.worldItem
 
     wi:moveTo(r)
-    entity.sprite.extent = vector2(64 * wi.direction, 64)
 
     self:changeState("executing")
 
     Factory:createNotif(self.entity, 23)
+
+    wi:ensureAnim()
 end
 
 function ComponentCoolGuy:checkForEnemies()
@@ -98,22 +100,27 @@ function ComponentCoolGuy:checkForEnemies()
     end
 end
 
+function ComponentCoolGuy:ensureAnim()
+    local entity = self.entity
+    local wi = entity.worldItem
+    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].moveAnimation)
+    entity.sprite.extent = vector2(64 * wi.direction, 64)
+end
+
 function ComponentCoolGuy.onStateEnter:seekingFood()
     local entity = self.entity
     local wi = entity.worldItem
-    local farm = Village:getClosestFarm(self.entity.worldItem.position)
+    local farm = Village:getClosestFarm(wi.position)
 
     if farm then
-        self.entity.worldItem:moveTo(farm.worldItem.position)
+        wi:moveTo(farm.worldItem.position)
         self.targetForFood = farm
     else
-        self.entity.worldItem:moveTo(Village.home.worldItem.position)
+        wi:moveTo(Village.home.worldItem.position)
         self.targetForFood = Village.home
     end
 
-    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].moveAnimation)
-
-    entity.sprite.extent = vector2(64 * wi.direction, 64)
+    self:ensureAnim()
 end
 
 function ComponentCoolGuy.onStateEnter:seekingFood()
@@ -178,7 +185,7 @@ end
 
 function ComponentCoolGuy.onStateEnter:interacting()
     self.entity.worldItem:stop()
-    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].buildAnimation)
+    self:ensureAnim()
     self.timeLeft = 1
     self.targetSite.building:addWorker(self.entity)
     Factory:createNotif(self.entity, math.random(7, 10))
@@ -198,7 +205,7 @@ end
 
 
 function ComponentCoolGuy.onStateEnter:executing()
-    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].moveAnimation)
+    self:ensureAnim()
 end
 
 function ComponentCoolGuy.onStateUpdate:executing(dt)
