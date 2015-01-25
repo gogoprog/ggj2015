@@ -67,7 +67,7 @@ function ComponentBuilding:canInteract()
     end
 
     if self.entity.home then
-        return true
+        return false
     end
 
     return false
