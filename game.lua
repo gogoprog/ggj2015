@@ -129,7 +129,6 @@ function Game:loseGame()
 end
 
 function Game.onStateEnter:gameOver()
-    Hud:showMainMenu()
 end
 
 function Game.onStateUpdate:gameOver(dt)

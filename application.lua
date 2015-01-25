@@ -48,3 +48,7 @@ end
 function Application:start()
     self:changeState("ingame")
 end
+
+function Application:next()
+    self:changeState("menu")
+end
