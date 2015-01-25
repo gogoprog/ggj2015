@@ -29,6 +29,7 @@ function ComponentHome:update(dt)
 
     if self.goldTimer < 0 then
         Village:upGold(self.params.goldGeneration)
+        Factory:createIcon(self.entity, 7, 140)
         self.goldTimer = self.params.goldGenerationRate
     end
 end

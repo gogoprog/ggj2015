@@ -116,7 +116,8 @@ function Factory:init()
 
     texture = gengine.graphics.texture.get("text_atlas")
     atlas = gengine.graphics.atlas.create("text_atlas", texture, 4, 6)
-
+    texture = gengine.graphics.texture.get("icons_atlas")
+    atlas = gengine.graphics.atlas.create("icons_atlas", texture, 3, 3)
 end
 
 function Factory:createCursor()
@@ -595,15 +596,27 @@ function Factory:createHome()
     return e
 end
 
+function Factory:createIcon(target, index, offset)
+    self:createNotif("icons_atlas", target, index, offset, 15)
+end
+
 function Factory:createNotif(atlas, target, index, offset, upspeed)
     local e = gengine.entity.create()
+
+    local extent 
+
+    if atlas == "text_atlas" then
+        extent = vector2(64, 32)
+    else
+        extent = vector2(16, 16)
+    end
 
     e:addComponent(
         ComponentSprite(),
         {
             atlas = gengine.graphics.atlas.get(atlas),
             atlasItem = index,
-            extent = vector2(64, 32),
+            extent = extent,
             layer = 3
         },
         "sprite"
