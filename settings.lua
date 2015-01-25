@@ -54,7 +54,7 @@ Settings = Settings or {
             },
 
             constructionRate = 0.3,
-            maxWorkers = 10,
+            maxWorkers = 5,
             areaSize = 0.05,
             hp = 100,
 	        price = 15,
