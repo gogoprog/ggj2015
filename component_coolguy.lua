@@ -171,6 +171,8 @@ function ComponentCoolGuy.onStateEnter:fighting()
     self.entity.worldItem:stop()
     self.timeLeft = 0
     Factory:createNotif(self.entity, math.random(11, 16))
+
+    self.entity.sprite:pushAnimation(gengine.graphics.animation.get(Settings.Guys[Village.state].fightAnimation))
 end
 
 function ComponentCoolGuy.onStateUpdate:fighting(dt)
@@ -183,6 +185,7 @@ function ComponentCoolGuy.onStateUpdate:fighting(dt)
             local final_damage = damage[1] + (damage[2] - damage[1]) * math.random()
             g.life:hit(final_damage)
             self.timeLeft = Settings.Guys[Village.state].attackInterval
+            self.entity.sprite:pushAnimation(gengine.graphics.animation.get(Settings.Guys[Village.state].fightAnimation))
         else
             self:changeState("random")
         end
@@ -190,7 +193,7 @@ function ComponentCoolGuy.onStateUpdate:fighting(dt)
 end
 
 function ComponentCoolGuy.onStateExit:fighting()
-
+    self:ensureAnim()
 end
 
 function ComponentCoolGuy.onStateEnter:interacting()
