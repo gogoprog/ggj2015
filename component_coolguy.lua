@@ -23,8 +23,13 @@ function ComponentCoolGuy:update(dt)
     if self.repletion > 0 then
         self.repletion = self.repletion - dt * Settings.hungryFactor
         if self.repletion < 0 then
-            self:changeState("seekingFood")
             self.repletion = 0
+            if Village.food > 0 then
+                Village:downFood()
+                self.repletion = 1
+            else
+                self:onDead()
+            end
         end
     end
 
@@ -123,9 +128,7 @@ function ComponentCoolGuy.onStateEnter:seekingFood()
     end
 
     self:ensureAnim()
-end
 
-function ComponentCoolGuy.onStateEnter:seekingFood()
     Factory:createNotif(self.entity, math.random(17, 19))
 end
 
