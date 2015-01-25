@@ -52,6 +52,18 @@ function Factory:init()
         }
         )
 
+    texture = gengine.graphics.texture.get("enemy_left")
+    atlas = gengine.graphics.atlas.create("enemy_left", texture, 4, 1)
+    gengine.graphics.animation.create(
+        "enemy_left",
+        {
+            atlas = atlas,
+            frames = { 0, 1, 2, 3 },
+            framerate = 3,
+            loop = true
+        }
+        )
+
     texture = gengine.graphics.texture.get("text_atlas")
     atlas = gengine.graphics.atlas.create("text_atlas", texture, 4, 6)
 
@@ -220,10 +232,9 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentAnimatedSprite(),
         {
-            animation = gengine.graphics.animation.get("warrior_left"),
+            animation = gengine.graphics.animation.get("enemy_left"),
             extent = vector2(64, 64),
-            layer = 2,
-            color = vector4(1, 0.0, 0.0, 1)
+            layer = 2
         },
         "sprite"
         )
@@ -231,7 +242,7 @@ function Factory:createEnemy()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 64,
+            offset = 32,
             speed = Settings.Enemy.speed
         },
         "worldItem"
