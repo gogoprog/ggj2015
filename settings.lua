@@ -55,7 +55,7 @@ Settings = Settings or {
             maxWorkers = 10,
             areaSize = 0.05,
             hp = 100,
-
+	        price = 15
             attackInterval = 0.5,
             damage = {10, 20},
             attackArea = 0.25,
@@ -103,6 +103,15 @@ Settings = Settings or {
             productionFactor = 0.5,
             moveAnimation = "warrior_left",
             buildAnimation = "warrior_building_left"
+        },
+        produce = {
+            damage = {1, 2},
+            attackInterval = 0.5,
+            hitFactor = 0.5,
+            buildFactor = 0.5,
+            productionFactor = 1,
+            moveAnimation = "farmer_left",
+            buildAnimation = "farmer_building_left"
         },
         speed = 10
     }
