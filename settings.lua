@@ -80,27 +80,29 @@ Settings = Settings or {
     Enemy = {
         damage = {1, 5},
         attackInterval = 0.5,
-        speed = 5,
+        speed = 4,
         hp = 50
     },
     Guys = {
         build = {
             damage = {1, 5},
-            attackInterval = 0.5,
+            attackInterval = 1,
             hitFactor = 1,
             buildFactor = 1,
             productionFactor = 1,
-            moveAnimation = "farmer_left",
-            buildAnimation = "farmer_building_left"
+            moveAnimation = "builder_left",
+            buildAnimation = "builder_left"
         },
         fight = {
-            damage = {5, 15},
-            attackInterval = 0.5,
+            damage = {5, 10},
+            attackInterval = 1,
             hitFactor = 0.5,
             buildFactor = 0.5,
             productionFactor = 0.5,
             moveAnimation = "warrior_left",
             buildAnimation = "warrior_building_left"
         },
+
+        speed = 4;
     }
 }

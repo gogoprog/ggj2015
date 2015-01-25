@@ -22,7 +22,7 @@ function ComponentEnemyFort:update(dt)
             e.worldItem:setPosition(self.entity.worldItem.position - 0.05)
         end
         e:insert()
-        self.timeLeft = 5
+        self.timeLeft = 30
     end
 end
 
