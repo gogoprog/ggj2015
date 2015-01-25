@@ -59,6 +59,8 @@ function Game:start()
     Village:reset()
     local e = Factory:createEnemyFort()
     e.worldItem:setPosition(-math.pi * 0.5)
+    e.building:addGauge()
+    e.life.hp = e.life.maxHp
     e:insert()
     self.enemyFort = e
 

@@ -64,7 +64,7 @@ Settings = Settings or {
             hp = 100
         },
         EnemyFort = {
-            hp,
+            hp = 100,
             areaSize = 0.06
         }
     },
