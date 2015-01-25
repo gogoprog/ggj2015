@@ -21,3 +21,7 @@ function ComponentLife:hit(dmg)
         self.entity:onDead()
     end
 end
+
+function ComponentLife:isWounded()
+    return self.hp < self.maxHp
+end

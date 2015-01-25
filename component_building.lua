@@ -60,6 +60,10 @@ end
 function ComponentBuilding:canInteract()
     if self.state ~= "idle" then
         return true
+    else
+        if self.entity.life:isWounded() then
+            return true
+        end
     end
 
     if self.entity.farm then
@@ -126,7 +130,7 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
 
     self.constructionProgression = self.constructionProgression + (dt * (self.params.constructionRate * Settings.Guys[Village.state].buildFactor) * #self.workers * 0.1)
     self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
-    self.entity.life.hp = self.entity.life.maxHp * self.constructionProgression 
+    self.entity.life.hp = self.entity.life.maxHp * self.constructionProgression
 
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
@@ -135,6 +139,7 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     end
 
     if self.constructionProgression >= 1 then
+        self.entity.life.hp = self.entity.life.maxHp
         self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
         self:changeState("idle")
     end
@@ -146,11 +151,13 @@ end
 
 function ComponentBuilding.onStateEnter:idle()
     Village:addBuilding(self.entity)
-    self.entity.built = true;
+    self.entity.built = true
 end
 
-function ComponentBuilding.onStateUpdate:idle()
-
+function ComponentBuilding.onStateUpdate:idle(dt)
+    if self.entity.life:isWounded() then
+        self.entity.life.hp = self.entity.life.hp + dt * #self.workers
+    end
 end
 
 function ComponentBuilding.onStateExit:idle()
