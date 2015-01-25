@@ -79,6 +79,8 @@ Settings = Settings or {
             damage = {1, 5},
             attackInterval = 0.5,
             hitFactor = 1,
+            buildFactor = 0.5,
+            productionFactor = 0.5,
             moveAnimation = "builder_left",
             buildAnimation = "builder_building_left"
         },
@@ -86,13 +88,17 @@ Settings = Settings or {
             damage = {5, 10},
             attackInterval = 0.5,
             hitFactor = 0.5,
+            buildFactor = 1,
+            productionFactor = 0.5,
             moveAnimation = "warrior_left",
             buildAnimation = "warrior_building_left"
         },
         produce = {
             damage = {1, 2},
             attackInterval = 0.5,
-            hitFactor = 1,
+            hitFactor = 0.5,
+            buildFactor = 0.5,
+            productionFactor = 1,
             moveAnimation = "farmer_left",
             buildAnimation = "farmer_building_left"
         },

@@ -123,7 +123,7 @@ end
 function ComponentBuilding.onStateUpdate:inConstruction(dt)
     self.currentTime = self.currentTime + dt
 
-    self.constructionProgression = self.constructionProgression + (dt * self.params.constructionRate * #self.workers * 0.1)
+    self.constructionProgression = self.constructionProgression + (dt * (self.params.constructionRate * Settings.Guys[Village.state].buildFactor) * #self.workers * 0.1)
     self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
     self.entity.life.hp = self.entity.life.maxHp * self.constructionProgression 
 
