@@ -12,6 +12,13 @@ body {
 		
 	}
 
+	.ui-widget-header {
+        background: #ffba00;
+        border: 1px solid #ffba00;
+        color: #ffba00;
+        font-weight: bold;
+    }
+
 	div.ressourcesWrapper { 
 		position:absolute;
 		right:10px;
@@ -50,11 +57,23 @@ body {
 		color:#838796;
 	}
 
+	#whatDoWeDoTimer{
+		position:absolute;
+		height:64px;
+		width: 416px;
+		top:6px;
+		margin-right: auto;
+		margin-left:auto;
+		left: 0;
+		right: 0;
+		background-color: white;
+	}
 
 	div.whatDoWedoWrapper{
 
+		display: block;
 		position: absolute;
-		top: -20px;
+		top: -10px;
 		width: 416px;
 		height: 128px;
 		margin-right: auto;
@@ -67,7 +86,7 @@ body {
 
 	div.whatDoWedoWrapper:hover, div.whatDoWedoWrapper:active{
 
-		top:-15px;
+		top:-5px;
 		background-image: url("panel_grey_wide_bigger_pressed.png");
 	}
 
