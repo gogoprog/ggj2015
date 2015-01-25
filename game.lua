@@ -70,11 +70,11 @@ function Game:start()
     e.life.hp = e.life.maxHp
     e:insert()
 
-    for i = 0, 3, 1 do
-        e = Factory:createMan()
-        e.worldItem:setPosition(math.pi * 0.5)
-        e:insert()
-    end
+    --for i = 0, 3, 1 do
+    --    e = Factory:createMan()
+    --    e.worldItem:setPosition(math.pi * 0.5)
+    --    e:insert()
+    --end
 
     local t = Factory:createTower(true)
     t.worldItem.position = 1.10

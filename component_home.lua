@@ -1,6 +1,7 @@
 ComponentHome = {}
 
 function ComponentHome:init()
+    --initial time off
     self.timeLeft = 5
     self.params = Settings.Buildings.Home
     self.goldTimer = Settings.Buildings.Home.goldGenerationRate
@@ -22,6 +23,7 @@ function ComponentHome:update(dt)
         local e = Factory:createMan()
         e.worldItem:setPosition(self.entity.worldItem.position)
         e:insert()
+        -- time to spawn next human
         self.timeLeft = 30
     end
 
