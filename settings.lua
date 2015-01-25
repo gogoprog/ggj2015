@@ -75,7 +75,7 @@ Settings = Settings or {
             maxWorkers = 0,
             hp = 100,
             goldGeneration = 1,
-            goldGenerationRate = 5
+            goldGenerationRate = 10
         },
         EnemyFort = {
             hp = 100,
