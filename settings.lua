@@ -58,7 +58,7 @@ Settings = Settings or {
             areaSize = 0.05,
             hp = 100,
 	        price = 15,
-            attackInterval = 0.5,
+            attackInterval = 2,
             damage = {5, 10},
             attackArea = 0.25,
             price = 15
@@ -84,7 +84,7 @@ Settings = Settings or {
         damage = {1, 5},
         attackInterval = 0.5,
         speed = 4,
-        hp = 100
+        hp = 200
     },
     Guys = {
         build = {
