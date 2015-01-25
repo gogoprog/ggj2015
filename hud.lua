@@ -27,22 +27,19 @@ function Hud.buildTower()
 end
 
 function Hud:modeBuild()
-    if Village.whatDoWeDoNowCredits > 0 then
-        Village:downWhatDoWeDoNowCredits()
+    if Village:buyWhatDoWeDoNowCredit() then
         Village:changeMode("build")
     end
 end
 
 function Hud:modeFight()
-    if Village.whatDoWeDoNowCredits > 0 then
-        Village:downWhatDoWeDoNowCredits()
+    if Village:buyWhatDoWeDoNowCredit() then
         Village:changeMode("fight")
     end
 end
 
 function Hud:modeProduce()
-    if Village.whatDoWeDoNowCredits > 0 then
-        Village:downWhatDoWeDoNowCredits()
+    if Village:buyWhatDoWeDoNowCredit() then
         Village:changeMode("produce")
     end
 end
@@ -67,6 +64,7 @@ function onPageLoaded()
     gengine.gui.executeScript("updateHousePrice('" .. Settings.Buildings.House.price .. "');")
     gengine.gui.executeScript("updateFarmPrice('" .. Settings.Buildings.Farm.price .. "');")
     gengine.gui.executeScript("updateTowerPrice('" .. Settings.Buildings.Tower.price .. "');")
+    gengine.gui.executeScript("updateWhatDoWeDoNowCreditPrice('" .. Settings.whatDoWeDoNowCreditsPrice .. "');")
 end
 
 function Hud:showMainMenu()

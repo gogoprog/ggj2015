@@ -110,7 +110,7 @@ function Game:update(dt)
         -- e.worldItem:setPosition(self.cursor.worldItem.position)
         -- e:insert()
         -- table.insert(self.enemies, e)
-        Village:buyWhatDoWeDoNomCredit()
+        Village:buyWhatDoWeDoNowCredit()
     end
 
     if gengine.input.keyboard:isJustDown(44) then

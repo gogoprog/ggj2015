@@ -14,7 +14,6 @@ function Village:reset()
     self.treasure = Settings.startingGold
     self.population = 0
     self.populationMax = 5
-    self.whatDoWeDoNowCredits = Settings.whatDoWeDoNowCredits
     self.whatDoWeDoNowCreditsPrice = Settings.whatDoWeDoNowCreditsPrice
 
     self:changeMode("build")
@@ -67,15 +66,19 @@ function Village:downGold(goldAmount)
     gengine.gui.executeScript("updateGold('" .. self.treasure .. "');")
 end
 
-function Village:upWhatDoWeDoNowCredits()
-    self.whatDoWeDoNowCredits = self.whatDoWeDoNowCredits + 1
-    gengine.gui.executeScript("updateWhatDoWeDoNowCredits('" .. self.whatDoWeDoNowCredits .. "');")
+function Village:updateWhatDoWeDoNowCreditPrice()
+    gengine.gui.executeScript("updateWhatDoWeDoNowCreditPrice('" .. self.whatDoWeDoNowCreditsPrice .. "');")
 end
 
-function Village:downWhatDoWeDoNowCredits()
-    self.whatDoWeDoNowCredits = self.whatDoWeDoNowCredits - 1
-    gengine.gui.executeScript("updateWhatDoWeDoNowCredits('" .. self.whatDoWeDoNowCredits .. "');")
-end
+-- function Village:upWhatDoWeDoNowCredits()
+--     self.whatDoWeDoNowCredits = self.whatDoWeDoNowCredits + 1
+--     gengine.gui.executeScript("updateWhatDoWeDoNowCredits('" .. self.whatDoWeDoNowCredits .. "');")
+-- end
+
+-- function Village:downWhatDoWeDoNowCredits()
+--     self.whatDoWeDoNowCredits = self.whatDoWeDoNowCredits - 1
+--     gengine.gui.executeScript("updateWhatDoWeDoNowCredits('" .. self.whatDoWeDoNowCredits .. "');")
+-- end
 
 function Village:upMaxPop()
     self.populationMax = self.populationMax + 4
@@ -277,10 +280,9 @@ function Village:changeMode(which)
     self:changeState(which)
 end
 
-function Village:buyWhatDoWeDoNomCredit()
-    if self.whatDoWeDoNowCredits > 0 and (self.whatDoWeDoNowCreditsPrice <= self.treasure) then
+function Village:buyWhatDoWeDoNowCredit()
+    if self.whatDoWeDoNowCreditsPrice <= self.treasure then
         self:downGold(self.whatDoWeDoNowCreditsPrice)
-        self:upWhatDoWeDoNowCredits()
         return true
     end
 
