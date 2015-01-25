@@ -10,7 +10,7 @@ function Village:reset()
     self.guys = {}
     self.buildings = {}
     self.home = nil
-    self.food = 0
+    self.food = Settings.startingFood
     self.treasure = Settings.startingGold
     self.population = 0
     self.populationMax = 5

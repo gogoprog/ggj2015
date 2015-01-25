@@ -12,6 +12,7 @@ Settings = Settings or {
     hungryFactor = 0.01,
     attackDistance = 0.02,
     startingGold = 10,
+    startingFood = 5,
     whatDoWeDoKnowCredits = 3,
     whatDoWeDoKnowCreditsPrice = 5,
     Buildings = {
