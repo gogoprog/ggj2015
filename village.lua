@@ -81,7 +81,7 @@ end
 -- end
 
 function Village:upMaxPop()
-    self.populationMax = self.populationMax + 4
+    self.populationMax = self.populationMax + 3
     gengine.gui.executeScript("updateMaxPop('" .. self.populationMax .. "');")
 end
 

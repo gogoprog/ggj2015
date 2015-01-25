@@ -23,6 +23,6 @@ function ComponentEnemyFort:update(dt)
         end
         e:insert()
         self.spawnCount = self.spawnCount + 1
-        self.timeLeft = 30 - math.min(self.spawnCount, 10)
+        self.timeLeft = 30 - math.min(self.spawnCount, 20)
     end
 end

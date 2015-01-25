@@ -11,7 +11,7 @@ Settings = Settings or {
     clickableZone = 2000,
     hungryFactor = 1 / 30,
     attackDistance = 0.02,
-    startingGold = 10,
+    startingGold = 5,
     startingFood = 10,
     whatDoWeDoNowCreditsPrice = 5,
     Buildings = {
@@ -22,7 +22,7 @@ Settings = Settings or {
                 complete = "house"
             },
             constructionRate = 0.2,
-            maxWorkers = 10,
+            maxWorkers = 5,
             currentWorkers = 0,
             baseProductionRate = 1.2,
             productionTimer = 5,
@@ -98,7 +98,7 @@ Settings = Settings or {
             moveAnimation = "farmer_left",
             buildAnimation = "farmer_building_left",
             fightAnimation = "farmer_fight_left",
-            repairFactor = 2
+            repairFactor = 1
         },
         fight = {
             damage = {5, 10},
@@ -109,7 +109,7 @@ Settings = Settings or {
             moveAnimation = "warrior_left",
             buildAnimation = "warrior_building_left",
             fightAnimation = "warrior_fight_left",
-            repairFactor = 1
+            repairFactor = 0.5
         },
         speed = 4
     }
