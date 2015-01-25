@@ -105,21 +105,7 @@ function Game:getClosestEnemy(pos)
 end
 
 function Game:update(dt)
-    if gengine.input.keyboard:isJustUp(4) then
-        -- local e = Factory:createEnemy()
-        -- e.worldItem:setPosition(self.cursor.worldItem.position)
-        -- e:insert()
-        -- table.insert(self.enemies, e)
-        Village:buyWhatDoWeDoNowCredit()
-    end
-
-    if gengine.input.keyboard:isJustDown(44) then
-        local e = Factory:createMan()
-        e.worldItem:setPosition(self.cursor.worldItem.position)
-        e:insert()
-        self.timeLeft = 30
-    end
-
+    Application:update(dt)
     self:updateState(dt)
     UserAction:update(dt)
 end

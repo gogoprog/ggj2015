@@ -9,7 +9,6 @@ function ComponentEnemyFort:insert()
 end
 
 function ComponentEnemyFort:remove()
-
 end
 
 function ComponentEnemyFort:update(dt)
@@ -26,8 +25,4 @@ function ComponentEnemyFort:update(dt)
         self.spawnCount = self.spawnCount + 1
         self.timeLeft = 30 - math.min(self.spawnCount, 10)
     end
-end
-
-function ComponentEnemyFort:onDead()
-    Game:winGame()
 end

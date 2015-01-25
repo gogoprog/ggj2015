@@ -66,7 +66,3 @@ function onPageLoaded()
     gengine.gui.executeScript("updateTowerPrice('" .. Settings.Buildings.Tower.price .. "');")
     gengine.gui.executeScript("updateWhatDoWeDoNowCreditPrice('" .. Settings.whatDoWeDoNowCreditsPrice .. "');")
 end
-
-function Hud:showMainMenu()
-    gengine.gui.loadFile("gui/main_menu.html")
-end
