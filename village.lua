@@ -42,7 +42,7 @@ function Village:downFood()
 end
 
 function Village:upPop()
-    self.population = self.population
+    self.population = self.population + 1
     gengine.gui.executeScript("updatePop('" .. self.population .. "');")
 end
 
