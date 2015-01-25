@@ -87,7 +87,7 @@ body {
 		color:#838796;
 	}
 
-	div#HousePrice a, div#FarmPrice a, div#TowerPrice a{
+	div#HousePrice a, div#FarmPrice a, div#TowerPrice a, div#HouseText a, div#FarmText a, div#TowerText a{
 		position:relative;
 		display:inline-block;
 		font-family: mainFont;
@@ -110,7 +110,16 @@ body {
 		z-index: -2;
 		position:absolute;
 		right:630px;
-		bottom:32px;
+		bottom:42px;
+
+	}
+
+	div#FarmText {
+		pointer-events: none;
+		z-index: -2;
+		position:absolute;
+		right:627px;
+		bottom:15px;
 
 	}
 
@@ -119,16 +128,35 @@ body {
 		z-index: -2;
 		position:absolute;
 		right:555px;
-		bottom:32px;
+		bottom:42px;
 
 	}
+
+	div#HouseText {
+		pointer-events: none;
+		z-index: -2;
+		position:absolute;
+		right:543px;
+		bottom:15px;
+
+	}
+
 
 	div#TowerPrice {
 		pointer-events: none;
 		z-index: -2;
 		position:absolute;
 		right:480px;
-		bottom:32px;
+		bottom:42px;
+
+	}
+
+	div#TowerText {
+		pointer-events: none;
+		z-index: -2;
+		position:absolute;
+		right:467px;
+		bottom:15px;
 
 	}
 
