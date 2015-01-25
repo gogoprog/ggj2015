@@ -108,6 +108,7 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     end
 
     if self.constructionProgression >= 1 then
+        self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
         self:changeState("idle")
     end
 end

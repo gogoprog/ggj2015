@@ -4,9 +4,6 @@ function ComponentFarm:init()
 
 	self.prodTime = 25
 	self.peasants = 1
-
-	
-
 end
 
 function ComponentFarm:insert()
