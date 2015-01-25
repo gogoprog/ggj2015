@@ -488,7 +488,7 @@ function Factory:createEnemyFort()
     e:addComponent(
         ComponentSprite(),
         {
-            texture = gengine.graphics.texture.get("town_hall"),
+            texture = gengine.graphics.texture.get("enemy_home"),
             extent = vector2(128, 128),
             layer = 1
         },

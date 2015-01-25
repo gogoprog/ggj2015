@@ -90,7 +90,7 @@ Settings = Settings or {
             attackInterval = 0.5,
             hitFactor = 1,
             moveAnimation = "farmer_left",
-            buildAnimation = "builder_building_left"
+            buildAnimation = "farmer_building_left"
         },
         speed = 10
     }
