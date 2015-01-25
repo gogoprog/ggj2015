@@ -2,6 +2,8 @@ ComponentHouse = {}
 
 function ComponentHouse:init()
 	self.timeLeft = 60
+    self.goldGeneration = Settings.Buildings.House.goldGeneration
+    self.goldTimer = Settings.Buildings.House.goldGenerationRate
 end
 
 function ComponentHouse:update(dt)

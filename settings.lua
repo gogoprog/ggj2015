@@ -29,7 +29,9 @@ Settings = Settings or {
             productionTimer = 5,
             areaSize = 0.05,
             hp = 100,
-            price = 5
+            price = 5,
+            goldGeneration = 155,
+            goldGenerationRate = 1
         },
         Farm = {
             Textures = {
