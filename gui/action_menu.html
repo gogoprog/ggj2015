@@ -22,7 +22,10 @@
    function showChoices() {
     var e = document.getElementById("whatDoWeDoButtonsWrapper");
        if(e.style.display == 'none')
+       {
           e.style.display = 'block';
+          gengine_execute('Village:what()');
+       }
        else
           e.style.display = 'none';
 	}
