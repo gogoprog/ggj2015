@@ -51,7 +51,6 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
     local wi = entity.worldItem
 
     if self.repletion > 0 then
-
         self.checkTimeLeft = self.checkTimeLeft - dt
 
         if self.checkTimeLeft < 0 then
