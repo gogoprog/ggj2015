@@ -166,6 +166,7 @@ function ComponentBuilding.onStateUpdate:idle(dt)
         self.entity.house.goldTimer = self.entity.house.goldTimer - dt
         if self.entity.house.goldTimer < 0 then
             Village:upGold(self.entity.house.goldGeneration)
+            Factory:createIcon(self.entity, 7, 140)
             self.entity.house.goldTimer = Settings.Buildings.House.goldGenerationRate
         end
     end

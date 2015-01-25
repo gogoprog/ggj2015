@@ -190,7 +190,8 @@ function Village:getClosestGuy(pos, no_order)
     local best = 10
     local r
     for k, v in ipairs(self.guys) do
-        if not no_order or v.guy.state ~= "executing" then
+
+        if not no_order or not v.guy.targetOrder then
             local delta = math.abs( Util:getDeltaAngle(pos, v.worldItem.position) )
 
             if delta < best then

@@ -104,6 +104,7 @@ function ComponentCoolGuy:orderMoveTo(r)
     local entity = self.entity
     local wi = entity.worldItem
 
+    self.targetOrder = r
     wi:moveTo(r)
 
     self:changeState("executing")
@@ -259,5 +260,5 @@ function ComponentCoolGuy.onStateUpdate:executing(dt)
 end
 
 function ComponentCoolGuy.onStateExit:executing()
-
+    self.targetOrder = nil
 end
