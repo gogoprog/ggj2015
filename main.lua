@@ -1,4 +1,5 @@
 require 'game'
+require 'application'
 
 function init()
     gengine.application.setName("global.game.jam.2015")
@@ -10,9 +11,7 @@ local e, cameraEntity
 function start()
     gengine.graphics.setClearColor(0.0, 0.0, 0.0, 1)
     gengine.graphics.texture.createFromDirectory("data/")
-
-    Game:init()
-    Game:start()
+    Application:init()
 end
 
 function update(dt)
