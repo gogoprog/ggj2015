@@ -64,6 +64,16 @@ function Game:start()
     e = Factory:createHome()
     e.worldItem:setPosition(math.pi * 0.5)
     e:insert()
+
+    local t = Factory:createTower(true)
+    t.worldItem.position = 1.10
+    t:insert()
+    t.building:changeState("idle")
+
+    t = Factory:createTower(true)
+    t.worldItem.position = 2.0
+    t:insert()
+    t.building:changeState("idle")
 end
 
 function Game:getClosestEnemy(pos)
@@ -82,7 +92,7 @@ end
 
 function Game:update(dt)
     if gengine.input.keyboard:isJustUp(4) then
-        self.enemies[1].life.hp = self.enemies[1].life.hp - 20
+        print(self.cursor.worldItem.position)
     end
 
     if gengine.input.keyboard:isJustDown(44) then

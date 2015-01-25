@@ -10,10 +10,12 @@ function ComponentBuilding:init()
     self.justBegun = true
     self.placingOffset = 80
     self.workers = {}
-    if self.params.constructionRate then
-        self:changeState("placing")
-    else
+    self.instantCreation = self.instantCreation or false
+
+    if self.instantCreation then
         self:changeState("idle")
+    else
+        self:changeState("placing")
     end
 end
 
@@ -98,12 +100,12 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     self.gauge.sprite.extent = vector2(self.constructionProgression * 50 , 8)
 
     if self.justBegun and self.constructionProgression >= 0.5 then
+        self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
         self.justBegun = false
         self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.halfConstruction)
     end
 
     if self.constructionProgression >= 1 then
-        self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
         self:changeState("idle")
     end
 end
