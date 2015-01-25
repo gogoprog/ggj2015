@@ -13,6 +13,7 @@ function ComponentWorldItem:init()
     self.position = 0
     self.speed = self.speed or 10
     self.offset = self.offset or 0
+    self.direction = 1
     self:changeState("idle")
 end
 

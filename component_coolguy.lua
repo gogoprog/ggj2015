@@ -75,14 +75,13 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
                     self:changeState("interacting")
                 else
                     wi:moveTo(b.worldItem.position)
-                    self:ensureAnim()
+                    entity.sprite.extent = vector2(64 * wi.direction, 64)
                 end
             elseif wi.state == "idle" then
                 local b, d = Village:getClosestBuilding(wi.position)
                 local t = b.worldItem.position + (math.random() - 0.5) * 0.3
                 wi:moveTo(t)
                 entity.sprite.extent = vector2(64 * wi.direction, 64)
-                self:ensureAnim()
             end
         end
     end
