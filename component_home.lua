@@ -28,7 +28,7 @@ function ComponentHome:update(dt)
     end
 
     if self.goldTimer < 0 then
-        Village.treasure = Village.treasure + self.params.goldGeneration
+        Village:upGold(self.params.goldGeneration)
         self.goldTimer = self.params.goldGenerationRate
     end
 end

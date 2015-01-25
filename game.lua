@@ -87,7 +87,6 @@ function Game:start()
     t.building:addGauge()
     t.life.hp = e.life.maxHp
     t:insert()
-
 end
 
 function Game:getClosestEnemy(pos)

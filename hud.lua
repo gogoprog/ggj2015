@@ -53,7 +53,8 @@ function Hud:buyWhatDoWeDoNowCredit()
 end
 
 function onPageLoaded()
-    
+    gengine.gui.executeScript("updateFood('" .. Village.food .. "');")
+    gengine.gui.executeScript("updateGold('" .. Village.treasure .. "');")
 end
 
 function Hud:showMainMenu()

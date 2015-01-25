@@ -106,6 +106,7 @@ function ComponentBuilding.onStateUpdate:placing(dt)
 end
 
 function ComponentBuilding.onStateEnter:inConstruction()
+    Village:downGold(self.params.price)
     Village:addConstructingBuilding(self.entity)
     self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.beginConstruction)
     self.entity.sprite.color = vector4(1, 1, 1, 1)
