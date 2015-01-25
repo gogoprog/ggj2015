@@ -51,7 +51,6 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
     local wi = entity.worldItem
 
     if self.repletion > 0 then
-
         self.checkTimeLeft = self.checkTimeLeft - dt
 
         if self.checkTimeLeft < 0 then
@@ -84,6 +83,8 @@ function ComponentCoolGuy:orderMoveTo(r)
     entity.sprite.extent = vector2(64 * wi.direction, 64)
 
     self:changeState("executing")
+
+    Factory:createNotif(self.entity, 23)
 end
 
 function ComponentCoolGuy:checkForEnemies()

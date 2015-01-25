@@ -72,6 +72,14 @@ function ComponentBuilding:canInteract()
     return false
 end
 
+function ComponentBuilding:onDead()
+    self.gauge:remove()
+    self.entity:remove()
+    Village:removeBuilding(self)
+    gengine.entity.destroy(self.gauge)
+    gengine.entity.destroy(self.entity)
+end
+
 function ComponentBuilding.onStateEnter:placing()
     self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
     self.entity.sprite.color = vector4(1, 1, 1, 0.5)
@@ -95,13 +103,13 @@ end
 function ComponentBuilding:addGauge()
     self.gauge = nil
     self.gauge = Factory:createGauge()
-    self.gauge:insert()
     self.gauge.worldItem.position = self.entity.worldItem.position
     self.gauge.worldItem.offset = 128
     self.gauge.sprite.extent = vector2(70, 8)
     self.gauge.sprite_back.extent = vector2(70, 8)
-
     self.entity.life.hp = 1
+    self.gauge:insert()
+
 end
 
 function ComponentBuilding.onStateUpdate:inConstruction(dt)

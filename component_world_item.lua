@@ -17,6 +17,7 @@ function ComponentWorldItem:init()
 end
 
 function ComponentWorldItem:insert()
+    self:computePosition()
 end
 
 function ComponentWorldItem:update(dt)

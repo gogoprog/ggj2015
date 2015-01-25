@@ -1,5 +1,6 @@
 body {
 		height: 100%;
+		width: 100%;
 	}
 
 	@font-face {
@@ -180,4 +181,81 @@ body {
 		top:4px;
 		background-image: url("bottom_button_grey_pressed.png");
 		
+	}
+
+	#helpButton {
+
+		position: absolute;
+		top: 4px;
+		width: 64px;
+		height: 64px;		
+		right: 0;
+		background-image: url("help_button.png");
+	
+	}
+
+	#helpButton:hover, #helpButton:active {
+
+		background-image: url("help_button_pressed.png");
+	
+	}
+
+	#helpWindowContainer{
+
+		display: none;
+		position: absolute;		
+		width:105%;
+		height:105%;
+		background: rgba(0, 0, 0, .75);
+		z-index:10;
+		left:-5%;
+		top:-5%;
+	}
+
+	#helpWindow{
+
+		display: block;
+		position: relative;		
+		margin:auto;
+		margin-top: 70px;
+		width:600px;
+		height:500px;
+		background-image: url("help_bg.png");	
+    	background-size: 100% 100%;
+		z-index:10;
+	}
+
+	#helpWindowClose{
+
+		display: block;
+		position: absolute;		
+		top:-16px;
+		right:-16px;
+		width: 64px;
+		height: 64px;
+		background-image: url("bottom_button_grey.png");	
+    	background-size: 100% 100%;
+    	background-repeat: no-repeat;
+		z-index:10;
+	}
+
+	#helpWindowClose:hover, #helpWindowClose:active {
+
+		background-image: url("bottom_button_grey_pressed.png");	
+    	
+	}
+
+	#helpWindowClose img {
+
+		position:relative;
+		display:block;
+		margin:auto;
+		width:45px;
+		height:45px;
+		top:7px;
+	}
+
+	#helpWindowClose:hover img, #helpWindowClose:active img {
+
+		top:11px;
 	}

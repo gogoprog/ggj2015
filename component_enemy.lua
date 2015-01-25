@@ -6,6 +6,8 @@ function ComponentEnemy:init()
     self.gauge = self.gauge
 
     self:changeState("random")
+
+    self.speakTimeLeft = 0
 end
 
 function ComponentEnemy:insert()
@@ -28,6 +30,14 @@ function ComponentEnemy:update(dt)
     self.gauge.worldItem.position = self.entity.worldItem.position
     self.gauge.sprite.extent = vector2(self.entity.life.hp / 8 , 8)
     self:updateState(dt)
+
+    self.speakTimeLeft = self.speakTimeLeft - dt
+    if self.speakTimeLeft < 0 then
+        if math.random(1, 2) == 1 then
+            Factory:createNotif(self.entity, math.random(0, 6), 110)
+            self.speakTimeLeft = math.random(5, 10)
+        end
+    end
 end
 
 function ComponentEnemy:checkForBuildings()
