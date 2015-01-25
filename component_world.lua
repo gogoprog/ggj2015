@@ -35,7 +35,7 @@ function ComponentWorld:update(dt)
     elseif mouse:isJustUp(3) then
         local x,y = gengine.input.mouse:getPosition()
 
-        self.rotateSpeed = (x - self.lastX) * - 1.0 * Settings.cameraRotateFactor
+        self.rotateSpeed = (x - self.lastX) * - 0.5 * Settings.cameraRotateFactor
     end
 
     if gengine.input.keyboard:isDown(79) then

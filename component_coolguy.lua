@@ -111,6 +111,8 @@ function ComponentCoolGuy.onStateEnter:seekingFood()
         self.targetForFood = Village.home
     end
 
+    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].moveAnimation)
+
     entity.sprite.extent = vector2(64 * wi.direction, 64)
 end
 
@@ -171,6 +173,7 @@ end
 
 function ComponentCoolGuy.onStateEnter:interacting()
     self.entity.worldItem:stop()
+    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].buildAnimation)
     self.timeLeft = 1
     self.targetSite.building:addWorker(self.entity)
 end
@@ -189,7 +192,7 @@ end
 
 
 function ComponentCoolGuy.onStateEnter:executing()
-
+    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].moveAnimation)
 end
 
 function ComponentCoolGuy.onStateUpdate:executing(dt)

@@ -64,6 +64,30 @@ function Factory:init()
         }
         )
 
+    texture = gengine.graphics.texture.get("builder_building_left")
+    atlas = gengine.graphics.atlas.create("builder_building_left", texture, 2, 1)
+    gengine.graphics.animation.create(
+        "builder_building_left",
+        {
+            atlas = atlas,
+            frames = { 0, 1 },
+            framerate = 3,
+            loop = true
+        }
+        )
+
+    texture = gengine.graphics.texture.get("warrior_building_left")
+    atlas = gengine.graphics.atlas.create("warrior_building_left", texture, 2, 1)
+    gengine.graphics.animation.create(
+        "warrior_building_left",
+        {
+            atlas = atlas,
+            frames = { 0, 1 },
+            framerate = 3,
+            loop = true
+        }
+        )
+
     texture = gengine.graphics.texture.get("text_atlas")
     atlas = gengine.graphics.atlas.create("text_atlas", texture, 4, 6)
 

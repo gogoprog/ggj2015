@@ -75,19 +75,22 @@ Settings = Settings or {
             damage = {1, 5},
             attackInterval = 0.5,
             hitFactor = 1,
-            moveAnimation = "builder_left"
+            moveAnimation = "builder_left",
+            buildAnimation = "builder_building_left"
         },
         fight = {
             damage = {5, 10},
             attackInterval = 0.5,
             hitFactor = 0.5,
-            moveAnimation = "warrior_left"
+            moveAnimation = "warrior_left",
+            buildAnimation = "warrior_building_left"
         },
         produce = {
             damage = {1, 2},
             attackInterval = 0.5,
             hitFactor = 1,
-            moveAnimation = "farmer_left"
+            moveAnimation = "farmer_left",
+            buildAnimation = "builder_building_left"
         },
         speed = 10
     }
