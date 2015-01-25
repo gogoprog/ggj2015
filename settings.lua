@@ -79,7 +79,8 @@ Settings = Settings or {
         },
         EnemyFort = {
             hp = 100,
-            areaSize = 0.06
+            areaSize = 0.13,
+            maxWorkers = 0
         }
     },
     Enemy = {
