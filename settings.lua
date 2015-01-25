@@ -30,8 +30,8 @@ Settings = Settings or {
             areaSize = 0.04,
             hp = 100,
             price = 5,
-            goldGeneration = 155,
-            goldGenerationRate = 1
+            goldGeneration = 1,
+            goldGenerationRate = 15
         },
         Farm = {
             Textures = {
@@ -75,7 +75,7 @@ Settings = Settings or {
             maxWorkers = 0,
             hp = 100,
             goldGeneration = 1,
-            goldGenerationRate = 10
+            goldGenerationRate = 15
         },
         EnemyFort = {
             hp = 100,
