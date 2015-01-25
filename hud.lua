@@ -14,16 +14,19 @@ end
 function Hud.buildFood()
     local e = Factory:createFarm()
     UserAction:placeBuilding(e)
+    gengine.audio.playSound(gengine.audio.sound.get("click_button"))
 end
 
 function Hud.buildHouse()
     local e = Factory:createHouse()
     UserAction:placeBuilding(e)
+    gengine.audio.playSound(gengine.audio.sound.get("click_button"))
 end
 
 function Hud.buildTower()
     local e = Factory:createTower()
     UserAction:placeBuilding(e)
+    gengine.audio.playSound(gengine.audio.sound.get("click_button"))
 end
 
 function Hud:modeBuild()

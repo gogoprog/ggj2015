@@ -17,6 +17,7 @@ function ComponentTower:update(dt)
                 if d < self.params.attackArea then
                     local diff = Util:getDeltaAngle(wi.position, e.worldItem.position)
                     Factory:createBullet(wi.position, wi.position + diff)
+                    gengine.audio.playSound(gengine.audio.sound.get("tower_fire"))
                     local damage = self.params.damage
                     local final_damage = damage[1] + (damage[2] - damage[1]) * math.random()
                     e.life:hit(final_damage)

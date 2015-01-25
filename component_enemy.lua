@@ -110,6 +110,7 @@ end
 function ComponentEnemy.onStateUpdate:fighting(dt)
     self.timeLeft = self.timeLeft - dt
     if self.timeLeft < 0 then
+        gengine.audio.playSound(gengine.audio.sound.get("enemy_hit"))
         local g = self:checkForGuys()
         local b = self:checkForBuildings()
         if g or b then

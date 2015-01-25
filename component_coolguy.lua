@@ -195,11 +195,13 @@ function ComponentCoolGuy.onStateEnter:fighting()
     Factory:createNotif("text_atlas", self.entity, math.random(11, 16))
 
     self.entity.sprite:pushAnimation(gengine.graphics.animation.get(Settings.Guys[Village.state].fightAnimation))
+
 end
 
 function ComponentCoolGuy.onStateUpdate:fighting(dt)
     self.timeLeft = self.timeLeft - dt
     if self.timeLeft < 0 then
+        --gengine.audio.playSound(gengine.audio.sound.get("villager_hit"))
         local g = self:checkForEnemies()
 
         if g then
@@ -208,7 +210,7 @@ function ComponentCoolGuy.onStateUpdate:fighting(dt)
             g.life:hit(final_damage)
             self.timeLeft = Settings.Guys[Village.state].attackInterval
             self.entity.sprite:pushAnimation(gengine.graphics.animation.get(Settings.Guys[Village.state].fightAnimation))
-        else
+       else
             self:changeState("random")
         end
     end

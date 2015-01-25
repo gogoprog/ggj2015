@@ -18,6 +18,16 @@ local Settings = Settings
 function Factory:init()
     local texture, atlas
 
+    gengine.audio.sound.create("data/sfx/tower_fire.wav")
+    gengine.audio.sound.create("data/sfx/villager_hit.wav")
+    gengine.audio.sound.create("data/sfx/enemy_hit.wav")
+    gengine.audio.sound.create("data/sfx/farm_construct.wav")
+    gengine.audio.sound.create("data/sfx/click_button.wav")
+    gengine.audio.sound.create("data/sfx/tower_construct.wav")
+    gengine.audio.sound.create("data/sfx/house_construct.wav")
+    gengine.audio.sound.create("data/sfx/place_building.wav")
+    gengine.audio.sound.create("data/sfx/villager_construct.wav")
+
     texture = gengine.graphics.texture.get("farmer_left")
     atlas = gengine.graphics.atlas.create("farmer_left", texture, 4, 1)
     gengine.graphics.animation.create(
@@ -676,3 +686,6 @@ function Factory:createBullet(position, target)
 
     return e
 end
+
+
+

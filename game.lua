@@ -55,6 +55,8 @@ function Game:init()
 end
 
 function Game:start()
+    --gengine.audio.playMusic("data/ost.ogg")
+
     self.enemies = {}
     Village:reset()
     local e = Factory:createEnemyFort()

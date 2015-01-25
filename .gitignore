@@ -2,3 +2,6 @@ out/
 source/
 debug.log
 gengine.exe - Shortcut.lnk
+data/sfx/enemy_hit-old1.wav
+data/sfx/tower_construct-old1.wav
+data/sfx/tower_fire-old1.wav

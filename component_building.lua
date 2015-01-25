@@ -15,6 +15,7 @@ function ComponentBuilding:init()
     self.instantCreation = self.instantCreation or false
     self.hp = 1
     self.price = self.price or 100
+    self.timeAudio = 0
 
     if self.instantCreation then
         self:changeState("idle")
@@ -106,6 +107,7 @@ function ComponentBuilding.onStateUpdate:placing(dt)
 end
 
 function ComponentBuilding.onStateEnter:inConstruction()
+    gengine.audio.playSound(gengine.audio.sound.get("place_building"))
     Village:downGold(self.params.price)
     Village:addConstructingBuilding(self.entity)
     self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.beginConstruction)
@@ -135,6 +137,13 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     self.entity.sprite.color = vector4(1, 1, 1, 0.5 + self.constructionProgression * 0.5)
     self.entity.life.hp = self.entity.life.maxHp * self.constructionProgression
 
+    self.timeAudio = self.timeAudio + dt
+
+    if self.timeAudio >= 0.7 and #self.entity.building.workers > 0 then
+        self.timeAudio = 0
+        gengine.audio.playSound(gengine.audio.sound.get("villager_construct"))
+    end
+
     if self.justBegun and self.constructionProgression >= 0.5 then
         self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
         self.justBegun = false
@@ -144,6 +153,7 @@ function ComponentBuilding.onStateUpdate:inConstruction(dt)
     if self.constructionProgression >= 1 then
         self.entity.life.hp = self.entity.life.maxHp
         self.entity.sprite.texture = gengine.graphics.texture.get(self.params.Textures.complete)
+        gengine.audio.playSound(gengine.audio.sound.get("tower_construct"))
         self:changeState("idle")
     end
 end
@@ -153,6 +163,7 @@ function ComponentBuilding.onStateExit:inConstruction()
 end
 
 function ComponentBuilding.onStateEnter:idle()
+    
     Village:addBuilding(self.entity)
     self.entity.built = true
 end
