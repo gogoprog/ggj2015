@@ -45,6 +45,11 @@ end
 
 function ComponentCoolGuy:onDead()
     Village:downPop()
+
+    if self.targetSite then
+        self.targetSite.building:removeWorker(self.entity)
+    end
+
     self.entity:remove()
     gengine.entity.destroy(self.entity)
 end
@@ -193,7 +198,15 @@ function ComponentCoolGuy.onStateEnter:interacting()
     self:ensureAnim()
     self.timeLeft = 1
     self.targetSite.building:addWorker(self.entity)
+    self.entity.sprite.animation = gengine.graphics.animation.get(Settings.Guys[Village.state].buildAnimation)
+
     Factory:createNotif(self.entity, math.random(7, 10))
+
+    local area = self.targetSite.building.params.areaSize
+    local count = self.targetSite.building.params.maxWorkers
+    local n = #self.targetSite.building.workers - 1
+
+    self.entity.worldItem.position = self.targetSite.worldItem.position - area * 0.5 + area * (n/count)
 end
 
 function ComponentCoolGuy.onStateUpdate:interacting(dt)
@@ -206,6 +219,8 @@ end
 
 function ComponentCoolGuy.onStateExit:interacting()
     self.targetSite.building:removeWorker(self.entity)
+    self:ensureAnim()
+    self.targetSite = nil
 end
 
 
