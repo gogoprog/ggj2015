@@ -507,7 +507,7 @@ function Factory:createEnemyFort()
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get("enemy_home"),
-            extent = vector2(128, 128),
+            extent = vector2(256, 256),
             layer = 1
         },
         "sprite"
@@ -516,7 +516,7 @@ function Factory:createEnemyFort()
     e:addComponent(
         ComponentWorldItem(),
         {
-            offset = 64
+            offset = 120
         },
         "worldItem"
     )
@@ -531,7 +531,7 @@ function Factory:createEnemyFort()
     e:addComponent(
         ComponentBuilding(),
         {
-            params = Settings.Buildings.Home,
+            params = Settings.Buildings.EnemyFort,
             instantCreation = true
         },
         "building"
@@ -603,12 +603,12 @@ end
 function Factory:createNotif(atlas, target, index, offset, upspeed)
     local e = gengine.entity.create()
 
-    local extent 
+    local extent
 
     if atlas == "text_atlas" then
         extent = vector2(64, 32)
     else
-        extent = vector2(16, 16)
+        extent = vector2(32, 32)
     end
 
     e:addComponent(

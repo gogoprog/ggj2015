@@ -14,8 +14,8 @@ function Village:reset()
     self.treasure = Settings.startingGold
     self.population = 0
     self.populationMax = 5
-    self.whatDoWeDoKnowCredits = Settings.whatDoWeDoKnowCredits
-    self.whatDoWeDoKnowCreditsPrice = Settings.whatDoWeDoKnowCreditsPrice
+    self.whatDoWeDoNowCredits = Settings.whatDoWeDoNowCredits
+    self.whatDoWeDoNowCreditsPrice = Settings.whatDoWeDoNowCreditsPrice
 
     self:changeMode("build")
 end
@@ -52,6 +52,11 @@ function Village:upPop()
     gengine.gui.executeScript("updatePop('" .. self.population .. "');")
 end
 
+function Village:downPop()
+    self.population = self.population - 1
+    gengine.gui.executeScript("updatePop('" .. self.population .. "');")
+end
+
 function Village:upGold(goldAmount)
     goldAmount = goldAmount or 1
     self.treasure = self.treasure + goldAmount
@@ -64,9 +69,14 @@ function Village:downGold(goldAmount)
     gengine.gui.executeScript("updateGold('" .. self.treasure .. "');")
 end
 
-function Village:downPop()
-    self.population = self.population - 1
-    gengine.gui.executeScript("updatePop('" .. self.population .. "');")
+function Village:upWhatDoWeDoNowCredits()
+    self.whatDoWeDoNowCredits = self.whatDoWeDoNowCredits + 1
+    gengine.gui.executeScript("updateWhatDoWeDoNowCredits('" .. self.whatDoWeDoNowCredits .. "');")
+end
+
+function Village:downWhatDoWeDoNowCredits()
+    self.whatDoWeDoNowCredits = self.whatDoWeDoNowCredits - 1
+    gengine.gui.executeScript("updateWhatDoWeDoNowCredits('" .. self.whatDoWeDoNowCredits .. "');")
 end
 
 function Village:upMaxPop()
@@ -270,9 +280,9 @@ function Village:changeMode(which)
 end
 
 function Village:buyWhatDoWeDoNomCredit()
-    if self.whatDoWeDoKnowCreditsPrice <= self.treasure then
-        self:downGold(self.whatDoWeDoKnowCreditsPrice)
-        self.whatDoWeDoKnowCredits = self.whatDoWeDoKnowCredits + 1
+    if self.whatDoWeDoNowCredits > 0 and (self.whatDoWeDoNowCreditsPrice <= self.treasure) then
+        self:downGold(self.whatDoWeDoNowCreditsPrice)
+        self:upWhatDoWeDoNowCredits()
         return true
     end
 

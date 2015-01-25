@@ -13,6 +13,7 @@ end
 
 function ComponentCoolGuy:insert()
     Village:addGuy(self.entity)
+    Factory:createIcon(self.entity, 3, 70)
 end
 
 function ComponentCoolGuy:remove()
@@ -26,11 +27,19 @@ function ComponentCoolGuy:update(dt)
             self.repletion = 0
             if Village.food > 0 then
                 Village:downFood()
+                Factory:createIcon(self.entity, 0, 70)
                 self.repletion = 1
             else
                 self:onDead()
             end
         end
+
+            local g = self:checkForEnemies()
+            if g then
+                if self.state ~= "fighting" then
+                    self:changeState("fighting")
+                end
+            end
     end
 
     self:updateState(dt)
@@ -45,6 +54,8 @@ end
 
 function ComponentCoolGuy:onDead()
     Village:downPop()
+
+    Factory:createIcon(self.entity, 2, 70)
 
     if self.targetSite then
         self.targetSite.building:removeWorker(self.entity)
@@ -77,11 +88,13 @@ function ComponentCoolGuy.onStateUpdate:random(dt)
                     wi:moveTo(b.worldItem.position)
                     entity.sprite.extent = vector2(64 * wi.direction, 64)
                 end
-            elseif wi.state == "idle" then
-                local b, d = Village:getClosestBuilding(wi.position)
-                local t = b.worldItem.position + (math.random() - 0.5) * 0.3
-                wi:moveTo(t)
-                entity.sprite.extent = vector2(64 * wi.direction, 64)
+            else
+                if wi.state == "idle" then
+                    local b, d = Village:getClosestBuilding(wi.position)
+                    local t = b.worldItem.position + (math.random() - 0.5) * 0.3
+                    wi:moveTo(t)
+                    entity.sprite.extent = vector2(64 * wi.direction, 64)
+                end
             end
         end
     end
@@ -109,6 +122,14 @@ function ComponentCoolGuy:checkForEnemies()
             return g
         end
     end
+
+    local diff = mabs(Util:getDeltaAngle(Game.enemyFort.worldItem.position, wi.position))
+
+    if diff < Settings.attackDistance + Game.enemyFort.building.params.areaSize then
+        return Game.enemyFort
+    end
+
+    return nil
 end
 
 function ComponentCoolGuy:ensureAnim()

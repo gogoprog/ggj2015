@@ -89,6 +89,11 @@
     {
         document.getElementById("tower_price").innerHTML = n;
     }
+
+    function updateWhatDoWeDoNowCredits(n)
+    {
+        document.getElementById("whatDoWeDoNumber").innerHTML = n;
+    }
 </script>
 
 </head>
@@ -104,7 +109,7 @@
 
 	<div class="whatDoWedoWrapper" onclick="showChoices()" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
 		<span class="whatDoWeDoText">What do we do now?</span>
-		<span class="whatDoWeDoNumber">3</span>
+		<span id="whatDoWeDoNumber" class="whatDoWeDoNumber">3</span>
 	</div>
 
 	<div  id="whatDoWeDoButtonsWrapper" style="display:none;" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">

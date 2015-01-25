@@ -161,6 +161,14 @@ function ComponentBuilding.onStateUpdate:idle(dt)
     if self.entity.life:isWounded() then
         self.entity.life.hp = self.entity.life.hp + dt * #self.workers * Settings.Guys[Village.state].repairFactor
     end
+    
+    if self.entity.house then
+        self.entity.house.goldTimer = self.entity.house.goldTimer - dt
+        if self.entity.house.goldTimer < 0 then
+            Village:upGold(self.entity.house.goldGeneration)
+            self.entity.house.goldTimer = Settings.Buildings.House.goldGenerationRate
+        end
+    end
 end
 
 function ComponentBuilding.onStateExit:idle()

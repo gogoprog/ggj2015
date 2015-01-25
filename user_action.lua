@@ -24,6 +24,12 @@ function UserAction.onStateUpdate:placingBuilding(dt)
     else
         self.currentEntity.sprite.color = vector4(1, 1, 1, 0.5)
     end
+
+    local mouse = gengine.input.mouse
+    local keyboard = gengine.input.keyboard
+    if mouse:isJustDown(3) or keyboard:isJustDown(41) then
+        self:cancelBuildingPlacement()
+    end
 end
 
 function UserAction:onClick(r)
@@ -67,7 +73,7 @@ end
 function UserAction:canPlaceBuilding()
     local b = Village:getClosestBuilding(self.currentEntity.worldItem.position)
 
-    if self.currentEntity.building.price < Village.treasure then
+    if self.currentEntity.building.price <= Village.treasure then
         if b then
             if math.abs(b.worldItem.position - self.currentEntity.worldItem.position)
                     > (self.currentEntity.building.params.areaSize + b.building.params.areaSize) then
@@ -79,6 +85,14 @@ function UserAction:canPlaceBuilding()
     end
 
     return false
+end
+
+function UserAction:cancelBuildingPlacement()
+    if self.state == "placingBuilding" then
+        self.currentEntity:remove()
+        gengine.entity.destroy(self.currentEntity)
+        self.state = "idle"
+    end
 end
 
 function UserAction:placeBuilding(e)
