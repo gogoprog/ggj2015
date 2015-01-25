@@ -77,7 +77,6 @@ function Game:update(dt)
 
     self:updateState(dt)
     UserAction:update(dt)
-
 end
 
 function Game:onClick(r)

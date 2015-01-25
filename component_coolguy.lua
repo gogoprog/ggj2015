@@ -22,7 +22,6 @@ end
 function ComponentCoolGuy:update(dt)
     if self.repletion > 0 then
         self.repletion = self.repletion - dt * Settings.hungryFactor
-
         if self.repletion < 0 then
             self:changeState("seekingFood")
             self.repletion = 0

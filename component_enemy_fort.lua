@@ -1,7 +1,7 @@
 ComponentEnemyFort = {}
 
 function ComponentEnemyFort:init()
-    self.timeLeft = 20
+    self.timeLeft = 5
 end
 
 function ComponentEnemyFort:insert()
@@ -18,6 +18,6 @@ function ComponentEnemyFort:update(dt)
         local e = Factory:createEnemy()
         e.worldItem:setPosition(self.entity.worldItem.position)
         e:insert()
-        self.timeLeft = 20
+        self.timeLeft = 5
     end
 end
