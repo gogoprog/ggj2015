@@ -18,18 +18,6 @@ local Settings = Settings
 function Factory:init()
     local texture, atlas
 
-    texture = gengine.graphics.texture.get("builder_left")
-    atlas = gengine.graphics.atlas.create("builder_left", texture, 4, 1)
-    gengine.graphics.animation.create(
-        "builder_left",
-        {
-            atlas = atlas,
-            frames = { 0, 1, 2, 3 },
-            framerate = 6,
-            loop = true
-        }
-        )
-
     texture = gengine.graphics.texture.get("farmer_left")
     atlas = gengine.graphics.atlas.create("farmer_left", texture, 4, 1)
     gengine.graphics.animation.create(
@@ -61,18 +49,6 @@ function Factory:init()
         {
             atlas = atlas,
             frames = { 0, 1, 2, 3 },
-            framerate = 3,
-            loop = true
-        }
-        )
-
-    texture = gengine.graphics.texture.get("builder_building_left")
-    atlas = gengine.graphics.atlas.create("builder_building_left", texture, 2, 1)
-    gengine.graphics.animation.create(
-        "builder_building_left",
-        {
-            atlas = atlas,
-            frames = { 0, 1 },
             framerate = 3,
             loop = true
         }
