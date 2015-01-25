@@ -24,6 +24,12 @@ function UserAction.onStateUpdate:placingBuilding(dt)
     else
         self.currentEntity.sprite.color = vector4(1, 1, 1, 0.5)
     end
+
+    local mouse = gengine.input.mouse
+    local keyboard = gengine.input.keyboard
+    if mouse:isJustDown(3) or keyboard:isJustDown(41) then
+        self:cancelBuildingPlacement()
+    end
 end
 
 function UserAction:onClick(r)
@@ -79,6 +85,14 @@ function UserAction:canPlaceBuilding()
     end
 
     return false
+end
+
+function UserAction:cancelBuildingPlacement()
+    if self.state == "placingBuilding" then
+        self.currentEntity:remove()
+        gengine.entity.destroy(self.currentEntity)
+        self.state = "idle"
+    end
 end
 
 function UserAction:placeBuilding(e)

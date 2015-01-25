@@ -16,9 +16,9 @@ function start()
 end
 
 function update(dt)
-    if gengine.input.keyboard:isJustUp(41) then
-        gengine.application.quit()
-    end
+    -- if gengine.input.keyboard:isJustUp(41) then
+    --     gengine.application.quit()
+    -- end
     Game:update(dt)
 end
 
