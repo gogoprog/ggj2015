@@ -86,7 +86,7 @@ Settings = Settings or {
         damage = {3, 10},
         attackInterval = 0.5,
         speed = 4,
-        hp = 200
+        hp = 100
     },
     Guys = {
         build = {
