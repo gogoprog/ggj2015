@@ -6,11 +6,11 @@ body {
 
 	@font-face {
 		font-family: mainFont;
-		src: url("game_boy.ttf");
+		src: url("/gui/game_boy.ttf");
 	}
 
 	@font-face {
-		
+
 	}
 
 	.ui-widget-header {
@@ -20,7 +20,7 @@ body {
         font-weight: bold;
     }
 
-	div.ressourcesWrapper { 
+	div.ressourcesWrapper {
 		position:absolute;
 		right:10px;
 		bottom:32px;
@@ -29,7 +29,7 @@ body {
 		width: 140px;
 		height:65px;
 		text-align:left;
-		background-image: url("beige_panel.png");
+		background-image: url("/gui/beige_panel.png");
 	}
 
 	div#FoodCounter, div#PopulationCounter {
@@ -78,8 +78,6 @@ body {
 		left: -25px;
 	}
 
-
-
 	div#GoldCounter a{
 		position:relative;
 		display:inline-block;
@@ -99,10 +97,11 @@ body {
 		bottom:4px;
 		letter-spacing: -2px;
 		color:#ffffff;
+		z-index:1;
 	}
 
 	div#GoldCounter {
-		z-index: -2;
+		z-index: 1;
 		position:absolute;
 		right:310px;
 		bottom:41px;
@@ -111,7 +110,6 @@ body {
 
 	div#FarmPrice {
 		pointer-events: none;
-		z-index: -2;
 		position:absolute;
 		right:630px;
 		bottom:42px;
@@ -120,7 +118,6 @@ body {
 
 	div#FarmText {
 		pointer-events: none;
-		z-index: -2;
 		position:absolute;
 		right:627px;
 		bottom:15px;
@@ -129,7 +126,6 @@ body {
 
 	div#HousePrice {
 		pointer-events: none;
-		z-index: -2;
 		position:absolute;
 		right:555px;
 		bottom:42px;
@@ -138,7 +134,6 @@ body {
 
 	div#HouseText {
 		pointer-events: none;
-		z-index: -2;
 		position:absolute;
 		right:543px;
 		bottom:15px;
@@ -148,7 +143,6 @@ body {
 
 	div#TowerPrice {
 		pointer-events: none;
-		z-index: -2;
 		position:absolute;
 		right:480px;
 		bottom:42px;
@@ -157,7 +151,6 @@ body {
 
 	div#TowerText {
 		pointer-events: none;
-		z-index: -2;
 		position:absolute;
 		right:467px;
 		bottom:15px;
@@ -187,14 +180,14 @@ body {
 		margin-left:auto;
 		left: 0;
 		right: 0;
-		background-image: url("panel_grey_wide_bigger.png");				
+		background-image: url("/gui/panel_grey_wide_bigger.png");
 		z-index:1;
 	}
 
 	div.whatDoWedoWrapper:hover, div.whatDoWedoWrapper:active{
 
 		top:-5px;
-		background-image: url("panel_grey_wide_bigger_pressed.png");
+		background-image: url("/gui/panel_grey_wide_bigger_pressed.png");
 	}
 
 	.whatDoWeDoText{
@@ -205,11 +198,11 @@ body {
 		margin-right:  4px;
 		top: 35px;
 		width: 310px;
-		height: 75px;		
+		height: 75px;
 		font-size: 30px;
 		font-family: mainFont;
 		text-align:left;
-		color:#b9bdc9;		
+		color:#b9bdc9;
 	}
 
 	.whatDoWeDoNumber{
@@ -221,10 +214,10 @@ body {
 		right:20px;
 		top: 30px;
 		width: 100px;
-		height: 75px;		
+		height: 75px;
 		font-size: 65px;
 		letter-spacing: -10px;
-		font-family: mainFont;		
+		font-family: mainFont;
 		color:white;
 		text-align:right;
 	}
@@ -239,7 +232,7 @@ body {
 		margin-left:auto;
 		left: 0;
 		right: 0;
-		background-image: url("panel_grey_wide.png");
+		background-image: url("/gui/panel_grey_wide.png");
 		text-align:center;
 		z-index:0;
 	}
@@ -253,7 +246,7 @@ body {
 		margin-top: 8px;
 		width: 96px;
 		height: 96px;
-		background-image: url("button_brown96.png");	
+		background-image: url("/gui/button_brown96.png");
 	}
 
 	.whatDoWeDoButtonsText{
@@ -264,7 +257,7 @@ body {
 		margin-right:  4px;
 		top: -2px;
 		width: 110px;
-		height: 10px;		
+		height: 10px;
 		font-size: 14px;
 		font-family: mainFont;
 		text-align:center;
@@ -272,15 +265,15 @@ body {
 	}
 
 	.topButton:hover{
-		
+
 		top:4px;
-		background-image: url("button_brown_pressed96.png");		
+		background-image: url("/gui/button_brown_pressed96.png");
 	}
 
-	
+
 
 	div.buildButtonWrapper {
-		z-index: -5;
+		z-index: 0;
 		position: absolute;
 		bottom: -20px;
 		width: 384px;
@@ -289,25 +282,25 @@ body {
 		margin-left:auto;
 		left: 0;
 		right: 0;
-		background-image: url("panel_brown.png");
+		background-image: url("/gui/panel_brown.png");
 	}
-	
+
 	.bottomButton{
 		display:inline-block;
 		position: relative;
 		margin-left:  8px;
 		margin-top: 32px;
 		width: 64px;
-		height: 64px;		
-		background-image: url("bottom_button_grey.png");
-	
+		height: 64px;
+		background-image: url("/gui/bottom_button_grey.png");
+
 	}
 
 	.bottomButton:hover{
-		
+
 		top:4px;
-		background-image: url("bottom_button_grey_pressed.png");
-		
+		background-image: url("/gui/bottom_button_grey_pressed.png");
+
 	}
 
 	#helpButton {
@@ -315,22 +308,22 @@ body {
 		position: absolute;
 		top: 4px;
 		width: 64px;
-		height: 64px;		
+		height: 64px;
 		right: 0;
-		background-image: url("help_button.png");
-	
+		background-image: url("/gui/help_button.png");
+
 	}
 
 	#helpButton:hover, #helpButton:active {
 
-		background-image: url("help_button_pressed.png");
-	
+		background-image: url("/gui/help_button_pressed.png");
+
 	}
 
 	#helpWindowContainer{
 
 		display: none;
-		position: absolute;		
+		position: absolute;
 		width:105%;
 		height:105%;
 		background: rgba(0, 0, 0, .75);
@@ -342,12 +335,12 @@ body {
 	#helpWindow{
 
 		display: block;
-		position: relative;		
+		position: relative;
 		margin:auto;
 		margin-top: 70px;
 		width:600px;
 		height:500px;
-		background-image: url("help_bg.png");	
+		background-image: url("/gui/help_bg.png");
     	background-size: 100% 100%;
 		z-index:10;
 	}
@@ -355,12 +348,12 @@ body {
 	#helpWindowClose{
 
 		display: block;
-		position: absolute;		
+		position: absolute;
 		top:-16px;
 		right:-16px;
 		width: 64px;
 		height: 64px;
-		background-image: url("bottom_button_grey.png");	
+		background-image: url("/gui/bottom_button_grey.png");
     	background-size: 100% 100%;
     	background-repeat: no-repeat;
 		z-index:10;
@@ -368,8 +361,8 @@ body {
 
 	#helpWindowClose:hover, #helpWindowClose:active {
 
-		background-image: url("bottom_button_grey_pressed.png");	
-    	
+		background-image: url("/gui/bottom_button_grey_pressed.png");
+
 	}
 
 	#helpWindowClose img {

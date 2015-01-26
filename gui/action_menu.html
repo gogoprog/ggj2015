@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>CSS Newbie Example: Super Simple Horizontal Navigation Bar</title>
 <head>
-	<link rel="stylesheet" type="text/css" href="action_menu.css"/>
-	<link rel="stylesheet" type="text/css" href="jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="/gui/action_menu.css"/>
+	<link rel="stylesheet" type="text/css" href="/gui/jquery-ui.css"/>
 
-  <script src="jquery-2.1.3.min.js"></script>
-  <script src="jquery-ui.js"></script>
+  <script src="/gui/jquery-2.1.3.min.js"></script>
+  <script src="/gui/jquery-ui.js"></script>
   </head>
 <script>
    function updateFood(n)
@@ -50,7 +50,7 @@
 
     function showWinOrLose(b) {
         var e;
-        if(b)
+        if(b == '1')
         {
             e = document.getElementById("win");
         }
@@ -119,81 +119,81 @@
 	<div id="whatDoWeDoTimer" style="display:none;">
 		<div style="display:none;" id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="37">
 		<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;">
-			
+
 		</div>
 	</div>
 	</div>
 
 	<div class="whatDoWedoWrapper" onclick="showChoices()" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
 		<span class="whatDoWeDoText">What do we do now?</span>
-		<span id="whatDoWeDoNumber" class="whatDoWeDoNumber">3</span>
+		<span id="whatDoWeDoNumber" class="whatDoWeDoNumber">5</span>
 	</div>
 
 	<div  id="whatDoWeDoButtonsWrapper" style="display:none;" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
 
-		<img id="mode_build" class="topButton" src="icon_build.png" onclick="modeBuild();">
-		<img id="mode_fight" class="topButton" src="icon_fight.png" onclick="modeFight();">
+		<img id="mode_build" class="topButton" src="/gui/icon_build.png" onclick="modeBuild();">
+		<img id="mode_fight" class="topButton" src="/gui/icon_fight.png" onclick="modeFight();">
 		<span class="whatDoWeDoButtonsText">build!</span>
 		<span class="whatDoWeDoButtonsText">fight!</span>
-		
+
 	</div>
 
 	<div id="GoldCounter">
-				<img src="coin.png"><a id="gold_counter">0</a>
+				<img src="/gui/coin.png"><a id="gold_counter">0</a>
 	</div>
-	
+
 	<div id="FarmText">
 				<a>farm</a>
 	</div>
 
 	<div id="FarmPrice">
-				<img src="coin.png"><a id="farm_price">0</a>
+				<img src="/gui/coin.png"><a id="farm_price">0</a>
 	</div>
 	<div id="HouseText">
 				<a>house</a>
 	</div>
-	
+
 	<div id="HousePrice">
-				<img src="coin.png"><a id="house_price">0</a>
+				<img src="/gui/coin.png"><a id="house_price">0</a>
 	</div>
 	<div id="TowerText">
 				<a>tower</a>
 	</div>
 	<div id="TowerPrice">
-				<img src="coin.png"><a id="tower_price">0</a>
+				<img src="/gui/coin.png"><a id="tower_price">0</a>
 	</div>
-	
+
 	<div class="buildButtonWrapper" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
-		<img class="bottomButton" src="icon_farm.png" onclick="gengine_execute('Hud:buildFood()');">
-		<img class="bottomButton" src="icon_house.png" onclick="gengine_execute('Hud:buildHouse()');">
-		<img class="bottomButton" src="icon_tower.png" onclick="gengine_execute('Hud:buildTower()');">
+		<img class="bottomButton" src="/gui/icon_farm.png" onclick="gengine_execute('Hud:buildFood()');">
+		<img class="bottomButton" src="/gui/icon_house.png" onclick="gengine_execute('Hud:buildHouse()');">
+		<img class="bottomButton" src="/gui/icon_tower.png" onclick="gengine_execute('Hud:buildTower()');">
 
 		<div class="ressourcesWrapper">
 			<div id="FoodCounter">
-				 <img src="icon_food.png"><a id="food_counter">0</a>
+				 <img src="/gui/icon_food.png"><a id="food_counter">0</a>
 			</div>
 
 			<div id="PopulationCounter">
-				<img src="icon_guy.png"><a id="pop_counter">0</a><a>/</a><a id="max_pop_counter">5</a>
+				<img src="/gui/icon_guy.png"><a id="pop_counter">0</a><a>/</a><a id="max_pop_counter">5</a>
 			</div>
 
 		</div>
-	</div>		
+	</div>
 	<div id="helpButton" onclick="showHelp()" onmouseenter="gengine_execute('Game.skipMouse = true');" onmouseleave="gengine_execute('Game.skipMouse = false');">
-		
+
 	</div>
 
 	<div id="helpWindowContainer" style="display:none;" >
 		<div id="helpWindow">
 			<div id="helpWindowClose" onclick="closeHelp()">
-				<img src="close_window.png"/>
+				<img src="/gui/close_window.png"/>
 
 			</div>
 		</div>
 	</div>
 
-    <img id="win" src="win.png" style="display:none;" onclick="next();"/>
-    <img id="lose" src="lose.png" style="display:none;" onclick="next();"/>
+    <img id="win" src="/gui/win.png" style="display:none;" onclick="next();"/>
+    <img id="lose" src="/gui/lose.png" style="display:none;" onclick="next();"/>
 
 	<script>
 		$( "#progressbar" ).progressbar({
